@@ -171,7 +171,8 @@
                   <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Save">
+                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
+                  Max. Size : 8 Mb
                 </form>
                 </div>
               </div>
