@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class chart extends Model
 {
-    protected $table = "events";
+    protected $table = "charts";
     protected $primaryKey = "id";
 
     protected $guarded = [
@@ -14,6 +14,6 @@ class Event extends Model
     ];
 
      protected $fillable = [
-        'waktu', 'lokasi', 'tema', 'detail',
+        'EAF', 'NPHR', 'EFOR', 'PS', 'biaya_pemeliharaan', 'biaya_investasi',
     ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Events extends Migration
+class Charts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class Events extends Migration
      */
     public function up()
     {
-        Schema::create('events', function(Blueprint $table){
+        Schema::create('charts', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('waktu');
-            $table->string('lokasi');
-            $table->string('tema');
-            $table->string('detail');
+            $table->string('EAF');
+            $table->string('NPHR');
+            $table->string('EFOR');
+            $table->string('PS');
+            $table->string('biaya_pemeliharaan');
+            $table->string('biaya_investasi');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +32,6 @@ class Events extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('charts');
     }
 }

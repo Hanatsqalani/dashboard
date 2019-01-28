@@ -60,7 +60,7 @@
             </a>
           </li>
           <li>
-            <a href="./event.html">
+            <a href="{{ url('/admin/event') }}">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>Event</p>
             </a>
@@ -225,6 +225,7 @@
                         <td>
                            <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
                               {{ csrf_field() }}
+                              {{ method_field('DELETE')}}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>

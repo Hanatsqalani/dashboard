@@ -55,6 +55,6 @@ class AdminController extends Controller
     {
         $Photointro = photointro::find($id);
         $Photointro->delete();
-        return redirect('dashboard');
+        return redirect('admin/dashboard');
     }
 }
