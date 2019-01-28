@@ -299,7 +299,7 @@
   <!--==========================
     Intro Section
   ============================-->
-  <section id="home">
+  <section id="intro">
     @foreach( $Photointro as $foto)
   <div class="w3-content w3-section" style="max-width:1350px">
   <img class="mySlides w3-animate-fading" src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="width:1350px; height: 650px;">
