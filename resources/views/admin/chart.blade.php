@@ -41,13 +41,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
             <a href="#">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./chart.html">
               <i class="nc-icon nc-chart-bar-32"></i>
               <p>Chart</p>

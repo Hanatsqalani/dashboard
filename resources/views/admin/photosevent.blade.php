@@ -41,7 +41,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
             <a href="#">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
@@ -65,7 +65,7 @@
               <p>Event</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./photosevent.html">
               <i class="nc-icon nc-album-2"></i>
               <p>Photos Event</p>

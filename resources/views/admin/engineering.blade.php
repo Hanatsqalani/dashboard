@@ -41,7 +41,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
             <a href="#">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
@@ -83,7 +83,7 @@
               <p>Maintenance</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./chart.html">
               <i class="nc-icon nc-laptop"></i>
               <p>Engineering</p>

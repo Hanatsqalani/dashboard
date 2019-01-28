@@ -41,7 +41,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
             <a href="#">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
@@ -59,7 +59,7 @@
               <p>BPP Milestone</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./event.html">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>Event</p>

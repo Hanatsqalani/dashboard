@@ -41,7 +41,7 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
+            <li>
             <a href="#">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
@@ -71,7 +71,7 @@
               <p>Photos Event</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./chart.html">
               <i class="nc-icon nc-settings-gear-65"></i>
               <p>Operation</p>
