@@ -71,6 +71,72 @@
               <p>Photos Event</p>
             </a>
           </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-settings-gear-65"></i>
+              <p>Operation</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-settings"></i>
+              <p>Maintenance</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-laptop"></i>
+              <p>Engineering</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-delivery-fast"></i>
+              <p>Logistik</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-bank"></i>
+              <p>Keuangan</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>SP PJB Service</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>SP PJB</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>Bakorsiroh</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>PIK</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>LK3</p>
+            </a>
+          </li>
+          <li>
+            <a href="./chart.html">
+              <i class="nc-icon nc-shop"></i>
+              <p>CSR</p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
@@ -86,7 +152,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#pablo">Photos Intro</a>
+            <a class="navbar-brand" href="#">Photos Intro</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
