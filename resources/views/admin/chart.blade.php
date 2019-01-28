@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();>{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -186,15 +186,16 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <!-- <div class="panel-header panel-header-lg">
+      <div class="panel-header panel-header-lg">
 
   <canvas id="bigDashboardChart"></canvas>
 
 
-</div> -->
+</div>
       <div class="content">
       <div class="row">
           <div class="col-md-12">
+            input
             <div class="card">
               <div class="card-header">
                 <h4 class="card-title">Photos</h4>
