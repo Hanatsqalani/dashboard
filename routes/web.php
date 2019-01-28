@@ -22,7 +22,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');	
 	Route::get('/file', 'AdminController@index');
 	Route::post('/upload', 'AdminController@store')->name('upload');
-	Route::post('/delete','AdminController@destroy');
+	Route::post('/delete','AdminController@destroy')->name('delete');
 	
 });
 

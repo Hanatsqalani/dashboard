@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function index()
     {
         $Photointro = photointro::all();
-        return view('dashboard', compact('Photointro'));
+        return view('admin/dashboard', compact('Photointro'));
     }
 
     public function store(Request $request)
@@ -53,8 +53,8 @@ class AdminController extends Controller
 
     public function destroy($id)
     {
-        $delete = photointro::find($id);
-        $delete->delete();
-        return view('dashboard')->with('success','Information has been  deleted');
+        $Photointro = photointro::find($id);
+        $Photointro->delete();
+        return redirect('dashboard');
     }
 }
