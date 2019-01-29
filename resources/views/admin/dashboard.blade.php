@@ -114,7 +114,7 @@
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/bakorsiroh') }}">
               <i class="nc-icon nc-shop"></i>
               <p>Bakorsiroh</p>
             </a>

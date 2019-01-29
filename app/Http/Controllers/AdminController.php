@@ -48,7 +48,7 @@ class AdminController extends Controller
         $Photointro->save();
 
         $Photointro = photointro::all();
-        return view('dashboard', compact('Photointro'));
+        return view('admin/dashboard', compact('Photointro'));
     }
 
     public function destroy($id)
