@@ -42,97 +42,97 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
             <li>
-            <a href="#">
+            <a href="{{ url('/admin') }}">
               <i class="nc-icon nc-image"></i>
               <p>Photos Intro</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/chart') }}">
               <i class="nc-icon nc-chart-bar-32"></i>
               <p>Chart</p>
             </a>
           </li>
           <li>
-            <a href="./milestone.html">
+            <a href="{{ url('/admin/bpp') }}">
               <i class="nc-icon nc-money-coins"></i>
               <p>BPP Milestone</p>
             </a>
           </li>
           <li class="active">
-            <a href="./event.html">
+            <a href="{{ url('/admin/event') }}">
               <i class="nc-icon nc-book-bookmark"></i>
               <p>Event</p>
             </a>
           </li>
           <li>
-            <a href="./photosevent.html">
+            <a href="{{ url('/admin/photosevent') }}">
               <i class="nc-icon nc-album-2"></i>
               <p>Photos Event</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/operation') }}">
               <i class="nc-icon nc-settings-gear-65"></i>
               <p>Operation</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/maintenance') }}">
               <i class="nc-icon nc-settings"></i>
               <p>Maintenance</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/engineering') }}">
               <i class="nc-icon nc-laptop"></i>
               <p>Engineering</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/logistik') }}">
               <i class="nc-icon nc-delivery-fast"></i>
               <p>Logistik</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/keuangan') }}">
               <i class="nc-icon nc-bank"></i>
               <p>Keuangan</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/sppjbs') }}">
               <i class="nc-icon nc-shop"></i>
               <p>SP PJB Service</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/sppjb') }}">
               <i class="nc-icon nc-shop"></i>
               <p>SP PJB</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/bakorsiroh') }}">
               <i class="nc-icon nc-shop"></i>
               <p>Bakorsiroh</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/pik') }}">
               <i class="nc-icon nc-shop"></i>
               <p>PIK</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/lk3') }}">
               <i class="nc-icon nc-shop"></i>
               <p>LK3</p>
             </a>
           </li>
           <li>
-            <a href="./chart.html">
+            <a href="{{ url('/admin/csr') }}">
               <i class="nc-icon nc-shop"></i>
               <p>CSR</p>
             </a>
@@ -152,7 +152,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">List of Events</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -197,30 +197,60 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Photos</h4>
+                <h4 class="card-title">Events</h4>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
+                      <strong>Create an Event</strong><br><br>
+                      <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        Tanggal : <input type="date" id="tanggalevent" name="tanggalevent" value="2019-01-01">
+                        Waktu   : <input type="time" id="waktuevent" name="waktuevent">
+                        Tempat  : <input type="text" name="tempatevent" id="tempatevent" placeholder="Masukkan Lokasi Event" class="col-md-3">
+                        <br><br><br>
+                        Tema    : <input type="text" name="temaevent" id="temaevent" placeholder="Masukkan Tema Event" class="col-md-3">
+                        Detail  : <input type="text" name="tempatevent" id="tempatevent" placeholder="Masukkan Detail Event" class="col-md-3">
+                        <br><br>
+                        <input type="submit" name="submitevent" class="btn btn-info btn-info-lg" value="Create">
+                      </form>
                       <th>
-                        Nama File
+                        Tanggal
                       </th>
                       <th>
-                        Foto
+                        Waktu
                       </th>
                       <th>
-                        Action
+                        Tempat
                       </th>
+                      <th>
+                        Tema
+                      </th>
+                      <th>
+                        Detail
+                      </th>
+                      <th>
+                      Action
+                    </th>
                     </thead>
                     <tbody>
-                      
+
                       <tr>
                         <td>
-                         
+
                         </td>
                         <td>
-                            
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
                         </td>
                         <td>
                            <form action="" method="post">
@@ -230,15 +260,8 @@
                         </td>
                       </tr>
                     </tbody>
-                    
+
                   </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
                 </div>
               </div>
             </div>
@@ -250,15 +273,7 @@
           <div class="row">
             <nav class="footer-nav">
               <ul>
-                <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
+
               </ul>
             </nav>
             <div class="credits ml-auto">
