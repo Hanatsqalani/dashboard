@@ -229,7 +229,7 @@
           <li><a class="dropdown-item" href="sppjbs.html">SP PJB Service</a></li>
           <li><a class="dropdown-item" href="sppjb.html">SP PJB</a></li>
           <li><a class="dropdown-item" href="ftp://192.168.40.14/" target="_blank">9PM</a></li>
-          <li><a class="dropdown-item" href="bakorsiroh.html">Bakorsiroh</a></li>
+          <li><a class="dropdown-item" href="{{ url('/bakorsiroh') }}">Bakorsiroh</a></li>
           <li><a class="dropdown-item" href="pik.html">PIK - Persatuan Ibu dan Karyawati</a></li>
         </ul>
       </li>
