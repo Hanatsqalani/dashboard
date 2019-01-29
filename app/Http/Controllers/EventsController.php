@@ -24,17 +24,22 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return view('admin/event');
+        $event = Event::all();
+        return view('admin/event', compact('event'));
     }
 
     public function store(Request $request)
     {
+        $tanggal = date(Y-m-d);
+
         $event = new Event();
+        $event->tanggal = $request->tanggal;
         $event->waktu = $request->waktu;
         $event->lokasi = $request->lokasi;
         $event->tema = $request->tema;
         $event->detail = $request->detail;
         $event->save();
-        echo "Data Berhasil Disimpan";
+      
     }
+
 }

@@ -203,8 +203,8 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <strong>Create an Event</strong><br><br>
-                      <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      <strong>Create an Event</strong><br><br>       
+                      <form action="{{ route('create')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         Tanggal : <input type="date" id="tanggalevent" name="tanggalevent" value="2019-01-01">
                         Waktu   : <input type="time" id="waktuevent" name="waktuevent">
@@ -215,6 +215,8 @@
                         <br><br>
                         <input type="submit" name="submitevent" class="btn btn-info btn-info-lg" value="Create">
                       </form>
+                        <br />     
+          
                       <th>
                         Tanggal
                       </th>
