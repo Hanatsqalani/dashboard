@@ -200,11 +200,21 @@
                 <h4 class="card-title">Photos</h4>
               </div>
               <div class="card-body">
+                <strong>Upload Photo</strong><br><br>
+                  <form action="{{ route('bpp')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                  Keterangan Foto : 
+                  {{ csrf_field() }}
+                  <input type="text" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan Foto" class="col-md-4">
+                  <br>
+                  <input type="file" name="fotobpp" accept="image/jpeg" class="btn btn-danger">
+                  <input type="submit" name="submitfotobpp" class="btn btn-info" value="Upload">
+                  Max. Size : 8 Mb
+                </form>
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
                       <th>
-                        Nama File
+                       Keterangan
                       </th>
                       <th>
                         Foto
@@ -214,17 +224,15 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $Photointro as $foto)
+                       @foreach( $Bpp as $fotobpp)
                       <tr>
                         <td>
-                         <p> {{$foto->filename}}</p>
+                         <p> {{$fotobpp->keterangan}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                            <img src="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-                           <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
-                              {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
@@ -233,13 +241,6 @@
                     </tbody>
                     @endforeach
                   </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
                 </div>
               </div>
             </div>

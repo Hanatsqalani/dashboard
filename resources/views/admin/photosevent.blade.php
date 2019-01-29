@@ -214,13 +214,13 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $Photointro as $foto)
+                       @foreach( $Photoevent as $foto)
                       <tr>
                         <td>
                          <p> {{$foto->filename}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                            <img src="{{ asset ('upload/Photoevent') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
                            <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
@@ -234,7 +234,7 @@
                     @endforeach
                   </table>
                   <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                  <form action="{{ route('photoevent')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
                   <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">

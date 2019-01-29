@@ -30,15 +30,17 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-        $tanggal = date(Y-m-d);
 
         $event = new Event();
-        $event->tanggal = $request->tanggal;
-        $event->waktu = $request->waktu;
-        $event->lokasi = $request->lokasi;
-        $event->tema = $request->tema;
-        $event->detail = $request->detail;
+        $event->tanggal = $request->input('tanggalevent');
+        $event->waktu = $request->input('waktuevent');
+        $event->lokasi = $request->input('tempatevent');
+        $event->tema = $request->input('temaevent');
+        $event->detail = $request->input('detailevent');
         $event->save();
+
+         $event = Event::all();
+        return view('admin/event', compact('event'));
       
     }
 

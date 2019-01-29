@@ -37,4 +37,8 @@ Route::prefix('admin')->group(function(){
 	Route::post('/event/create', 'EventsController@store')->name('create');
 	Route::get('/bakorsiroh', 'BakorsirohController@index');
 	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
+	Route::get('/bpp', 'BppController@index');
+	Route::post('/bpp/upload', 'BppController@store')->name('bpp');
+	Route::get('/photosevent', 'PhotoEventController@index');
+	Route::post('/photosevent/upload', 'PhotoEventController@store')->name('photoevent');
 });

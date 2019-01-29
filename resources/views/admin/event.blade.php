@@ -206,12 +206,12 @@
                       <strong>Create an Event</strong><br><br>       
                       <form action="{{ route('create')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
-                        Tanggal : <input type="date" id="tanggalevent" name="tanggalevent">
+                        Tanggal : <input type="date" id="tanggalevent" name="tanggalevent" value="2019-01-01">
                         Waktu   : <input type="time" id="waktuevent" name="waktuevent">
                         Tempat  : <input type="text" name="tempatevent" id="tempatevent" placeholder="Masukkan Lokasi Event" class="col-md-3">
                         <br><br><br>
                         Tema    : <input type="text" name="temaevent" id="temaevent" placeholder="Masukkan Tema Event" class="col-md-3">
-                        Detail  : <input type="text" name="detailevent" id="detailevent" placeholder="Masukkan Detail Event" class="col-md-3">
+                        Detail  : <input type="text" name="tempatevent" id="tempatevent" placeholder="Masukkan Detail Event" class="col-md-3">
                         <br><br>
                         <input type="submit" name="submitevent" class="btn btn-info btn-info-lg" value="Create">
                       </form>
@@ -237,22 +237,22 @@
                     </th>
                     </thead>
                     <tbody>
-
+                     @foreach( $event as $Event)
                       <tr>
                         <td>
-
+                          <p> {{$Event->tanggal}}</p>
                         </td>
                         <td>
-
+                          <p> {{$Event->waktu}}</p>
                         </td>
                         <td>
-
+                          <p> {{$Event->lokasi}}</p>
                         </td>
                         <td>
-
+                          <p> {{$Event->tema}}</p>
                         </td>
                         <td>
-
+                          <p> {{$Event->detail}}</p>
                         </td>
                         <td>
                            <form action="" method="post">
@@ -262,7 +262,7 @@
                         </td>
                       </tr>
                     </tbody>
-
+                    @endforeach
                   </table>
                 </div>
               </div>
