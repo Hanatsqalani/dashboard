@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -223,7 +223,7 @@
                             <img src="{{ asset ('upload/Bakorsiroh') }}/{{$fotobakorsiroh->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-                           
+
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
