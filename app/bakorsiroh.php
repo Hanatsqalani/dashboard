@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Event extends Model
+class bakorsiroh extends Model
 {
-    protected $table = "events";
+    protected $table = "bakorsirohs";
     protected $primaryKey = "id";
 
     protected $guarded = [
@@ -14,6 +14,6 @@ class Event extends Model
     ];
 
      protected $fillable = [
-        'tanggal', 'waktu', 'lokasi', 'tema', 'detail',
+        'filename',
     ];
 }

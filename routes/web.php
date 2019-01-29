@@ -24,6 +24,8 @@ Route::prefix('admin')->group(function(){
 	Route::post('/upload', 'AdminController@store')->name('upload');
 	Route::post('/delete','AdminController@destroy')->name('delete');
 	Route::get('/event', 'EventsController@index');
+	Route::get('/bakorsiroh', 'BakorsirohController@index');
+	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
 });
 
 

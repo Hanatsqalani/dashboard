@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Events extends Migration
+class CreateBakorsirohsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Events extends Migration
      */
     public function up()
     {
-        Schema::create('events', function(Blueprint $table){
+        Schema::create('bakorsirohs', function (Blueprint $table) {
             $table->increments('id');
-            $table->date('waktu');
-            $table->string('lokasi');
-            $table->string('tema');
-            $table->string('detail');
+            $table->string('filename');
             $table->timestamps();
-
         });
     }
 
@@ -31,6 +27,6 @@ class Events extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('bakorsirohs');
     }
 }
