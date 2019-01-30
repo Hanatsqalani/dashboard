@@ -36,15 +36,47 @@ Route::prefix('admin')->group(function(){
 	Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
+	
+	//PhotoIntroRoute
 	Route::get('/file', 'AdminController@index');
 	Route::post('/upload', 'AdminController@store')->name('upload');
-	Route::post('/delete','AdminController@destroy')->name('delete');
+	Route::resource('/delete','AdminController');
+
+	//EventRoute
 	Route::get('/event', 'EventsController@index');
 	Route::post('/event/create', 'EventsController@store')->name('create');
+	Route::resource('/event/delete', 'EventsController');
+
+	//BakorsirohRoute
 	Route::get('/bakorsiroh', 'BakorsirohController@index');
 	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
+	
+	//BPPRoute
 	Route::get('/bpp', 'BppController@index');
 	Route::post('/bpp/upload', 'BppController@store')->name('bpp');
+	
+	//PhotoeventRoute
 	Route::get('/photosevent', 'PhotoEventController@index');
 	Route::post('/photosevent/upload', 'PhotoEventController@store')->name('photoevent');
+	Route::resource('/photosevent/delete', 'PhotoEventController');
+
+	//OperationRoute
+	Route::get('/operation', 'OperationController@index');
+	Route::post('/operation/create', 'OperationController@store')->name('operation');
+
+	//MaintenanceRoute
+	Route::get('/maintenance', 'MaintenanceController@index');
+	Route::post('/maintenance/create', 'MaintenanceController@store')->name('maintenance');
+
+	//EngineeringRoute
+	Route::get('/engineering', 'EngineeringController@index');
+	Route::post('/engineering/create', 'EngineeringController@store')->name('engineering');
+
+	//LogistikRoute
+	Route::get('/logistik', 'LogistikController@index');
+	Route::post('/logistik/create', 'LogistikController@store');
+
+	//KeuanganRoute
+	Route::get('/keuangan', 'KeuanganController@index');
+	Route::post('/keuangan/create', 'KeuanganController@store')->name('keuangan');
 });

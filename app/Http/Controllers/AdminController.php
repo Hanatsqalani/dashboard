@@ -24,6 +24,7 @@ class AdminController extends Controller
      */
     public function index()
     {
+        $Photointro = photointro::all()->toArray();
         $Photointro = photointro::all();
         return view('admin/dashboard', compact('Photointro'));
     }
@@ -55,6 +56,6 @@ class AdminController extends Controller
     {
         $Photointro = photointro::find($id);
         $Photointro->delete();
-        return redirect('admin/dashboard');
+        return redirect('admin')->with('succes', 'Photoevent has been delete');
     }
 }
