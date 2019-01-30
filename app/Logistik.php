@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class photoevent extends Model
+class Logistik extends Model
 {
-    protected $table = "photoevents";
+    protected $table = "logistiks";
     protected $primaryKey = "id";
 
     protected $guarded = [
@@ -14,6 +14,6 @@ class photoevent extends Model
     ];
 
      protected $fillable = [
-        'namefile',
+        'foto_logistik', 'id_karyawan', 'nama_karyawan', 'jabatan', 'nama_prestasi', 'tahun_prestasi'
     ];
 }

@@ -24,6 +24,7 @@ class EventsController extends Controller
      */
     public function index()
     {
+        $event = Event::all()->toArray();
         $event = Event::all();
         return view('admin/event', compact('event'));
     }
@@ -42,6 +43,13 @@ class EventsController extends Controller
          $event = Event::all();
         return view('admin/event', compact('event'));
       
+    }
+
+    public function destroy($id)
+    {
+        $event = Event::find($id);
+        $event->delete();
+        return redirect('admin/event')->with('succes', 'event has been delete');
     }
 
 }

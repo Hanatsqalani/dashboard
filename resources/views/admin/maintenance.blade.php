@@ -214,16 +214,16 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $Photointro as $foto)
+                       @foreach( $maintenance as $foto)
                       <tr>
                         <td>
-                         <p> {{$foto->filename}}</p>
+                         
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                            <img src="{{ asset ('upload/Photomaintenance') }}/{{$foto->fotomaintenance}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-                           <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
+                           <form action="{{action('MaintenanceController@destroy', $foto['id'])}}" method="post">
                               {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -234,9 +234,9 @@
                     @endforeach
                   </table>
                   <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                  <form action="{{ route('maintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
+                  <input type="file" name="fotomaintenance" accept="image/jpeg" class="btn btn-danger">
                   <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>

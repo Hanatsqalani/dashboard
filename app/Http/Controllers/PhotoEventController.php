@@ -24,6 +24,7 @@ class PhotoEventController extends Controller
      */
     public function index()
     {
+        $Photoevent = photoevent::all()->toArray();
         $Photoevent = photoevent::all();
         return view('admin/photosevent', compact('Photoevent'));
     }
@@ -51,4 +52,10 @@ class PhotoEventController extends Controller
         return view('admin/photosevent', compact('Photoevent'));
     }
 
+    public function destroy($id)
+    {
+        $Photoevent = photoevent::find($id);
+        $Photoevent->delete();
+        return redirect('admin/photosevent')->with('succes', 'Photoevent has been delete');
+    }
 }
