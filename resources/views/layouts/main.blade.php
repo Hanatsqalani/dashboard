@@ -31,10 +31,10 @@
   <link href="/assets/userdash/css/style.css" rel="stylesheet">
 
   <!-- Java Script -->
-  <script type="/assets/userdash/js/mychart.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="/assets/userdash/js/calendar.js"> </script>
+  <script src="/assets/userdash/js/chart.js"> </script>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -321,270 +321,30 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>EAF (%)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">100%</div>
-                  <div class="bar-graph-label">80%</div>
-                  <div class="bar-graph-label">60%</div>
-                  <div class="bar-graph-label">40%</div>
-                  <div class="bar-graph-label">20%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-                <li class="bar primary" style="height: 81.75%;" title="81.75 ">
-                </li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>NPHR (kcal/kwh)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">3000%</div>
-                  <div class="bar-graph-label">2500%</div>
-                  <div class="bar-graph-label">2000%</div>
-                  <div class="bar-graph-label">1500%</div>
-                  <div class="bar-graph-label">1000%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-                <li class="bar primary" style="height: 81.24%;" title="2655.24%">
-                </li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>EFOR (%)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">100%</div>
-                  <div class="bar-graph-label">80%</div>
-                  <div class="bar-graph-label">60%</div>
-                  <div class="bar-graph-label">40%</div>
-                  <div class="bar-graph-label">20%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25 ">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-                <li class="bar primary" style="height: 4.25%;" title="4.25">
-                </li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>PS (%)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">100%</div>
-                  <div class="bar-graph-label">80%</div>
-                  <div class="bar-graph-label">60%</div>
-                  <div class="bar-graph-label">40%</div>
-                  <div class="bar-graph-label">20%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-                <li class="bar primary" style="height: 6.1%;" title="6.1 ">
-                </li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>Biaya Pemeliharaan (RP)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">3000000%</div>
-                  <div class="bar-graph-label">2500000%</div>
-                  <div class="bar-graph-label">2000000%</div>
-                  <div class="bar-graph-label">1500000%</div>
-                  <div class="bar-graph-label">1000000%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-                <li class="bar primary" style="height: 0%;" title="0 ">
-                </li>
-              </ul>
-
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <p><center>Biaya Investasi (RP)</p>
-              <ul class="bar-graph">
-                <li class="bar-graph-axis">
-                  <div class="bar-graph-label">3000000%</div>
-                  <div class="bar-graph-label">2500000%</div>
-                  <div class="bar-graph-label">2000000%</div>
-                  <div class="bar-graph-label">1500000%</div>
-                  <div class="bar-graph-label">1000000%</div>
-                  <div class="bar-graph-label">0%</div>
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-                <li class="bar primary" style="height: 84%;" title="2843500%">
-                </li>
-              </ul>
-
-            </div>
-          </div>
+          <div class="col-lg-10 col-md-1 wow fadeInUp">
+                      <h2><p><center>EAF (%)</p></h2>
+                      <canvas id="line_charteaf" height="100"></canvas>
+              </div>
+              <div class="col-lg-10 col-md-1 wow fadeInLeft">
+                          <h2><p><center>NPHR (kcal/kwh)</p></h2>
+                          <canvas id="line_chartnphr" height="100"></canvas>
+                  </div>
+                  <div class="col-lg-10 col-md-1 wow fadeInDown">
+                              <h2><p><center>EFOR (%)</p></h2>
+                              <canvas id="line_chartefor" height="100"></canvas>
+                      </div>
+                      <div class="col-lg-10 col-md-1 wow fadeInRight">
+                                  <h2><p><center>PS (%)</p></h2>
+                                  <canvas id="line_chartps" height="100"></canvas>
+                          </div>
+                          <div class="col-lg-10 col-md-1 wow fadeInUp">
+                                      <h2><p><center>Biaya Pemeliharaan (Rp)</p></h2>
+                                      <canvas id="line_chartbiayapemeliharaan" height="100"></canvas>
+                              </div>
+                              <div class="col-lg-10 col-md-1 wow fadeInDown">
+                                          <h2><p><center>Biaya Investasi (Rp)</p></h2>
+                                          <canvas id="line_chartbiayainvestasi" height="100"></canvas>
+                                  </div>
         </div>
       </div>
 
@@ -846,6 +606,18 @@
 
   <!-- Template Main Javascript File -->
   <script src="/assets/userdash/js/main.js"></script>
+
+  <!-- Jquery Core Js -->
+  <script src="/assets/userdash/js/jquery.min.js"></script>
+
+  <!-- Waves Effect Plugin Js -->
+  <script src="/assets/userdash/js/waves.js"></script>
+
+  <!-- Chart Plugins Js -->
+  <script src="/assets/userdash/js/Chart.bundle.js"></script>
+
+  <!-- Custom Js -->
+  <script src="/assets/userdash/js/chartjs.js"></script>
 </body>
 
 </html>
