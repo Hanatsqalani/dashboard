@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -202,7 +202,7 @@
               <div class="card-body">
                 <strong>Upload Photo</strong><br><br>
                   <form action="{{ route('bpp')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  Keterangan Foto : 
+                  Keterangan Foto :
                   {{ csrf_field() }}
                   <input type="text" name="keterangan" id="keterangan" placeholder="Masukkan Keterangan Foto" class="col-md-4">
                   <br>

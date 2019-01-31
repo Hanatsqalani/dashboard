@@ -54,7 +54,7 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="index.html" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
+        <a href="{{ url('/') }}" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">

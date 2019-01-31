@@ -48,7 +48,7 @@
   <!--==========================
     Header
   ============================-->
-  <header id="header">
+  <header id="headerelse">
     <div class="container">
 
       <div id="logo" class="pull-left">
@@ -309,10 +309,11 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
   <div class="section-header wow fadeInRight">
     <h2>Documentation</h2>
   </div>
-  @foreach($Bakorsiroh as $fotobakorsiroh)
   <div class="owl-carousel gallery-carousel wow fadeInRight" id="gallery">
+    @foreach($Bakorsiroh as $fotobakorsiroh)
     <a href="{{ asset ('upload/Bakorsiroh') }}/{{$fotobakorsiroh->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Bakorsiroh') }}/{{$fotobakorsiroh->filename}}">
     @endforeach
+  </a>
   </div>
   <div class="section-header wow fadeInLeft">
     <h2>SDM Profile</h2>
@@ -376,7 +377,9 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
         </div>
       </div>
     </div>
+  </div>
 
+    <br>
   </main>
 
 

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\photointro;
+use App\Event;
+use App\photoevent;
+use App\bpp;
 
 class PortalController extends Controller
 {
@@ -15,7 +18,12 @@ class PortalController extends Controller
     public function index()
     {
         $Photointro = photointro::all();
-        return view('layouts/main', compact('Photointro'));
+        $event = Event::all()->toArray();
+        $event = Event::all();
+        $Photoevent = photoevent::all()->toArray();
+        $Photoevent = photoevent::all();
+        $Bpp = bpp::all();
+        return view('layouts/main', compact('Photointro', 'event', 'Photoevent', 'Bpp'));
     }
 
     /**
