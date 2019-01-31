@@ -152,7 +152,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">Operation</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -217,7 +217,7 @@
                        @foreach( $operation as $foto)
                       <tr>
                         <td>
-                         
+
                         </td>
                         <td>
                             <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
@@ -240,6 +240,105 @@
                   <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Data Karyawan</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <strong>Create Data Karyawan</strong><br><br>
+                    Id Karyawan : <input type="text" name="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
+                    <br><br>Nama Karyawan : <input type="text" name="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
+                    <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
+                      <option value="manager">Manager</option>
+                      <option value="supervisor">Supervisor</option>
+                      <option value="karyawan">Karyawan</option>
+                    </select>
+                    <br><br>
+                    <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                      <input type="submit" name="createdatakaryawan" class="btn btn-info" value="Create">
+                    </form>
+                    <br>
+                    <thead class=" text-primary">
+                      <th>
+                        Id
+                      </th>
+                      <th>
+                        Nama
+                      </th>
+                      <th>
+                        Jabatan
+                      </th>
+                    </thead>
+                    <tbody>
+                       @foreach( $operation as $foto)
+                      <tr>
+                        <td>
+
+                        </td>
+                        <td>
+                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                        </td>
+                        <td>
+                           <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
+                              {{ csrf_field() }}
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                    @endforeach
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Data Prestasi</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <strong>Create Data Prestasi</strong><br>
+                    <br>Nama Prestasi : <input type="text" name="namaprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
+                    <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
+                    <br><br>
+                    <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                      <input type="submit" name="createdatakaryawan" class="btn btn-info" value="Create">
+                    </form>
+                    <br>
+                    <thead class=" text-primary">
+                      <th>
+                        Nama Prestasi
+                      </th>
+                      <th>
+                        Tahun Prestasi
+                      </th>
+                    </thead>
+                    <tbody>
+                       @foreach( $operation as $foto)
+                      <tr>
+                        <td>
+                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                        </td>
+                        <td>
+                           <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
+                              {{ csrf_field() }}
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                    @endforeach
+                  </table>
                 </div>
               </div>
             </div>

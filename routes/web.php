@@ -13,9 +13,6 @@
 
 Route::prefix('/')->group(function(){
 	Route::get('/', 'PortalController@index');
-	// Route::get('/', 'BppPortalController@index');
-	// Route::get('/', 'ChartPortalController@index');
-	// Route::get('/', 'EventPortalController@index');
 });
 
 Route::get('/bakorsiroh', 'BakorsirohPortalController@index');

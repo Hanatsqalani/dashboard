@@ -55,12 +55,12 @@
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#home" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
+        <a href="#intro" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="#home">Home</a></li>
+          <li><a href="#intro">Home</a></li>
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Application
@@ -367,8 +367,10 @@
           <div class="col-lg-4 col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/milestone/ms1.jpg" alt="milestone" class="img-fluid">
-                <br><br><center><h4>Milestone 1</h4></center>
+                @foreach( $Bpp as $fotobpp)
+                <a href="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" alt="milestone" class="img-fluid"></a>
+                <br><br><center><h4>{{$fotobpp->keterangan}}</h4></center>
+                @endforeach
               </div>
             </div>
           </div>
@@ -402,24 +404,16 @@
         <div class="tab-content row justify-content-center">
           <!-- Schdule Day 2 -->
           <div role="tabpanel" class="col-lg-9  tab-pane fade show active" id="day-1">
-
+            @foreach( $event as $Event)
             <div class="row schedule-item">
-              <div class="col-md-2"><time>Tuesday, 18 Feb 2019 <br>10:00 AM</time>
-                <br>R. Meeting 03</div>
+              <div class="col-md-2"><time> {{$Event->tanggal}}<br> {{$Event->waktu}}</time>
+                <br> {{$Event->lokasi}}</div>
               <div class="col-md-10">
-                <h4>Maintenance</h4>
-                <p>Maintenance jaringan di Gedung Administrasi</p>
+                <h4> {{$Event->tema}}</h4>
+                <p> {{$Event->detail}}</p>
               </div>
             </div>
-
-            <div class="row schedule-item">
-              <div class="col-md-2"><time>Wednesday, 20 Feb 2019 <br>8:30 AM</time>
-                <br>R. Meeting 07</div>
-              <div class="col-md-10">
-                <h4>Software</h4>
-                <p>Presentasi tentang aplikasi baru di Gedung Administrasi</p>
-              </div>
-            </div>
+            @endforeach
           </div>
           <!-- End Schdule Day 2 -->
 
@@ -442,8 +436,8 @@
         </div>
       </div>
       <div class="owl-carousel gallery-carousel">
-        @foreach( $Photointro as $foto)
-        <a href="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" alt=""></a>
+        @foreach( $Photoevent as $foto)
+        <a href="{{ asset ('upload/Photoevent') }}/{{$foto->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photoevent') }}/{{$foto->filename}}" alt=""></a>
         @endforeach
       </div>
 
