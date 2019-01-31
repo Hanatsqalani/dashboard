@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Maintenance;
+use App\photomaintenance;
+use App\mainprestasi;
 
 class MaintenanceController extends Controller
 {
@@ -26,6 +28,10 @@ class MaintenanceController extends Controller
     {
         $maintenance = Maintenance::all()->toArray();
         $maintenance = Maintenance::all();
+        $Photomaintenance = photomaintenance::all()->toArray();
+        $Photomaintenance = photomaintenance::all();
+        $Mainprestasi = mainprestasi::all()->toArray();
+        $Mainprestasi = mainprestasi::all();
         return view('admin/maintenance', compact('maintenance'));
     }
 
@@ -33,12 +39,12 @@ class MaintenanceController extends Controller
     {
         $maintenance = new Maintenance;
 
-        $maintenance->foto_maintenance = $request->foto_maintenance;
+        $Photomaintenance->filename = $request->filename;
         $maintenance->id_karyawan = $request->input('idkaryawan');
         $maintenance->nama_karyawan = $request->input('namakaryawan');
         $maintenance->jabatan = $request->input('jabatan');
-        $maintenance->nama_prestasi = $request->input('namaprestasi');
-        $maintenance->tahun_prestasi = $request->input('tahunprestasi');
+        $Mainprestasi->nama_prestasi = $request->input('namaprestasi');
+        $Mainprestasi->tahun_prestasi = $request->input('tahunprestasi');
 
         if ($request->hasFile('fotomaintenance')) {
             # code...
@@ -46,7 +52,7 @@ class MaintenanceController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fotomaintenance = time() . '.' . $extension;
             $file->move('upload/Photomaintenance/', $fotomaintenance);
-            $maintenance->fotomaintenance = $fotomaintenance;
+            $Photomaintenance->fotomaintenance = $fotomaintenance;
         } else{
             return $request;
             

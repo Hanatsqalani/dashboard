@@ -14,6 +14,6 @@ class Engineering extends Model
     ];
 
      protected $fillable = [
-        'foto_engineering', 'id_karyawan', 'nama_karyawan', 'jabatan', 'nama_prestasi', 'tahun_prestasi'
+        'id_karyawan', 'nama_karyawan', 'jabatan',
     ];
 }

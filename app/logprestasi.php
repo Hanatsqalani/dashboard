@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Keuangan extends Model
+class logprestasi extends Model
 {
-    protected $table = "keuangans";
+    protected $table = "logprestasis";
     protected $primaryKey = "id";
 
     protected $guarded = [
@@ -16,4 +16,5 @@ class Keuangan extends Model
      protected $fillable = [
         'nama_prestasi', 'tahun_prestasi',
     ];
+
 }

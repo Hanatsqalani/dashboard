@@ -223,7 +223,8 @@
                             <img src="{{ asset ('upload/Bakorsiroh') }}/{{$fotobakorsiroh->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-
+                              <form action="{{action('BakorsirohController@destroy', $fotobakorsiroh['id'])}}" method="post">
+                              {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>

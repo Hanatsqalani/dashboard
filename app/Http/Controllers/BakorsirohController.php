@@ -40,4 +40,11 @@ class BakorsirohController extends Controller
         $Bakorsiroh = bakorsiroh::all();
         return view('admin/bakorsiroh', compact('Bakorsiroh'));
     }
+
+    public function destroy($id)
+    {
+        $Bakorsiroh = bakorsiroh::find($id);
+        $Bakorsiroh->delete();
+        return redirect('admin/bakorsiroh')->with('succes', 'Bakorsiroh has been delete');
+    }
 }

@@ -14,6 +14,6 @@ class Logistik extends Model
     ];
 
      protected $fillable = [
-        'foto_logistik', 'id_karyawan', 'nama_karyawan', 'jabatan', 'nama_prestasi', 'tahun_prestasi'
+        'id_karyawan', 'nama_karyawan', 'jabatan',
     ];
 }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Keuangan;
+use App\photokeuangan;
+use App\keuanganprestasi;
 
 class KeuanganController extends Controller
 {
@@ -26,19 +28,24 @@ class KeuanganController extends Controller
     {
         $keuangan = Keuangan::all()->toArray();
         $keuangan = Keuangan::all();
+        $Photokeuangan = photokeuangan::all()->toArray();
+        $Photokeuangan = photokeuangan::all();
+        $Keuanganprestasi = keuanganprestasi::all()->toArray();
+        $Keuanganprestasi = keuanganprestasi::all();
         return view('admin/keuangan', compact('keuangan'));
     }
 
     public function store(Request $request)
     {
         $keuangan = new Keuangan;
+        $Photokeuangan = new photokeuangan;
 
-        $keuangan->foto_keuangan = $request->foto_keuangan;
+        $Photokeuangan->filename = $request->filename;
         $keuangan->id_karyawan = $request->input('idkaryawan');
         $keuangan->nama_karyawan = $request->input('namakaryawan');
         $keuangan->jabatan = $request->input('jabatan');
-        $keuangan->nama_prestasi = $request->input('namaprestasi');
-        $keuangan->tahun_prestasi = $request->input('tahunprestasi');
+        $Keuanganprestasi->nama_prestasi = $request->input('namaprestasi');
+        $Keuanganprestasi->tahun_prestasi = $request->input('tahunprestasi');
 
         if ($request->hasFile('fotokeuangan')) {
             # code...
@@ -46,7 +53,7 @@ class KeuanganController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fotokeuangan = time() . '.' . $extension;
             $file->move('upload/Photokeuangan/', $fotokeuangan);
-            $keuangan->fotokeuangan = $fotokeuangan;
+            $Photokeuangan->fotokeuangan = $fotokeuangan;
         } else{
             return $request;
             

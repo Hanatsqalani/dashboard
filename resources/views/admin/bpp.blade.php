@@ -233,6 +233,8 @@
                             <img src="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
+                              <form action="{{action('BppController@destroy', $fotobpp['id'])}}" method="post">
+                              {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Logistik;
+use App\photologistik;
+use App\logprestasi;
 
 class LogistikController extends Controller
 {
@@ -26,19 +28,24 @@ class LogistikController extends Controller
     {
         $logistik = Logistik::all()->toArray();
         $logistik = Logistik::all();
+        $Photologistik = photologistik::all()->toArray();
+        $Photologistik = photologistik::all();
+        $Logprestasi = logprestasi::all()->toArray();
+        $Logprestasi = logprestasi::all();
         return view('admin/logistik', compact('logistik'));
     }
 
     public function store(Request $request)
     {
         $logistik = new Logistik;
+        $Photologistik = new photologistik;
 
-        $logistik->foto_logistik = $request->foto_logistik;
+        $Photologistik->filename = $request->filename;
         $logistik->id_karyawan = $request->input('idkaryawan');
         $logistik->nama_karyawan = $request->input('namakaryawan');
         $logistik->jabatan = $request->input('jabatan');
-        $logistik->nama_prestasi = $request->input('namaprestasi');
-        $logistik->tahun_prestasi = $request->input('tahunprestasi');
+        $Logprestasi->nama_prestasi = $request->input('namaprestasi');
+        $Logprestasi->tahun_prestasi = $request->input('tahunprestasi');
 
         if ($request->hasFile('fotologistik')) {
             # code...
@@ -46,7 +53,7 @@ class LogistikController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fotologistik = time() . '.' . $extension;
             $file->move('upload/Photologistik/', $fotologistik);
-            $logistik->fotologistik = $fotologistik;
+            $Photologistik->fotologistik = $fotologistik;
         } else{
             return $request;
             

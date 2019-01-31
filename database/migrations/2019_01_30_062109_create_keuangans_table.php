@@ -15,12 +15,9 @@ class CreateKeuangansTable extends Migration
     {
         Schema::create('keuangans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foto_keuangan');
             $table->string('id_karyawan');
             $table->string('nama_karyawan');
             $table->string('jabatan');
-            $table->string('nama_prestasi');
-            $table->date('tahun_prestasi');
             $table->timestamps();
         });
     }

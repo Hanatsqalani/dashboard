@@ -14,7 +14,7 @@ class Maintenance extends Model
     ];
 
      protected $fillable = [
-        'foto_maintenance', 'id_karyawan', 'nama_karyawan', 'jabatan', 'nama_prestasi', 'tahun_prestasi'
+        'id_karyawan', 'nama_karyawan', 'jabatan',
     ];
 }
 

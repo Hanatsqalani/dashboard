@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Operation;
+use App\photooperation;
+use App\operationprestasi;
 
 class OperationController extends Controller
 {
@@ -26,6 +28,10 @@ class OperationController extends Controller
     {
         $operation = Operation::all()->toArray();
         $operation = Operation::all();
+        $Photooperation = photooperation::all()->toArray();
+        $Photooperation = photooperation::all();
+        $prestasi = operationprestasi::all()->toArray();
+        $prestasi = operationprestasi::all()->toArray();
         return view('admin/operation', compact('operation'));
     }
 
@@ -33,12 +39,12 @@ class OperationController extends Controller
     {
         $operation = new Operation;
 
-        $operation->foto_operation = $request->foto_operation;
+        $Photooperation->filename = $request->filename;
         $operation->id_karyawan = $request->input('idkaryawan');
         $operation->nama_karyawan = $request->input('namakaryawan');
         $operation->jabatan = $request->input('jabatan');
-        $operation->nama_prestasi = $request->input('namaprestasi');
-        $operation->tahun_prestasi = $request->input('tahunprestasi');
+        $prestasi->nama_prestasi = $request->input('namaprestasi');
+        $prestasi->tahun_prestasi = $request->input('tahunprestasi');
 
         if ($request->hasFile('fotooperation')) {
             # code...

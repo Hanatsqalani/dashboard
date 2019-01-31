@@ -50,10 +50,12 @@ Route::prefix('admin')->group(function(){
 	//BakorsirohRoute
 	Route::get('/bakorsiroh', 'BakorsirohController@index');
 	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
+	Route::resource('/bakorsiroh/delete', 'BakorsirohController');
 
 	//BPPRoute
 	Route::get('/bpp', 'BppController@index');
 	Route::post('/bpp/upload', 'BppController@store')->name('bpp');
+	Route::resource('/bpp/delete', 'BppController');
 
 	//PhotoeventRoute
 	Route::get('/photosevent', 'PhotoEventController@index');

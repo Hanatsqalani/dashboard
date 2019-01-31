@@ -19,8 +19,6 @@ class CreateMaintenancesTable extends Migration
             $table->string('id_karyawan');
             $table->string('nama_karyawan');
             $table->string('jabatan');
-            $table->string('nama_prestasi');
-            $table->date('tahun_prestasi');
             $table->timestamps();
         });
     }

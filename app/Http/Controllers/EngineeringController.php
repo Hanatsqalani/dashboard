@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Engineering;
+use App\photoengineering;
+use App\engineerprestasi;
 
 class EngineeringController extends Controller
 {
@@ -26,6 +28,10 @@ class EngineeringController extends Controller
     {
         $engineering = Engineering::all()->toArray();
         $engineering = Engineering::all();
+        $Photoengineering = photoengineering::all()->toArray();
+        $Photoengineering = photoengineering::all();
+        $Engineerprestasi = engineerprestasi::all()->toArray();
+        $Engineerprestasi = engineerprestasi::all();
         return view('admin/engineering', compact('engineering'));
     }
 
@@ -33,12 +39,12 @@ class EngineeringController extends Controller
     {
         $engineering = new Engineering;
 
-        $engineering->foto_engineering = $request->foto_engineering;
+        $Photoengineering->filename = $request->filename;
         $engineering->id_karyawan = $request->input('idkaryawan');
         $engineering->nama_karyawan = $request->input('namakaryawan');
         $engineering->jabatan = $request->input('jabatan');
-        $engineering->nama_prestasi = $request->input('namaprestasi');
-        $engineering->tahun_prestasi = $request->input('tahunprestasi');
+        $Engineerprestasi->nama_prestasi = $request->input('namaprestasi');
+        $Engineerprestasi->tahun_prestasi = $request->input('tahunprestasi');
 
         if ($request->hasFile('fotoengineering')) {
             # code...
@@ -46,7 +52,7 @@ class EngineeringController extends Controller
             $extension = $file->getClientOriginalExtension();
             $fotoengineering = time() . '.' . $extension;
             $file->move('upload/Photoengineering/', $fotoengineering);
-            $engineering->fotoengineering = $fotoengineering;
+            $Photoengineering->fotoengineering = $fotoengineering;
         } else{
             return $request;
             
