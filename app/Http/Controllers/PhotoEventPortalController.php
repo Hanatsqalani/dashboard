@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sppjbs;
+use App\photoevent;
 
-class SppjbsPortalController extends Controller
+class PhotoEventController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,8 @@ class SppjbsPortalController extends Controller
      */
     public function index()
     {
-        $Sppjbs = sppjbs::all();
-        return view('layouts/sppjbs', compact('Sppjbs'));
-    }
+      $Photoevent = photoevent::all();
+      return view('admin/photosevent', compact('Photoevent'));
 
     /**
      * Show the form for creating a new resource.

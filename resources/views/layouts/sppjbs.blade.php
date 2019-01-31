@@ -307,6 +307,69 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
     <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
     <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
   </div>
+  <div class="section-header wow fadeInLeft">
+    <h2>SDM Profile</h2>
+  </div>
+    <div class="col-md-12">
+      <div class="card wow fadeInLeft">
+        <div class="card-header">
+          <h4 class="card-title"><center>List Karyawan</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Nama
+                </th>
+                <th>
+                  Jabatan
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    1324
+                  </td>
+                  <td>
+                    Brian
+                  </td>
+                  <td>
+                    Manager
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    11241
+                  </td>
+                  <td>
+                    Paul
+                  </td>
+                  <td>
+                    Supervisor
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    11273
+                  </td>
+                  <td>
+                    Walker
+                  </td>
+                  <td>
+                    Karyawan
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </main>
 

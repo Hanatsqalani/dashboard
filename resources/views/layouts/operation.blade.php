@@ -59,7 +59,7 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Application
@@ -212,24 +212,24 @@
         Lini Bisnis
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Operation</a></li>
-        <li><a class="dropdown-item" href="maintenance.html">Maintenance</a></li>
-        <li><a class="dropdown-item" href="engineering.html">Engineering</a></li>
-        <li><a class="dropdown-item" href="logistik.html">Logistik</a></li>
-        <li><a class="dropdown-item" href="keuangan.html">Keuangan dan Administrasi</a></li>
+        <li><a class="dropdown-item" href="{{ url('/operation') }}">Operation</a></li>
+        <li><a class="dropdown-item" href="{{ url('/maintenance') }}">Maintenance</a></li>
+        <li><a class="dropdown-item" href="{{ url('/engineering') }}">Engineering</a></li>
+        <li><a class="dropdown-item" href="{{ url('/logistik') }}">Logistik</a></li>
+        <li><a class="dropdown-item" href="{{ url('/keuangan') }}">Keuangan dan Administrasi</a></li>
       </ul>
     </li>
-          <li><a href="index.html#chart">Chart</a></li>
+          <li><a href="{{ url('/#chart') }}">Chart</a></li>
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Organization
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="sppjbs.html">SP PJB Service</a></li>
-          <li><a class="dropdown-item" href="sppjb.html">SP PJB</a></li>
+          <li><a class="dropdown-item" href="{{ url('/sppjbs') }}">SP PJB Service</a></li>
+          <li><a class="dropdown-item" href="{{ url('/sppjb') }}">SP PJB</a></li>
           <li><a class="dropdown-item" href="ftp://192.168.40.14/" target="_blank">9PM</a></li>
-          <li><a class="dropdown-item" href="bakorsiroh.html">Bakorsiroh</a></li>
-          <li><a class="dropdown-item" href="pik.html">PIK - Persatuan Ibu dan Karyawati</a></li>
+          <li><a class="dropdown-item" href="{{ url('/bakorsiroh') }}">Bakorsiroh</a></li>
+          <li><a class="dropdown-item" href="{{ url('/pik') }}">PIK - Persatuan Ibu dan Karyawati</a></li>
         </ul>
       </li>
           <li class="nav-item dropdown">
@@ -241,7 +241,7 @@
           <li><a class="dropdown-item" href="csr.html">CSR</a></li>
         </ul>
       </li>
-          <li><a href="index.html#schedule">Info Unit</a></li>
+          <li><a href="#schedule">Info Unit</a></li>
           <li><a href="" data-toggle="modal" data-target="#loginmodal">Login</a></li>
         </ul>
         <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
@@ -260,19 +260,31 @@
       </div>
       <!--Body-->
       <div class="modal-body mx-4">
+         <form method="POST" action="{{ route('admin.login.submit') }}">
+                        @csrf
         <!--Body-->
         <div class="md-form mb-5">
-          <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-          <input type="email" id="Form-email1" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="Form-email1">{{ __('E-Mail Address') }}</label>
+          <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+          @if ($errors->has('email'))
+             <span class="invalid-feedback" role="alert">
+                <strong>{{ $errors->first('email') }}</strong>
+                   </span>
+          @endif
         </div>
 
         <div class="md-form pb-3">
-          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-          <input type="password" id="Form-pass1" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="password">{{ __('Password') }}</label>
+          <input type="password" id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+          @if ($errors->has('password'))
+              <span class="invalid-feedback" role="alert">
+               <strong>{{ $errors->first('password') }}</strong>
+              </span>
+         @endif
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn blue-gradient">Sign in</button>
+          <button type="submit" class="btn blue-gradient">{{ __('Login') }}</button>
         </div>
       </div>
     </div>

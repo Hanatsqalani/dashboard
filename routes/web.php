@@ -36,7 +36,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
-	
+
 	//PhotoIntroRoute
 	Route::get('/file', 'AdminController@index');
 	Route::post('/upload', 'AdminController@store')->name('upload');
@@ -50,11 +50,11 @@ Route::prefix('admin')->group(function(){
 	//BakorsirohRoute
 	Route::get('/bakorsiroh', 'BakorsirohController@index');
 	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
-	
+
 	//BPPRoute
 	Route::get('/bpp', 'BppController@index');
 	Route::post('/bpp/upload', 'BppController@store')->name('bpp');
-	
+
 	//PhotoeventRoute
 	Route::get('/photosevent', 'PhotoEventController@index');
 	Route::post('/photosevent/upload', 'PhotoEventController@store')->name('photoevent');
