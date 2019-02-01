@@ -171,7 +171,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -192,60 +192,165 @@
 
 
 </div> -->
-      <div class="content">
-      <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Photos</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Nama File
-                      </th>
-                      <th>
-                        Foto
-                      </th>
-                      <th>
-                        Action
-                      </th>
-                    </thead>
-                    <tbody>
-                       @foreach( $keuangan as $foto)
-                      <tr>
-                        <td>
-                         >
-                        </td>
-                        <td>
-                            <img src="{{ asset ('upload/Photokeuangan') }}/{{$foto->fotokeuangan}}" style="height: 120px; width: 170px;">
-                        </td>
-                        <td>
-                           <form action="{{action('KeuanganController@destroy', $foto['id'])}}" method="post">
-                              {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('keuangan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="fotokeuangan" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
-                </div>
-              </div>
-            </div>
+<div class="content">
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Photos</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Nama File
+                </th>
+                <th>
+                  Foto
+                </th>
+                <th>
+                  Action
+                </th>
+              </thead>
+              <tbody>
+                 @foreach( $Photokeuangan as $foto)
+                <tr>
+                  <td>
+                    <p> {{$foto->filename}}</p>
+                  </td>
+                  <td>
+                      <img src="{{ asset ('upload/Photokeuangan') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                  </td>
+                  <td>
+                     <form action="{{action('PhotokeuanganController@destroy', $foto['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+            <br><strong>Upload Photo</strong><br><br>
+            <form action="{{ route('keuangan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
+            <input type="submit" name="filename" class="btn btn-info" value="Upload">
+            Max. Size : 8 Mb
+          </form>
           </div>
         </div>
       </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Karyawan</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Karyawan</strong><br><br>
+              <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Id Karyawan : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
+              <br><br>Nama Karyawan : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
+              <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
+                <option value="Manager">Manager</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Karyawan">Karyawan</option>
+              </select>
+              <br><br>
+                <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Nama
+                </th>
+                <th>
+                  Jabatan
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $keuangan as $datakaryawan)
+                <tr>
+                  <td>
+                    <p> {{$datakaryawan->id_karyawan}}</p>
+                  </td>
+                  <td>
+                      <p> {{$datakaryawan->nama_karyawan}}</p>
+                  </td>
+                  <td>
+                    <p> {{$datakaryawan->jabatan}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('KaryawankeuanganController@destroy', $datakaryawan['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Prestasi</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Prestasi</strong><br>
+              <form action="{{ route('prestasi')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              <br>Nama Prestasi : <input type="text" name="namaprestasi" id="namaprestasi" placeholder="Masukkan nama prestasi" class="col-md-5">
+              <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" id="tahunprestasi" placeholder="Masukkan tahun prestasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdataprestasi" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Nama Prestasi
+                </th>
+                <th>
+                  Tahun Prestasi
+                </th>
+              </thead>
+              <tbody>
+                  @foreach( $prestasi as $dataprestasi)
+                <tr>
+                  <td>
+                      <p> {{$dataprestasi->namaprestasi}}</p>
+                  </td>
+                  <td>
+                    <p> {{$dataprestasi->tahunprestasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('PrestasikeuanganController@destroy', $dataprestasi['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+               @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
