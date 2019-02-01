@@ -326,13 +326,13 @@
                 </th>
               </thead>
               <tbody>
-                  @foreach( $prestasi as $dataprestasi)
+                  @foreach( $Keuanganprestasi as $dataprestasi)
                 <tr>
                   <td>
-                      <p> {{$dataprestasi->namaprestasi}}</p>
+                      <p> {{$dataprestasi->nama_prestasi}}</p>
                   </td>
                   <td>
-                    <p> {{$dataprestasi->tahunprestasi}}</p>
+                    <p> {{$dataprestasi->tahun_prestasi}}</p>
                   </td>
                   <td>
                     <form action="{{action('PrestasikeuanganController@destroy', $dataprestasi['id'])}}" method="post">

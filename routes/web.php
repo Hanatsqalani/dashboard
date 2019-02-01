@@ -39,14 +39,44 @@ Route::prefix('admin/operation')->group(function(){
 	Route::resource('/deleteprestasi', 'PrestasioperationController');
 });
 
-Route::prefix('admin/mainteance')->group(function(){
+Route::prefix('admin/maintenance')->group(function(){
 	Route::get('/', 'MaintenanceController@index');
-	Route::post('/uploadfoto', 'MaintenanceController@store')->name('operation');
-	Route::post('/karyawan', 'MaintenanceController@storekaryawan')->name('karyawan');
-	Route::post('/prestasi', 'MaintenanceController@storeprestasi')->name('prestasi');
-	Route::resource('/delete', 'MaintenanceController');
-	Route::resource('/deletekaryawan', 'MaintenanceController');
-	Route::resource('/deleteprestasi', 'MaintenanceController');
+	Route::post('/uploadfoto', 'PhotomaintenanceController@store')->name('maintenance');
+	Route::post('/karyawan', 'KaryawanmaintenanceController@store')->name('karyawan');
+	Route::post('/prestasi', 'PrestasimaintenanceController@store')->name('prestasi');
+	Route::resource('/delete', 'PhotomaintenanceController');
+	Route::resource('/deletekaryawan', 'KaryawanmaintenanceController');
+	Route::resource('/deleteprestasi', 'PrestasimaintenanceController');
+});
+
+Route::prefix('admin/engineering')->group(function(){
+	Route::get('/', 'EngineeringController@index');
+	Route::post('/uploadfoto', 'PhotoengineeringController@store')->name('engineering');
+	Route::post('/karyawan', 'KaryawanengineeringController@store')->name('karyawan');
+	Route::post('/prestasi', 'PrestasiengineeringController@store')->name('prestasi');
+	Route::resource('/delete', 'PhotoengineeringController');
+	Route::resource('/deletekaryawan', 'KaryawanengineeringController');
+	Route::resource('/deleteprestasi', 'PrestasiengineeringController');
+});
+
+Route::prefix('admin/logistik')->group(function(){
+	Route::get('/', 'EngineeringController@index');
+	Route::post('/uploadfoto', 'PhotologistikController@store')->name('logistik');
+	Route::post('/karyawan', 'KaryawanlogistikController@store')->name('karyawan');
+	Route::post('/prestasi', 'PrestasilogistikController@store')->name('prestasi');
+	Route::resource('/delete', 'PhotologistikController');
+	Route::resource('/deletekaryawan', 'KaryawanlogistikController');
+	Route::resource('/deleteprestasi', 'PrestasilogistikController');
+});
+
+Route::prefix('admin/keuangan')->group(function(){
+	Route::get('/', 'EngineeringController@index');
+	Route::post('/uploadfoto', 'PhotokeuanganController@store')->name('keuangan');
+	Route::post('/karyawan', 'KaryawankeuanganController@store')->name('karyawan');
+	Route::post('/prestasi', 'PrestasikeuanganController@store')->name('prestasi');
+	Route::resource('/delete', 'PhotokeuanganController');
+	Route::resource('/deletekaryawan', 'KaryawankeuanganController');
+	Route::resource('/deleteprestasi', 'PrestasikeuanganController');
 });
 
 
@@ -79,21 +109,4 @@ Route::prefix('admin')->group(function(){
 	Route::get('/photosevent', 'PhotoEventController@index');
 	Route::post('/photosevent/upload', 'PhotoEventController@store')->name('photoevent');
 	Route::resource('/photosevent/delete', 'PhotoEventController');
-
-	//OperationRoute
-	
-
-	//MaintenanceRoute
-	
-	//EngineeringRoute
-	Route::get('/engineering', 'EngineeringController@index');
-	Route::post('/engineering/create', 'EngineeringController@store')->name('engineering');
-
-	//LogistikRoute
-	Route::get('/logistik', 'LogistikController@index');
-	Route::post('/logistik/create', 'LogistikController@store');
-
-	//KeuanganRoute
-	Route::get('/keuangan', 'KeuanganController@index');
-	Route::post('/keuangan/create', 'KeuanganController@store')->name('keuangan');
 });

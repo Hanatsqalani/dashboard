@@ -14,6 +14,6 @@ class Keuangan extends Model
     ];
 
      protected $fillable = [
-        'nama_prestasi', 'tahun_prestasi',
+        'id_karyawan', 'nama_karyawan', 'jabatan',
     ];
 }

@@ -16,7 +16,7 @@ class CreateLogprestasisTable extends Migration
         Schema::create('logprestasis', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama_prestasi');
-            $table->date('tahun_prestasi');
+            $table->string('tahun_prestasi');
             $table->timestamps();
         });
     }
