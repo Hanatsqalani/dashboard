@@ -16,6 +16,7 @@
   <!-- CSS Files -->
   <link href="/assets/admindash/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/admindash/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <link href="/assets/admindash/css/modal.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/admindash/demo/demo.css" rel="stylesheet" />
 </head>
@@ -171,7 +172,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -240,6 +241,110 @@
                   <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Anggota SPPJB</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <strong>Create Data Anggota</strong><br><br>
+                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                    Id Anggota : <input type="text" name="idanggota"  id="idAnggota" placeholder="Masukkan id anggota" class="col-md-3">
+                    <br><br>Nama Anggota : <input type="text" name="namaanggota" id="namaanggota" placeholder="Masukkan nama anggota" class="col-md-5">
+                    <br><br>Jabatan Anggota : <select name="jabatan" class="col-md-2">
+                      <option value="Ketua">Ketua</option>
+                      <option value="Wakil Ketua">Wakil Ketua</option>
+                      <option value="Bendahara">Bendahara</option>
+                      <option value="Sekertaris">Sekertaris</option>
+                      <option value="Anggota">Anggota</option>
+                    </select>
+                    <br><br>
+                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
+                    </form>
+                    <br>
+                    <thead class=" text-primary">
+                      <th>
+                        Id
+                      </th>
+                      <th>
+                        Nama
+                      </th>
+                      <th>
+                        Jabatan
+                      </th>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                          <form action="" method="post">
+                              {{ csrf_field() }}
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                           <br>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal">Edit</button>
+                              <div class="modal fade" id="bakorsirohmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <!--Content-->
+                          <div class="modal-content form-elegant">
+                            <!--Header-->
+                            <div class="modal-header text-center">
+                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                                <center><strong>Edit Event</strong></h3></center>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <!--Body-->
+                            <div class="modal-body mx-4">
+                               <form method="POST" action="">
+                                              @csrf
+                              <!--Body-->
+                              <div class="md-form mb-">
+                                Id Anggota
+                                <input id="idanggota" name="idanggota" type="text" class="form-control col-md-5" required autofocus>
+                                <br>
+                                Nama Anggota
+                                <input id="namaanggota" name="namaanggota" type="text" class="form-control col-md-5" required autofocus>
+                                <br>
+                                Jabatan Anggota : <select name="jabatan" class="col-md-5">
+                                  <option value="Ketua">Ketua</option>
+                                  <option value="Wakil Ketua">Wakil Ketua</option>
+                                  <option value="Bendahara">Bendahara</option>
+                                  <option value="Sekertaris">Sekertaris</option>
+                                  <option value="Anggota">Anggota</option>
+                                </select>
+                              </div>
+                              <br>
+                              <div class="text-center mb-3">
+                                <button type="submit" class="btn blue-gradient">Update</button>
+                              </div>
+                            </div>
+                          </div>
+                          <!--/.Content-->
+                        </div>
+                              </div>
+                        </td>
+                      </tr>
+                    </tbody>
+
+                  </table>
                 </div>
               </div>
             </div>

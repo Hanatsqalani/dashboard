@@ -9,8 +9,8 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/logo1.png" rel="icon">
-  <link href="img/logo1.png" rel="pjb-icon">
+  <link href="/assets/userdash/img/logo1.png" rel="icon">
+  <link href="/assets/userdash/img/logo1.png" rel="pjb-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
@@ -237,8 +237,8 @@
           Social Responsibilities
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="lk3.html">LK3</a></li>
-          <li><a class="dropdown-item" href="csr.html">CSR</a></li>
+          <li><a class="dropdown-item" href="{{ url('/lk3') }}">LK3</a></li>
+          <li><a class="dropdown-item" href="{{ url('/csr') }}">CSR</a></li>
         </ul>
       </li>
           <li><a href="#schedule">Info Unit</a></li>
@@ -316,25 +316,25 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
   </a>
   </div>
   <div class="section-header wow fadeInLeft">
-    <h2>SDM Profile</h2>
+    <h2>Data Anggota</h2>
   </div>
     <div class="col-md-12">
       <div class="card wow fadeInLeft">
         <div class="card-header">
-          <h4 class="card-title"><center>List Karyawan</h4>
+          <h4 class="card-title"><center>List Anggota</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
                 <th>
-                  Id
+                  Id Anggota
                 </th>
                 <th>
-                  Nama
+                  Nama Anggota
                 </th>
                 <th>
-                  Jabatan
+                  Jabatan Anggota
                 </th>
               </thead>
               <tbody>

@@ -216,7 +216,7 @@
         <li><a class="dropdown-item" href="{{ url('/maintenance') }}">Maintenance</a></li>
         <li><a class="dropdown-item" href="{{ url('/engineering') }}">Engineering</a></li>
         <li><a class="dropdown-item" href="{{ url('/logistik') }}">Logistik</a></li>
-        <li><a class="dropdown-item" href="{{ url('/keuangan') }}">Keuangan dan Administrasi</a></li>
+        <li><a class="dropdown-item" href="#">Keuangan dan Administrasi</a></li>
       </ul>
     </li>
           <li><a href="{{ url('/#chart') }}">Chart</a></li>
@@ -237,8 +237,8 @@
           Social Responsibilities
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="lk3.html">LK3</a></li>
-          <li><a class="dropdown-item" href="csr.html">CSR</a></li>
+          <li><a class="dropdown-item" href="{{ url('/lk3') }}">LK3</a></li>
+          <li><a class="dropdown-item" href="{{ url('/csr') }}">CSR</a></li>
         </ul>
       </li>
           <li><a href="#schedule">Info Unit</a></li>
