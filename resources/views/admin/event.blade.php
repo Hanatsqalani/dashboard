@@ -16,6 +16,7 @@
   <!-- CSS Files -->
   <link href="/assets/admindash/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/admindash/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <link href="/assets/admindash/css/modal.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/admindash/demo/demo.css" rel="stylesheet" />
 </head>
@@ -203,7 +204,7 @@
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <strong>Create an Event</strong><br><br>       
+                      <strong>Create an Event</strong><br><br>
                       <form action="{{ route('create')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                         {{ csrf_field() }}
                         Tanggal : <input type="date" id="tanggalevent" name="tanggalevent" value="2019-01-01">
@@ -215,8 +216,8 @@
                         <br><br>
                         <input type="submit" name="submitevent" class="btn btn-info btn-info-lg" value="Create">
                       </form>
-                        <br />     
-          
+                        <br />
+
                       <th>
                         Tanggal
                       </th>
@@ -260,6 +261,51 @@
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
+                           <br>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#eventmodal">Edit</button>
+                              <div class="modal fade" id="eventmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <!--Content-->
+                          <div class="modal-content form-elegant">
+                            <!--Header-->
+                            <div class="modal-header text-center">
+                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                                <center><strong>Edit Event</strong></h3></center>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <!--Body-->
+                            <div class="modal-body mx-4">
+                               <form method="POST" action="">
+                                              @csrf
+                              <!--Body-->
+                              <div class="md-form mb-">
+                                Tanggal
+                                <input id="tanggalevent" name="tanggalevent" type="date" class="form-control col-md-5" required autofocus>
+                                <br>
+                                Waktu
+                                <input id="waktuevent" name="waktuevent" type="time" class="form-control col-md-5" required autofocus>
+                                <br>
+                                Tempat
+                                <input id="tempatevent" name="tempatevent" type="text" class="form-control col-md-9" required autofocus>
+                                <br>
+                                Tema
+                                <input id="temaevent" name="temaevent" type="text" class="form-control col-md-7" required autofocus>
+                                <br>
+                                Detail
+                                <input id="detailevent" name="detailevent" type="text" class="form-control col-md-12" required autofocus>
+                              </div>
+                              <br>
+                              <div class="text-center mb-3">
+                                <button type="submit" class="btn blue-gradient">Update</button>
+                              </div>
+                            </div>
+                          </div>
+                          <!--/.Content-->
+                        </div>
+                              </div>
                         </td>
                       </tr>
                     </tbody>

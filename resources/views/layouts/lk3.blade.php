@@ -237,8 +237,8 @@
           Social Responsibilities
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="lk3.html">LK3</a></li>
-          <li><a class="dropdown-item" href="csr.html">CSR</a></li>
+          <li><a class="dropdown-item" href="#">LK3</a></li>
+          <li><a class="dropdown-item" href="{{ url('/csr') }}">CSR</a></li>
         </ul>
       </li>
           <li><a href="#schedule">Info Unit</a></li>

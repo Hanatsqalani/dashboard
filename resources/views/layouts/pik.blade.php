@@ -212,11 +212,11 @@
         Lini Bisnis
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="#">Operation</a></li>
-        <li><a class="dropdown-item" href="maintenance.html">Maintenance</a></li>
-        <li><a class="dropdown-item" href="engineering.html">Engineering</a></li>
-        <li><a class="dropdown-item" href="logistik.html">Logistik</a></li>
-        <li><a class="dropdown-item" href="keuangan.html">Keuangan dan Administrasi</a></li>
+        <li><a class="dropdown-item" href="{{ url('/operation') }}">Operation</a></li>
+        <li><a class="dropdown-item" href="{{ url('/maintenance') }}">Maintenance</a></li>
+        <li><a class="dropdown-item" href="{{ url('/engineering') }}">Engineering</a></li>
+        <li><a class="dropdown-item" href="{{ url('/logistik') }}">Logistik</a></li>
+        <li><a class="dropdown-item" href="{{ url('/keuangan') }}">Keuangan dan Administrasi</a></li>
       </ul>
     </li>
           <li><a href="{{ url('/#chart') }}">Chart</a></li>
@@ -225,11 +225,11 @@
           Organization
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#">SP PJB Service</a></li>
-          <li><a class="dropdown-item" href="sppjb.html">SP PJB</a></li>
+          <li><a class="dropdown-item" href="{{ url('/sppjbs') }}">SP PJB Service</a></li>
+          <li><a class="dropdown-item" href="{{ url('/sppjb') }}">SP PJB</a></li>
           <li><a class="dropdown-item" href="ftp://192.168.40.14/" target="_blank">9PM</a></li>
-          <li><a class="dropdown-item" href="bakorsiroh.html">Bakorsiroh</a></li>
-          <li><a class="dropdown-item" href="pik.html">PIK - Persatuan Ibu dan Karyawati</a></li>
+          <li><a class="dropdown-item" href="{{ url('/bakorsiroh') }}">Bakorsiroh</a></li>
+          <li><a class="dropdown-item" href="#">PIK - Persatuan Ibu dan Karyawati</a></li>
         </ul>
       </li>
           <li class="nav-item dropdown">
@@ -237,8 +237,8 @@
           Social Responsibilities
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="lk3.html">LK3</a></li>
-          <li><a class="dropdown-item" href="csr.html">CSR</a></li>
+          <li><a class="dropdown-item" href="{{ url('/lk3') }}">LK3</a></li>
+          <li><a class="dropdown-item" href="{{ url('/csr') }}">CSR</a></li>
         </ul>
       </li>
           <li><a href="index.html#schedule">Info Unit</a></li>
