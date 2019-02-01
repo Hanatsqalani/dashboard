@@ -29,6 +29,27 @@ Route::get('/sppjbs', 'SppjbsPortalController@index');
 
 Auth::routes();
 
+Route::prefix('admin/operation')->group(function(){
+	Route::get('/', 'OperationController@index');
+	Route::post('/uploadfoto', 'PhotooperationController@store')->name('operation');
+	Route::post('/karyawan', 'KaryawanoperationController@store')->name('karyawan');
+	Route::post('/prestasi', 'PrestasioperationController@store')->name('prestasi');
+	Route::resource('/delete', 'PhotooperationController');
+	Route::resource('/deletekaryawan', 'KaryawanoperationController');
+	Route::resource('/deleteprestasi', 'PrestasioperationController');
+});
+
+Route::prefix('admin/mainteance')->group(function(){
+	Route::get('/', 'MaintenanceController@index');
+	Route::post('/uploadfoto', 'MaintenanceController@store')->name('operation');
+	Route::post('/karyawan', 'MaintenanceController@store')->name('karyawan');
+	Route::post('/prestasi', 'MaintenanceController@store')->name('prestasi');
+	Route::resource('/delete', 'MaintenanceController');
+	Route::resource('/deletekaryawan', 'MaintenanceController');
+	Route::resource('/deleteprestasi', 'MaintenanceController');
+});
+
+
 Route::prefix('admin')->group(function(){
 	Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
 	Route::post('/', 'Auth\AdminLoginController@login')->name('admin.login.submit');
@@ -60,8 +81,7 @@ Route::prefix('admin')->group(function(){
 	Route::resource('/photosevent/delete', 'PhotoEventController');
 
 	//OperationRoute
-	Route::get('/operation', 'OperationController@index');
-	Route::post('/operation/create', 'OperationController@store')->name('operation');
+	
 
 	//MaintenanceRoute
 	Route::get('/maintenance', 'MaintenanceController@index');

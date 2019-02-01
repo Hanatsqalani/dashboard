@@ -32,12 +32,14 @@ class MaintenanceController extends Controller
         $Photomaintenance = photomaintenance::all();
         $Mainprestasi = mainprestasi::all()->toArray();
         $Mainprestasi = mainprestasi::all();
-        return view('admin/maintenance', compact('maintenance'));
+        return view('admin/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
     }
 
     public function store(Request $request)
     {
+        $Photomaintenance = new photomaintenance;
         $maintenance = new Maintenance;
+        $Mainprestasi = new photomaintenance;
 
         $Photomaintenance->filename = $request->filename;
         $maintenance->id_karyawan = $request->input('idkaryawan');
@@ -57,10 +59,17 @@ class MaintenanceController extends Controller
             return $request;
             
         }
+        $Photomaintenance->save();
         $maintenance->save();
+        $Mainprestasi->save();
 
+       $maintenance = Maintenance::all()->toArray();
         $maintenance = Maintenance::all();
-        return view('admin/maintenance', compact('maintenance'));
+        $Photomaintenance = photomaintenance::all()->toArray();
+        $Photomaintenance = photomaintenance::all();
+        $Mainprestasi = mainprestasi::all()->toArray();
+        $Mainprestasi = mainprestasi::all();
+        return view('admin/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
     }
 
     public function destroy($id)

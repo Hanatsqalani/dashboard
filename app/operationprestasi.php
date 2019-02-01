@@ -15,6 +15,6 @@ class operationprestasi extends Model
     ];
 
      protected $fillable = [
-       'nama_prestasi', 'tahun_prestasi',
+       'namaprestasi', 'tahunprestasi',
     ];
 }

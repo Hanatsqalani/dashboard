@@ -214,16 +214,16 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $operation as $foto)
+                       @foreach( $Photooperation as $foto)
                       <tr>
                         <td>
-
+                          <p> {{$foto->filename}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-                           <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
+                           <form action="{{action('PhotooperationController@destroy', $foto['id'])}}" method="post">
                               {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -236,8 +236,8 @@
                   <br><strong>Upload Photo</strong><br><br>
                   <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                  <input type="file" name="fotooperation" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
+                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
+                  <input type="submit" name="filename" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
                 </div>
@@ -251,17 +251,17 @@
                 <div class="table-responsive">
                   <table class="table">
                     <strong>Create Data Karyawan</strong><br><br>
-                    Id Karyawan : <input type="text" name="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
-                    <br><br>Nama Karyawan : <input type="text" name="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
+                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                    Id Karyawan : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
+                    <br><br>Nama Karyawan : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
                     <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
-                      <option value="manager">Manager</option>
-                      <option value="supervisor">Supervisor</option>
-                      <option value="karyawan">Karyawan</option>
+                      <option value="Manager">Manager</option>
+                      <option value="Supervisor">Supervisor</option>
+                      <option value="Karyawan">Karyawan</option>
                     </select>
                     <br><br>
-                    <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-                      <input type="submit" name="createdatakaryawan" class="btn btn-info" value="Create">
+                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
                     </form>
                     <br>
                     <thead class=" text-primary">
@@ -276,16 +276,19 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $operation as $foto)
+                      @foreach( $operation as $datakaryawan)
                       <tr>
                         <td>
-
+                          <p> {{$datakaryawan->id_karyawan}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                            <p> {{$datakaryawan->nama_karyawan}}</p>
                         </td>
                         <td>
-                           <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
+                          <p> {{$datakaryawan->jabatan}}</p>
+                        </td>
+                        <td>
+                          <form action="{{action('KaryawanoperationController@destroy', $datakaryawan['id'])}}" method="post">
                               {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -306,12 +309,12 @@
                 <div class="table-responsive">
                   <table class="table">
                     <strong>Create Data Prestasi</strong><br>
-                    <br>Nama Prestasi : <input type="text" name="namaprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
-                    <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
-                    <br><br>
-                    <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{ route('prestasi')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                       {{ csrf_field() }}
-                      <input type="submit" name="createdatakaryawan" class="btn btn-info" value="Create">
+                    <br>Nama Prestasi : <input type="text" name="namaprestasi" id="namaprestasi" placeholder="Masukkan nama prestasi" class="col-md-5">
+                    <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" id="tahunprestasi" placeholder="Masukkan tahun prestasi" class="col-md-5">
+                    <br><br>
+                      <input type="submit" name="submitdataprestasi" class="btn btn-info" value="Create">
                     </form>
                     <br>
                     <thead class=" text-primary">
@@ -323,13 +326,16 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $operation as $foto)
+                        @foreach( $prestasi as $dataprestasi)
                       <tr>
                         <td>
-                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                            <p> {{$dataprestasi->namaprestasi}}</p>
                         </td>
                         <td>
-                           <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
+                          <p> {{$dataprestasi->tahunprestasi}}</p>
+                        </td>
+                        <td>
+                          <form action="{{action('PrestasioperationController@destroy', $dataprestasi['id'])}}" method="post">
                               {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -337,7 +343,7 @@
                         </td>
                       </tr>
                     </tbody>
-                    @endforeach
+                     @endforeach
                   </table>
                 </div>
               </div>

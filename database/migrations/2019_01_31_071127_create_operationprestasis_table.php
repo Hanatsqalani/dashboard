@@ -15,8 +15,8 @@ class CreateOperationprestasisTable extends Migration
     {
         Schema::create('operationprestasis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nama_prestasi');
-            $table->date('tahun_prestasi');
+            $table->string('namaprestasi');
+            $table->string('tahunprestasi');
             $table->timestamps();
         });
     }
