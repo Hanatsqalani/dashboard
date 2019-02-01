@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\bakorsiroh;
+use App\anggotabakorsiroh;
 
 class BakorsirohController extends Controller
 {
@@ -14,8 +15,11 @@ class BakorsirohController extends Controller
 
     public function index()
     {
-    	$Bakorsiroh = bakorsiroh::all();
-    	return view('admin/bakorsiroh', compact('Bakorsiroh'));
+    	$Bakorsiroh = bakorsiroh::all()->toArray();
+        $Bakorsiroh = bakorsiroh::all();
+        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
+        $Anggotabakorsiroh = anggotabakorsiroh::all();
+        return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }
 
      public function store(Request $request)
@@ -37,8 +41,11 @@ class BakorsirohController extends Controller
         }
         $Bakorsiroh->save();
 
+        $Bakorsiroh = bakorsiroh::all()->toArray();
         $Bakorsiroh = bakorsiroh::all();
-        return view('admin/bakorsiroh', compact('Bakorsiroh'));
+        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
+        $Anggotabakorsiroh = anggotabakorsiroh::all();
+        return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }
 
     public function destroy($id)

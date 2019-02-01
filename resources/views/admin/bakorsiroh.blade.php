@@ -254,8 +254,8 @@
                     <strong>Create Data Anggota</strong><br><br>
                     <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                       {{ csrf_field() }}
-                    Id Anggota : <input type="text" name="idanggota"  id="idAnggota" placeholder="Masukkan id anggota" class="col-md-3">
-                    <br><br>Nama Anggota : <input type="text" name="namaanggota" id="namaanggota" placeholder="Masukkan nama anggota" class="col-md-5">
+                    Id Anggota : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id anggota" class="col-md-3">
+                    <br><br>Nama Anggota : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama anggota" class="col-md-5">
                     <br><br>Jabatan Anggota : <select name="jabatan" class="col-md-2">
                       <option value="Ketua">Ketua</option>
                       <option value="Wakil Ketua">Wakil Ketua</option>
@@ -279,31 +279,33 @@
                       </th>
                     </thead>
                     <tbody>
-
+                      @foreach( $Anggotabakorsiroh as $dataanggota)
                       <tr>
                         <td>
-
+                          <p> {{$dataanggota->id_karyawan}}</p>
                         </td>
                         <td>
-
+                          <p> {{$dataanggota->nama_karyawan}}</p>
                         </td>
                         <td>
-
+                          <p> {{$dataanggota->jabatan}}</p>
                         </td>
                         <td>
-                          <form action="" method="post">
-                              {{ csrf_field() }}
+                          <form action="{{action('AnggotabakorsirohController@destroy', $dataanggota['id'])}}" method="post">
+                        {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
-                           <br>
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal">Edit</button>
+                           {{ csrf_field() }}
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal" data-idkaryawan="{{$dataanggota->idkaryawan}}" data-namakaryawan="{{$dataanggota->namakaryawan}}" data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
                               <div class="modal fade" id="bakorsirohmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <!--Content-->
                           <div class="modal-content form-elegant">
                             <!--Header-->
+                            <form role="form" action="{{route('update')}}" enctype="multipart/form-data" method="post">
+                              {{csrf_field()}}
                             <div class="modal-header text-center">
                               <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
                                 <center><strong>Edit Event</strong></h3></center>
@@ -313,17 +315,15 @@
                             </div>
                             <!--Body-->
                             <div class="modal-body mx-4">
-                               <form method="POST" action="">
-                                              @csrf
                               <!--Body-->
                               <div class="md-form mb-">
                                 Id Anggota
-                                <input id="idanggota" name="idanggota" type="text" class="form-control col-md-5" required autofocus>
+                                <input id="idkaryawan" name="idkaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
                                 <br>
                                 Nama Anggota
-                                <input id="namaanggota" name="namaanggota" type="text" class="form-control col-md-5" required autofocus>
+                                <input id="namakaryawan" name="namakaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
                                 <br>
-                                Jabatan Anggota : <select name="jabatan" class="col-md-5">
+                                Jabatan Anggota : <select name="jabatan" class="col-md-5" value="">
                                   <option value="Ketua">Ketua</option>
                                   <option value="Wakil Ketua">Wakil Ketua</option>
                                   <option value="Bendahara">Bendahara</option>
@@ -336,6 +336,7 @@
                                 <button type="submit" class="btn blue-gradient">Update</button>
                               </div>
                             </div>
+                            </form>
                           </div>
                           <!--/.Content-->
                         </div>
@@ -343,7 +344,7 @@
                         </td>
                       </tr>
                     </tbody>
-
+                    @endforeach
                   </table>
                 </div>
               </div>
@@ -400,6 +401,18 @@
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
     });
+
+    //modal
+    $('#bakorsirohmodal').on('show.bs.modal', function (event){
+      var button = $(event.relatedTarget)
+      var idkaryawan = button.data('idkaryawan')
+      var namakaryawan = button.data('namakaryawan')
+      var jabatan = button.data('jabatan')
+      var modal = $(this)
+      modal.find('.modal-body #idkaryawan').val(idkaryawan);
+      modal.find('.modal-body #namakaryawan').val(namakaryawan);
+      modal.find('.modal-body #jabatan').val(jabatan);
+    })
   </script>
 </body>
 

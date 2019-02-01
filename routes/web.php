@@ -79,6 +79,16 @@ Route::prefix('admin/keuangan')->group(function(){
 	Route::resource('/deleteprestasi', 'PrestasikeuanganController');
 });
 
+Route::prefix('admin/bakorsiroh')->group(function(){
+	Route::get('/', 'EngineeringController@index');
+	Route::post('/uploadfoto', 'BakorsirohController@store')->name('bakorsiroh');
+	Route::post('/', 'AnggotabakorsirohController@store')->name('karyawan');
+	Route::resource('/delete', 'BakorsirohController');
+	Route::resource('/deletekaryawan', 'AnggotabakorsirohController');
+	Route::post('/updatekaryawan', 'AnggotabakorsirohController@update')->name('update');
+	
+});
+
 
 Route::prefix('admin')->group(function(){
 	Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
