@@ -282,7 +282,7 @@
 
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;">
+                            <a href="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photooperation') }}/{{$foto->fotooperation}}" style="height: 120px; width: 170px;"></a>
                         </td>
                         <td>
                            <form action="{{action('OperationController@destroy', $foto['id'])}}" method="post">
@@ -306,8 +306,8 @@
                 <div class="table-responsive">
                   <table class="table">
                     <strong>Create Data Prestasi</strong><br>
-                    <br>Nama Prestasi : <input type="text" name="namaprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
-                    <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" placeholder="Masukkan nama karyawan" class="col-md-5">
+                    <br>Nama Prestasi : <input type="text" name="namaprestasi" placeholder="Masukkan nama prestasi" class="col-md-5">
+                    <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" placeholder="Masukkan nama prestasi" class="col-md-5">
                     <br><br>
                     <form action="{{ route('operation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                       {{ csrf_field() }}

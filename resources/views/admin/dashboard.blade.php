@@ -42,7 +42,6 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="active">
-              <li>
               <a href="{{ url('/admin') }}">
                 <i class="nc-icon nc-image"></i>
                 <p>Photos Intro</p>
@@ -221,7 +220,7 @@
                          <p> {{$foto->filename}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                            <a href="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
                            <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
