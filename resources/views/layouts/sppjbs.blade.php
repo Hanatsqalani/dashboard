@@ -9,31 +9,31 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="img/logo1.png" rel="icon">
-  <link href="img/logo1.png" rel="pjb-icon">
+  <link href="/assets/userdash/img/logo1.png" rel="icon">
+  <link href="/assets/userdash/img/logo1.png" rel="pjb-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 
   <!-- Bootstrap CSS File -->
-  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/modal.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/calendar.css">
+  <link href="/assets/userdash/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/assets/userdash/css/modal.css" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/userdash/css/calendar.css">
 
   <!-- Libraries CSS Files -->
-  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <link href="lib/animate/animate.min.css" rel="stylesheet">
-  <link href="lib/venobox/venobox.css" rel="stylesheet">
-  <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="/assets/userdash/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/assets/userdash/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="/assets/userdash/lib/venobox/venobox.css" rel="stylesheet">
+  <link href="/assets/userdash/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
   <!-- Main Stylesheet File -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="/assets/userdash/css/style.css" rel="stylesheet">
 
   <!-- Java Script-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script type="js/calendar.js"> </script>
+  <script type="/assets/userdash/js/calendar.js"> </script>
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -452,21 +452,21 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
   <!-- JavaScript Libraries -->
-  <script src="lib/jquery/jquery.min.js"></script>
-  <script src="lib/jquery/jquery-migrate.min.js"></script>
-  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="lib/easing/easing.min.js"></script>
-  <script src="lib/superfish/hoverIntent.js"></script>
-  <script src="lib/superfish/superfish.min.js"></script>
-  <script src="lib/wow/wow.min.js"></script>
-  <script src="lib/venobox/venobox.min.js"></script>
-  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="/assets/userdash/lib/jquery/jquery.min.js"></script>
+  <script src="/assets/userdash/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="/assets/userdash/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/assets/userdash/lib/easing/easing.min.js"></script>
+  <script src="/assets/userdash/lib/superfish/hoverIntent.js"></script>
+  <script src="/assets/userdash/lib/superfish/superfish.min.js"></script>
+  <script src="/assets/userdash/lib/wow/wow.min.js"></script>
+  <script src="/assets/userdash/lib/venobox/venobox.min.js"></script>
+  <script src="/assets/userdash/lib/owlcarousel/owl.carousel.min.js"></script>
 
   <!-- Contact Form JavaScript File -->
-  <script src="contactform/contactform.js"></script>
+  <script src="/assets/userdash/contactform/contactform.js"></script>
 
   <!-- Template Main Javascript File -->
-  <script src="js/main.js"></script>
+  <script src="/assets/userdash/js/main.js"></script>
 </body>
 
 </html>
