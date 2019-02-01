@@ -38,15 +38,11 @@ class MaintenanceController extends Controller
     public function store(Request $request)
     {
         $Photomaintenance = new photomaintenance;
-        $maintenance = new Maintenance;
-        $Mainprestasi = new photomaintenance;
+        
+       
 
         $Photomaintenance->filename = $request->filename;
-        $maintenance->id_karyawan = $request->input('idkaryawan');
-        $maintenance->nama_karyawan = $request->input('namakaryawan');
-        $maintenance->jabatan = $request->input('jabatan');
-        $Mainprestasi->nama_prestasi = $request->input('namaprestasi');
-        $Mainprestasi->tahun_prestasi = $request->input('tahunprestasi');
+       
 
         if ($request->hasFile('fotomaintenance')) {
             # code...
@@ -59,11 +55,8 @@ class MaintenanceController extends Controller
             return $request;
             
         }
-        $Photomaintenance->save();
-        $maintenance->save();
-        $Mainprestasi->save();
-
-       $maintenance = Maintenance::all()->toArray();
+        $Photomaintenance->save();       
+        $maintenance = Maintenance::all()->toArray();
         $maintenance = Maintenance::all();
         $Photomaintenance = photomaintenance::all()->toArray();
         $Photomaintenance = photomaintenance::all();
@@ -72,10 +65,60 @@ class MaintenanceController extends Controller
         return view('admin/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
     }
 
-    public function destroy($id)
+    public function storekaryawan(Request $request)
+    {
+        $maintenance = new Maintenance;
+
+        $maintenance->id_karyawan = $request->input('idkaryawan');
+        $maintenance->nama_karyawan = $request->input('namakaryawan');
+        $maintenance->jabatan = $request->input('jabatan');
+
+        $maintenance->save();
+
+        $maintenance = Maintenance::all()->toArray();
+        $maintenance = Maintenance::all();
+        $Photomaintenance = photomaintenance::all()->toArray();
+        $Photomaintenance = photomaintenance::all();
+        $Mainprestasi = mainprestasi::all()->toArray();
+        $Mainprestasi = mainprestasi::all();
+        return view('admin/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
+    }
+
+    public function storeprestasi(Request $request)
+    {
+        $Mainprestasi = new photomaintenance;
+        $Mainprestasi->nama_prestasi = $request->input('namaprestasi');
+        $Mainprestasi->tahun_prestasi = $request->input('tahunprestasi');
+
+        $Mainprestasi->save();
+
+        $maintenance = Maintenance::all()->toArray();
+        $maintenance = Maintenance::all();
+        $Photomaintenance = photomaintenance::all()->toArray();
+        $Photomaintenance = photomaintenance::all();
+        $Mainprestasi = mainprestasi::all()->toArray();
+        $Mainprestasi = mainprestasi::all();
+        return view('admin/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
+    }
+
+    public function destroykaryawan($id)
     {
         $maintenance = Maintenance::find($id);
         $maintenance->delete();
+        return redirect('admin/maintenance')->with('succes', 'Photoevent has been delete');
+    }
+
+    public function destroy($id)
+    {
+        $Photomaintenance = photomaintenance::find($id);
+        $Photomaintenance->delete();
+        return redirect('admin/maintenance')->with('succes', 'Photoevent has been delete');
+    }
+
+    public function destroyprestasi($id)
+    {
+        $Mainprestasi = mainprestasi::find($id);
+        $Mainprestasi->delete();
         return redirect('admin/maintenance')->with('succes', 'Photoevent has been delete');
     }
 }

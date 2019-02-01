@@ -42,8 +42,8 @@ Route::prefix('admin/operation')->group(function(){
 Route::prefix('admin/mainteance')->group(function(){
 	Route::get('/', 'MaintenanceController@index');
 	Route::post('/uploadfoto', 'MaintenanceController@store')->name('operation');
-	Route::post('/karyawan', 'MaintenanceController@store')->name('karyawan');
-	Route::post('/prestasi', 'MaintenanceController@store')->name('prestasi');
+	Route::post('/karyawan', 'MaintenanceController@storekaryawan')->name('karyawan');
+	Route::post('/prestasi', 'MaintenanceController@storeprestasi')->name('prestasi');
 	Route::resource('/delete', 'MaintenanceController');
 	Route::resource('/deletekaryawan', 'MaintenanceController');
 	Route::resource('/deleteprestasi', 'MaintenanceController');
@@ -84,9 +84,7 @@ Route::prefix('admin')->group(function(){
 	
 
 	//MaintenanceRoute
-	Route::get('/maintenance', 'MaintenanceController@index');
-	Route::post('/maintenance/create', 'MaintenanceController@store')->name('maintenance');
-
+	
 	//EngineeringRoute
 	Route::get('/engineering', 'EngineeringController@index');
 	Route::post('/engineering/create', 'EngineeringController@store')->name('engineering');
