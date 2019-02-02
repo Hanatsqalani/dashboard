@@ -40,8 +40,10 @@
           </div> -->
         </a>
       </div>
+        @if(Auth::check())
       <div class="sidebar-wrapper">
         <ul class="nav">
+          @if(Auth::user()->status==='1'){
           <li>
           <a href="{{ url('/admin') }}">
             <i class="nc-icon nc-image"></i>
@@ -139,7 +141,34 @@
           </a>
         </li>
         </ul>
+        }
+        @elseif (Auth::user()->status==='2'){
+        <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+          <a href="{{ url('/admin') }}">
+            <i class="nc-icon nc-image"></i>
+            <p>Photos Intro</p>
+          </a>
+        </li>
+        </ul> 
       </div>
+      }
+      @else{
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+          <a href="{{ url('/admin/pik') }}">
+            <i class="nc-icon nc-shop"></i>
+            <p>PIK</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    }
+    @endif
+      </div>
+      @endif
     </div>
     <div class="main-panel">
       <!-- Navbar -->
@@ -297,23 +326,25 @@
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
                            {{ csrf_field() }}
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal" data-idkaryawan="{{$dataanggota->idkaryawan}}" data-namakaryawan="{{$dataanggota->namakaryawan}}" data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal" data-idkaryawan="{{$dataanggota->id_karyawan}}" data-namakaryawan="{{$dataanggota->nama_karyawan}}" data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
                               <div class="modal fade" id="bakorsirohmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <!--Content-->
                           <div class="modal-content form-elegant">
                             <!--Header-->
-                            <form role="form" action="{{route('update')}}" enctype="multipart/form-data" method="post">
-                              {{csrf_field()}}
+                            
                             <div class="modal-header text-center">
                               <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
-                                <center><strong>Edit Event</strong></h3></center>
+                                <center><strong>Edit Anggota</strong></h3></center>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <!--Body-->
+                            <form action="{{action('AnggotabakorsirohController@update', 'id')}}">
+                                  {{method_field(('patch'))}}
+                                  {{csrf_field()}}
                             <div class="modal-body mx-4">
                               <!--Body-->
                               <div class="md-form mb-">
@@ -334,6 +365,7 @@
                               <br>
                               <div class="text-center mb-3">
                                 <button type="submit" class="btn blue-gradient">Update</button>
+                                </form>
                               </div>
                             </div>
                             </form>
@@ -401,18 +433,22 @@
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
     });
+  </script>
+    
+    <script>
+      //modal
+      $('#bakorsirohmodal').on('show.bs.modal', function (event){
+        
 
-    //modal
-    $('#bakorsirohmodal').on('show.bs.modal', function (event){
       var button = $(event.relatedTarget)
-      var idkaryawan = button.data('idkaryawan')
-      var namakaryawan = button.data('namakaryawan')
+      var id_karyawan = button.data('idkaryawan')
+      var nama_karyawan = button.data('namakaryawan')
       var jabatan = button.data('jabatan')
       var modal = $(this)
-      modal.find('.modal-body #idkaryawan').val(idkaryawan);
-      modal.find('.modal-body #namakaryawan').val(namakaryawan);
+      modal.find('.modal-body #idkaryawan').val(id_karyawan);
+      modal.find('.modal-body #namakaryawan').val(nama_karyawan);
       modal.find('.modal-body #jabatan').val(jabatan);
-    })
+    });
   </script>
 </body>
 

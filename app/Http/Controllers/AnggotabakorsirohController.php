@@ -50,20 +50,21 @@ class AnggotabakorsirohController extends Controller
         return view ('admin/bakorsiroh', compact('Anggotabakorsiroh', 'id'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $Anggotabakorsiroh = anggotabakorsiroh::find($id);
-        $this->validate(request(), [
-            'id_karyawan' => 'required',
-            'nama_karyawan' => 'required',
-            'jabatan' => 'required'
+      $Anggotabakorsiroh = \DB::table('anggotabakorsiroh')->select('id');
+      $$Anggotabakorsiroh->update(['id_karyawan' => $request->input('idkaryawan')]);
+      $Anggotabakorsiroh->update(['nama_karyawan' => $request->input('namakaryawan')]);
+      $Anggotabakorsiroh->update(['jabatan' => $request->input('jabatan')]);
+      return back()->with('success', 'Profil Berhasil Diubah');
+    }
 
-        ]);
-
-        $Anggotabakorsiroh->id_karyawan =  $request->get('idkaryawan');
-        $Anggotabakorsiroh->nama_karyawan = $request->get('namakaryawan');
-        $Anggotabakorsiroh->jabatan = $request->get('jabatan');
-        $Anggotabakorsiroh->save();
-        return redirect('admin/bakorsiroh')->with('succes', 'Anggota has been Update');
+    public function show()
+    {
+        $Bakorsiroh = bakorsiroh::all()->toArray();
+        $Bakorsiroh = bakorsiroh::all();
+        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
+        $Anggotabakorsiroh = anggotabakorsiroh::all();
+        return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }
 }

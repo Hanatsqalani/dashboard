@@ -80,12 +80,12 @@ Route::prefix('admin/keuangan')->group(function(){
 });
 
 Route::prefix('admin/bakorsiroh')->group(function(){
-	Route::get('/', 'EngineeringController@index');
+	Route::get('/', 'AnggotabakorsirohController@index');
 	Route::post('/uploadfoto', 'BakorsirohController@store')->name('bakorsiroh');
 	Route::post('/', 'AnggotabakorsirohController@store')->name('karyawan');
 	Route::resource('/delete', 'BakorsirohController');
 	Route::resource('/deletekaryawan', 'AnggotabakorsirohController');
-	Route::post('/updatekaryawan', 'AnggotabakorsirohController@update')->name('update');
+	Route::resource('/updatekaryawan', 'AnggotabakorsirohController');
 	
 });
 
