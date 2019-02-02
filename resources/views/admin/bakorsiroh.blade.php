@@ -142,7 +142,7 @@
         </li>
         </ul>
         }
-        @elseif (Auth::user()->status==='2'){
+        @elseif (Auth::user()->status==='2')
         <div class="sidebar-wrapper">
         <ul class="nav">
           <li>

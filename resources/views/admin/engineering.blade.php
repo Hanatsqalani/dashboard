@@ -39,8 +39,10 @@
           </div> -->
         </a>
       </div>
+      @if(Auth::check())
       <div class="sidebar-wrapper">
         <ul class="nav">
+          @if(Auth::user()->status==='1'){
           <li>
           <a href="{{ url('/admin') }}">
             <i class="nc-icon nc-image"></i>
@@ -138,7 +140,34 @@
           </a>
         </li>
         </ul>
+        
+        @elseif (Auth::user()->status==='2')
+        <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+          <a href="{{ url('/admin') }}">
+            <i class="nc-icon nc-image"></i>
+            <p>Photos Intro</p>
+          </a>
+        </li>
+        </ul> 
       </div>
+      
+      @else
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li>
+          <a href="{{ url('/admin/pik') }}">
+            <i class="nc-icon nc-shop"></i>
+            <p>PIK</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+    
+    @endif
+      </div>
+      @endif
     </div>
     <div class="main-panel">
       <!-- Navbar -->
