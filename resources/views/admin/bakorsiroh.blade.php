@@ -43,7 +43,7 @@
         @if(Auth::check())
       <div class="sidebar-wrapper">
         <ul class="nav">
-          @if(Auth::user()->status==='1'){
+          @if(Auth::user()->status==='1')
           <li>
           <a href="{{ url('/admin') }}">
             <i class="nc-icon nc-image"></i>
@@ -141,7 +141,7 @@
           </a>
         </li>
         </ul>
-        }
+
         @elseif (Auth::user()->status==='2')
         <div class="sidebar-wrapper">
         <ul class="nav">
@@ -151,10 +151,10 @@
             <p>Photos Intro</p>
           </a>
         </li>
-        </ul> 
+        </ul>
       </div>
-      }
-      @else{
+
+      @else
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li>
@@ -165,7 +165,7 @@
         </li>
       </ul>
     </div>
-    }
+
     @endif
       </div>
       @endif
@@ -326,14 +326,17 @@
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
                            {{ csrf_field() }}
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal" data-idkaryawan="{{$dataanggota->id_karyawan}}" data-namakaryawan="{{$dataanggota->nama_karyawan}}" data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal" data-id="{{$dataanggota->id}}"
+                                data-idkaryawan="{{$dataanggota->id_karyawan}}" data-namakaryawan="{{$dataanggota->nama_karyawan}}"
+                                data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
+                              @endforeach
                               <div class="modal fade" id="bakorsirohmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
                           <!--Content-->
                           <div class="modal-content form-elegant">
                             <!--Header-->
-                            
+
                             <div class="modal-header text-center">
                               <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
                                 <center><strong>Edit Anggota</strong></h3></center>
@@ -342,12 +345,12 @@
                               </button>
                             </div>
                             <!--Body-->
-                            <form action="{{action('AnggotabakorsirohController@update', 'id')}}">
-                                  {{method_field(('patch'))}}
+                            <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
                                   {{csrf_field()}}
                             <div class="modal-body mx-4">
                               <!--Body-->
-                              <div class="md-form mb-">
+                              <div class="md-form mb-3">
+                                <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
                                 Id Anggota
                                 <input id="idkaryawan" name="idkaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
                                 <br>
@@ -376,7 +379,6 @@
                         </td>
                       </tr>
                     </tbody>
-                    @endforeach
                   </table>
                 </div>
               </div>
@@ -434,17 +436,19 @@
       demo.initChartsPages();
     });
   </script>
-    
+
     <script>
       //modal
       $('#bakorsirohmodal').on('show.bs.modal', function (event){
-        
+
 
       var button = $(event.relatedTarget)
+      var id = button.data('id')
       var id_karyawan = button.data('idkaryawan')
       var nama_karyawan = button.data('namakaryawan')
       var jabatan = button.data('jabatan')
       var modal = $(this)
+      modal.find('.modal-body #id').val(id);
       modal.find('.modal-body #idkaryawan').val(id_karyawan);
       modal.find('.modal-body #namakaryawan').val(nama_karyawan);
       modal.find('.modal-body #jabatan').val(jabatan);

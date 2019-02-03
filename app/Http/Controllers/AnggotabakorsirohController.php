@@ -27,7 +27,7 @@ class AnggotabakorsirohController extends Controller
         $Anggotabakorsiroh = new anggotabakorsiroh;
         $Anggotabakorsiroh->id_karyawan = $request->input('idkaryawan');
         $Anggotabakorsiroh->nama_karyawan = $request->input('namakaryawan');
-        $Anggotabakorsiroh->jabatan = $request->input('jabatan');       
+        $Anggotabakorsiroh->jabatan = $request->input('jabatan');
         $Anggotabakorsiroh->save();
 
         $Bakorsiroh = bakorsiroh::all()->toArray();
@@ -52,8 +52,8 @@ class AnggotabakorsirohController extends Controller
 
     public function update(Request $request)
     {
-      $Anggotabakorsiroh = \DB::table('anggotabakorsiroh')->select('id');
-      $$Anggotabakorsiroh->update(['id_karyawan' => $request->input('idkaryawan')]);
+      $Anggotabakorsiroh = \DB::table('anggotabakorsirohs')->select('id')->where('id', $request->input('id'));
+      $Anggotabakorsiroh->update(['id_karyawan' => $request->input('idkaryawan')]);
       $Anggotabakorsiroh->update(['nama_karyawan' => $request->input('namakaryawan')]);
       $Anggotabakorsiroh->update(['jabatan' => $request->input('jabatan')]);
       return back()->with('success', 'Profil Berhasil Diubah');

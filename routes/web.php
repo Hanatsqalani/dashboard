@@ -83,10 +83,10 @@ Route::prefix('admin/bakorsiroh')->group(function(){
 	Route::get('/', 'AnggotabakorsirohController@index');
 	Route::post('/uploadfoto', 'BakorsirohController@store')->name('bakorsiroh');
 	Route::post('/', 'AnggotabakorsirohController@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'AnggotabakorsirohController@update')->name('updateanggota');
 	Route::resource('/delete', 'BakorsirohController');
 	Route::resource('/deletekaryawan', 'AnggotabakorsirohController');
-	Route::resource('/updatekaryawan', 'AnggotabakorsirohController');
-	
+
 });
 
 
