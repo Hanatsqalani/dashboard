@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $Photointro = photointro::all()->toArray();
         $Photointro = photointro::all();
-        return view('admin/photointro', compact('Photointro'));
+        return view('admin/photosintro', compact('Photointro'));
     }
 
     public function store(Request $request)
@@ -49,7 +49,7 @@ class AdminController extends Controller
         $Photointro->save();
 
         $Photointro = photointro::all();
-        return view('admin/photointro', compact('Photointro'));
+        return view('admin/photosintro', compact('Photointro'));
     }
 
     public function destroy($id)
