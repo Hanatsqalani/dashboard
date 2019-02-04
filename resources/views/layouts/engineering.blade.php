@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dashboard - PT. PJB UBJ O&M Paiton</title>
+  <title>Engineering - PT. PJB UBJ O&M Paiton</title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -30,11 +30,10 @@
   <!-- Main Stylesheet File -->
   <link href="/assets/userdash/css/style.css" rel="stylesheet">
 
-  <!-- Java Script -->
+  <!-- Java Script-->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/assets/userdash/js/chart.js"> </script>
-  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <script type="/assets/userdash/js/calendar.js"> </script>
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -49,18 +48,18 @@
   <!--==========================
     Header
   ============================-->
-  <header id="header">
+  <header id="headerelse">
     <div class="container">
 
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
+        <a href="{{ url('/') }}" class="scrollto"><img src="img/logo1.png" alt="" title=""></a>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li><a href="#intro">Home</a></li>
+          <li><a href="{{ url('/') }}">Home</a></li>
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Application
@@ -214,13 +213,13 @@
       </a>
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
         <li><a class="dropdown-item" href="{{ url('/operation') }}">Operation</a></li>
-        <li><a class="dropdown-item" href="{{ url('/maintenance') }}">Maintenance</a></li>
-        <li><a class="dropdown-item" href="{{ url('/engineering') }}">Engineering</a></li>
+        <li><a class="dropdown-item" href="{{ url('/Maintenance') }}">Maintenance</a></li>
+        <li><a class="dropdown-item" href="#">Engineering</a></li>
         <li><a class="dropdown-item" href="{{ url('/logistik') }}">Logistik</a></li>
         <li><a class="dropdown-item" href="{{ url('/keuangan') }}">Keuangan dan Administrasi</a></li>
       </ul>
     </li>
-          <li><a href="#chart">Chart</a></li>
+          <li><a href="{{ url('/#chart') }}">Chart</a></li>
           <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Organization
@@ -296,214 +295,165 @@
     </div>
   </header><!-- #header -->
 
-  <!--==========================
-    Intro Section
-  ============================-->
-  <section id="intro">
-    @foreach( $Photointro as $foto)
-  <div class="w3-content w3-section" style="max-width:1350px">
-  <img class="mySlides w3-animate-fading" src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="width:1349px; height: 613px;">
-  @endforeach
-</div>
-  </section>
-
-  <font color="WHITE"><marquee direction="left" style="background:RED";>Selamat Datang di PT. Pembangkit Jawa Bali Unit Bisnis Jasa O&M PLTU Paiton</marquee></font>
   <main id="main">
+<br>
+<div class="container">
+  <div class="section-header wow fadeInDown">
+    <h2>Documentation</h2>
+  </div>
+    <div class="owl-carousel gallery-carousel" id="gallery">
+      <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
+      <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
+      <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
+      <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
+      <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
+      <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
+      <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
+      <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+    </div>
 
-    <!--==========================
-      Chart Section
-    ============================-->
-    <section id="chart" class="wow fadeInUp">
-      <div class="container">
-        <div class="section-header">
-          <h2>Chart</h2>
-          <p>Here are the chart about unit</p>
+  <div class="section-header wow fadeIn">
+    <h2>Job description</h2>
+  </div>
+  <div class="row contact-info wow fadeIn">
+In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.
+  </div>
+  <br>
+  <div class="section-header wow fadeInLeft">
+    <h2>SDM Profile</h2>
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"><center>List Karyawan</h4>
         </div>
-
-        <div class="row">
-          <div class="col-lg-10 col-md-1 wow fadeInUp">
-                      <h2><p><center>EAF (%)</p></h2>
-                      <canvas id="line_charteaf" height="100"></canvas>
-              </div>
-              <div class="col-lg-10 col-md-1 wow fadeInLeft">
-                          <h2><p><center>NPHR (kcal/kwh)</p></h2>
-                          <canvas id="line_chartnphr" height="100"></canvas>
-                  </div>
-                  <div class="col-lg-10 col-md-1 wow fadeInDown">
-                              <h2><p><center>EFOR (%)</p></h2>
-                              <canvas id="line_chartefor" height="100"></canvas>
-                      </div>
-                      <div class="col-lg-10 col-md-1 wow fadeInRight">
-                                  <h2><p><center>PS (%)</p></h2>
-                                  <canvas id="line_chartps" height="100"></canvas>
-                          </div>
-                          <div class="col-lg-10 col-md-1 wow fadeInUp">
-                                      <h2><p><center>Biaya Pemeliharaan (Rp)</p></h2>
-                                      <canvas id="line_chartbiayapemeliharaan" height="100"></canvas>
-                              </div>
-                              <div class="col-lg-10 col-md-1 wow fadeInDown">
-                                          <h2><p><center>Biaya Investasi (Rp)</p></h2>
-                                          <canvas id="line_chartbiayainvestasi" height="100"></canvas>
-                                  </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!--==========================
-      BPP Section
-    ============================-->
-    <br>
-    <section id="bpp" class="section-with-bg wow fadeInUp">
-
-      <div class="container">
-        <div class="section-header">
-          <h2>BPP</h2>
-          <p>BPP Review</p>
-        </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                @foreach( $Bpp as $fotobpp)
-                <a href="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Bpp') }}/{{$fotobpp->fotobpp}}" alt="milestone" class="img-fluid"></a>
-                <br><br><center><h4>{{$fotobpp->keterangan}}</h4></center>
-                @endforeach
-              </div>
-            </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Id
+                </th>
+                <th>
+                  Nama
+                </th>
+                <th>
+                  Jabatan
+                </th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    1324
+                  </td>
+                  <td>
+                    Brian
+                  </td>
+                  <td>
+                    Manager
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    11241
+                  </td>
+                  <td>
+                    Paul
+                  </td>
+                  <td>
+                    Supervisor
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    11273
+                  </td>
+                  <td>
+                    Walker
+                  </td>
+                  <td>
+                    Karyawan
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-                        </div>
-          </div>
-
         </div>
       </div>
-
-    </section>
-    <br>
-
-    <!--==========================
-      Schedule Section
-    ============================-->
-    <section id="schedule" class="section-with-bg">
-      <div class="container wow fadeInUp">
-        <div class="section-header">
-          <h2>Event Schedule</h2>
-          <p>Here is the event schedule</p>
-        </div>
-
-        <ul class="nav nav-tabs" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active" href="#day-1" role="tab" data-toggle="tab">Monthly</a>
-          </li>
-        </ul>
-
-        <h3 class="sub-heading">List of Event</h3>
-
-        <div class="tab-content row justify-content-center">
-          <!-- Schdule Day 2 -->
-          <div role="tabpanel" class="col-lg-9  tab-pane fade show active" id="day-1">
-            @foreach( $event as $Event)
-            <div class="row schedule-item">
-              <div class="col-md-2"><time> {{$Event->tanggal}}<br> {{$Event->waktu}}</time>
-                <br> {{$Event->lokasi}}</div>
-              <div class="col-md-10">
-                <h4> {{$Event->tema}}</h4>
-                <p> {{$Event->detail}}</p>
-              </div>
-            </div>
-            @endforeach
-          </div>
-          <!-- End Schdule Day 2 -->
-
-        </div>
-
+    </div>
+  </div>
+  <br>
+  <div class="section-header wow fadeInRight">
+    <h2>Tata Kelola</h2>
+  </div>
+  <br>
+  <div class="section-header wow fadeInUp">
+    <h2>Kinerja Bidang</h2>
+  </div>
+  <br>
+  <div class="section-header wow fadeInDown">
+    <h2>Prestasi</h2>
+  </div>
+  <div class="col-md-12">
+    <div class="card wow fadeInDown">
+      <div class="card-header">
+        <h4 class="card-title"><center>List Karyawan</h4>
       </div>
-
-    </section>
-
-    <!--==========================
-      Photos Section
-    ============================-->
-    <br>
-    <section id="gallery" class="wow fadeInUp">
-
-      <div class="container">
-        <div class="section-header">
-          <h2>Gallery</h2>
-          <p>Documentation of the event that has been held</p>
-        </div>
-      </div>
-      <div class="owl-carousel gallery-carousel">
-        @foreach( $Photoevent as $foto)
-        <a href="{{ asset ('upload/Photoevent') }}/{{$foto->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photoevent') }}/{{$foto->filename}}" alt=""></a>
-        @endforeach
-      </div>
-
-    </section>
-
-
-    <!--==========================
-      About Section
-    ============================-->
-    <br>
-    <section id="aboutus" class="section-bg wow fadeInUp">
-
-      <div class="container">
-
-        <div class="section-header">
-          <h2>About Us</h2>
-          <center /> <img src="img/logo1.png" style="width:200px;"alt="">
-        </div>
-        <div class="row contact-info">
-          tesiting
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead class=" text-primary">
+              <th>
+                Id
+              </th>
+              <th>
+                Nama
+              </th>
+              <th>
+                Jabatan
+              </th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  1324
+                </td>
+                <td>
+                  Brian
+                </td>
+                <td>
+                  Manager
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11241
+                </td>
+                <td>
+                  Paul
+                </td>
+                <td>
+                  Supervisor
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  11273
+                </td>
+                <td>
+                  Walker
+                </td>
+                <td>
+                  Karyawan
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </section><!-- #about -->
-    <br>
-    <!--==========================
-      Contact Section
-    ============================-->
-    <section id="contact" class="section-bg wow fadeInUp">
-
-      <div class="container">
-
-        <div class="section-header">
-          <h2>Contact Us</h2>
-          <p>You can contact the helpdesk.</p>
-        </div>
-
-        <div class="row contact-info">
-
-          <div class="col-md-4">
-            <div class="contact-address">
-              <i class="ion-ios-location-outline"></i>
-              <h3>Location</h3>
-              <address>Administration Building <br>2nd Floor</address>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-phone">
-              <i class="ion-ios-telephone-outline"></i>
-              <h3>Ext</h3>
-              <p><a href="2020">2020</a></p>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="contact-email">
-              <i class="ion-ios-email-outline"></i>
-              <h3>Email</h3>
-              <p><a href="mailto:helpdesk@pjbubjom.com">helpdesk@pjbubjom.com</a></p>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section><!-- #contact -->
-
+    </div>
+  </div>
+</div>
+<br>
   </main>
 
 
@@ -584,7 +534,7 @@
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
 
-<!-- JavaScript Libraries -->
+  <!-- JavaScript Libraries -->
   <script src="/assets/userdash/lib/jquery/jquery.min.js"></script>
   <script src="/assets/userdash/lib/jquery/jquery-migrate.min.js"></script>
   <script src="/assets/userdash/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -600,18 +550,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="/assets/userdash/js/main.js"></script>
-
-  <!-- Jquery Core Js -->
-  <script src="/assets/userdash/js/jquery.min.js"></script>
-
-  <!-- Waves Effect Plugin Js -->
-  <script src="/assets/userdash/js/waves.js"></script>
-
-  <!-- Chart Plugins Js -->
-  <script src="/assets/userdash/js/Chart.bundle.js"></script>
-
-  <!-- Custom Js -->
-  <script src="/assets/userdash/js/chartjs.js"></script>
 </body>
 
 </html>

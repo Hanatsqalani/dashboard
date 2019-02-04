@@ -50,13 +50,13 @@
               </a>
               </li>
               <li>
-                <a href="{{ url('/photosintro') }}">
+                <a href="{{ url('/admin/photosintro') }}">
                 <i class="nc-icon nc-image"></i>
                 <p>Photos Intro</p>
               </a>
               </li>
               <li class="active">
-                <a href="{{ url('/createadmin') }}">
+                <a href="{{ url('/admin/createadmin') }}">
               <i class="nc-icon nc-single-02"></i>
               <p>Create Admin</p>
               </a>
@@ -415,7 +415,6 @@
     @endif
       </div>
       @endif
-    </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">

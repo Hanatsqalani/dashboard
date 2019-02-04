@@ -12,90 +12,45 @@ class PhotoIntroController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth:admin');
+    }
+
     public function index()
     {
-        return view('dashboard');
+       $Photointro = photointro::all()->toArray();
+        $Photointro = photointro::all();
+        return view('admin/photosintro', compact('Photointro'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+ public function store(Request $request)
     {
-        //
-    }
+        $Photointro = new photointro;
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $file="N";
-        if ($request->hasFile('filename')) 
-        {
-            $destination = "photointro";   
-            $filename = $request->file('photointro');
-            $filename->move($destination, $filename->getClientOriginalName());
-            $file = "Y";
+        $Photointro->filename = $request->filename;
+
+        if ($request->hasFile('filename')) {
+            # code...
+            $file = $request->file('filename');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $file->move('upload/Photointro/', $filename);
+            $Photointro->filename = $filename;
+        } else{
+            return $request;
+            $Photointro->filename = '';
         }
+        $Photointro->save();
 
-        if($file=="Y")
-        {    
-            $file = new photointro;
-            $file->filename = $file;
-            $file->save();
-            
-        }
-        return redirect('/admin');
+        $Photointro = photointro::all();
+        return view('admin/photosintro', compact('Photointro'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $Photointro = photointro::find($id);
+        $Photointro->delete();
+        return redirect('admin/photosintro')->with('succes', 'Photoevent has been delete');
     }
 }

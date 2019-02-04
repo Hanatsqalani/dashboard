@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\sppjbs;
+use App\sppjbservice;
 
 class SppjbsPortalController extends Controller
 {
@@ -14,7 +14,7 @@ class SppjbsPortalController extends Controller
      */
     public function index()
     {
-        $Sppjbs = sppjbs::all();
+        $Sppjbs = sppjbservice::all();
         return view('layouts/sppjbs', compact('Sppjbs'));
     }
 

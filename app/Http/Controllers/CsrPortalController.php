@@ -15,7 +15,7 @@ class CsrPortalController extends Controller
     public function index()
     {
         $Csr = csr::all();
-        return view('layouts/csr'), compact('Csr'));
+        return view('layouts/csr', compact('Csr'));
     }
 
     /**

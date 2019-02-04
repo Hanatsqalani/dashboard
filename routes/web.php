@@ -25,6 +25,7 @@ Route::get('/operation', 'OperationPortalController@index');
 Route::get('/pik', 'PikPortalController@index');
 Route::get('/sppjb', 'SppjbPortalController@index');
 Route::get('/sppjbs', 'SppjbsPortalController@index');
+Route::get('/engineering', 'EngineeringPortalController@index');
 
 
 Auth::routes();
@@ -60,7 +61,7 @@ Route::prefix('admin/engineering')->group(function(){
 });
 
 Route::prefix('admin/logistik')->group(function(){
-	Route::get('/', 'EngineeringController@index');
+	Route::get('/', 'LogistikController@index');
 	Route::post('/uploadfoto', 'PhotologistikController@store')->name('logistik');
 	Route::post('/karyawan', 'KaryawanlogistikController@store')->name('karyawan');
 	Route::post('/prestasi', 'PrestasilogistikController@store')->name('prestasi');
@@ -70,7 +71,7 @@ Route::prefix('admin/logistik')->group(function(){
 });
 
 Route::prefix('admin/keuangan')->group(function(){
-	Route::get('/', 'EngineeringController@index');
+	Route::get('/', 'KeuanganController@index');
 	Route::post('/uploadfoto', 'PhotokeuanganController@store')->name('keuangan');
 	Route::post('/karyawan', 'KaryawankeuanganController@store')->name('karyawan');
 	Route::post('/prestasi', 'PrestasikeuanganController@store')->name('prestasi');
@@ -140,9 +141,9 @@ Route::prefix('admin')->group(function(){
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
 	//PhotoIntroRoute
-	Route::get('/file', 'AdminController@index');
-	Route::post('/upload', 'AdminController@store')->name('upload');
-	Route::resource('/delete','AdminController');
+	Route::get('/photosintro', 'PhotoIntroController@index');
+	Route::post('/upload', 'PhotoIntroController@store')->name('upload');
+	Route::resource('/delete','PhotoIntroController');
 
 	//EventRoute
 	Route::get('/event', 'EventsController@index');

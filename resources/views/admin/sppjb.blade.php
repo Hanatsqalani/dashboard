@@ -51,13 +51,13 @@
       </a>
       </li>
       <li>
-        <a href="{{ url('/photosintro') }}">
+        <a href="{{ url('/admin/photosintro') }}">
         <i class="nc-icon nc-image"></i>
         <p>Photos Intro</p>
       </a>
       </li>
       <li>
-        <a href="{{ url('/createadmin') }}">
+        <a href="{{ url('/admin/createadmin') }}">
       <i class="nc-icon nc-single-02"></i>
       <p>Create Admin</p>
       </a>
@@ -415,7 +415,6 @@
 @endif
   </div>
   @endif
-</div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -428,7 +427,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">SP PJB</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>

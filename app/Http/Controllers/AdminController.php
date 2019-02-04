@@ -24,38 +24,8 @@ class AdminController extends Controller
      */
     public function index()
     {
-        $Photointro = photointro::all()->toArray();
-        $Photointro = photointro::all();
-        return view('admin/photosintro', compact('Photointro'));
+        return view('admin.dashboard');
     }
 
-    public function store(Request $request)
-    {
-        $Photointro = new photointro;
-
-        $Photointro->filename = $request->filename;
-
-        if ($request->hasFile('filename')) {
-            # code...
-            $file = $request->file('filename');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('upload/Photointro/', $filename);
-            $Photointro->filename = $filename;
-        } else{
-            return $request;
-            $Photointro->filename = '';
-        }
-        $Photointro->save();
-
-        $Photointro = photointro::all();
-        return view('admin/photosintro', compact('Photointro'));
-    }
-
-    public function destroy($id)
-    {
-        $Photointro = photointro::find($id);
-        $Photointro->delete();
-        return redirect('admin')->with('succes', 'Photoevent has been delete');
-    }
+    
 }
