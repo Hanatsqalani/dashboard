@@ -16,7 +16,6 @@
   <!-- CSS Files -->
   <link href="/assets/admindash/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/admindash/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
-  <link href="/assets/admindash/css/modal.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/admindash/demo/demo.css" rel="stylesheet" />
 </head>
@@ -56,7 +55,7 @@
                 <p>Photos Intro</p>
               </a>
               </li>
-              <li>
+              <li class="active">
                 <a href="{{ url('/createadmin') }}">
               <i class="nc-icon nc-single-02"></i>
               <p>Create Admin</p>
@@ -134,7 +133,7 @@
                 <p>Bakorsiroh</p>
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="{{ url('/admin/pik') }}">
                 <i class="nc-icon nc-shop"></i>
                 <p>PIK</p>
@@ -356,7 +355,7 @@
                 <p>Dashboard</p>
               </a>
             </li>
-            <li class="active">
+            <li>
               <a href="{{ url('/admin/pik') }}">
                 <i class="nc-icon nc-shop"></i>
                 <p>PIK</p>
@@ -469,164 +468,81 @@
 
 
 </div> -->
-      <div class="content">
-      <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Photos</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Nama File
-                      </th>
-                      <th>
-                        Foto
-                      </th>
-                      <th>
-                        Action
-                      </th>
-                    </thead>
-                    <tbody>
-                       @foreach( $Photointro as $foto)
-                      <tr>
-                        <td>
-                         <p> {{$foto->filename}}</p>
-                        </td>
-                        <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
-                        </td>
-                        <td>
-                           <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
-                              {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Anggota Persatuan Ibu dan Karyawati ( PIK )</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <strong>Create Data Anggota</strong><br><br>
-                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-                    Id Anggota : <input type="text" name="idanggota"  id="idAnggota" placeholder="Masukkan id anggota" class="col-md-3">
-                    <br><br>Nama Anggota : <input type="text" name="namaanggota" id="namaanggota" placeholder="Masukkan nama anggota" class="col-md-5">
-                    <br><br>Jabatan Anggota : <select name="jabatan" class="col-md-2">
-                      <option value="Ketua">Ketua</option>
-                      <option value="Wakil Ketua">Wakil Ketua</option>
-                      <option value="Bendahara">Bendahara</option>
-                      <option value="Sekertaris">Sekertaris</option>
-                      <option value="Anggota">Anggota</option>
-                    </select>
-                    <br><br>
-                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
-                    </form>
-                    <br>
-                    <thead class=" text-primary">
-                      <th>
-                        Id
-                      </th>
-                      <th>
-                        Nama
-                      </th>
-                      <th>
-                        Jabatan
-                      </th>
-                    </thead>
-                    <tbody>
-
-                      <tr>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-
-                        </td>
-                        <td>
-                          <form action="" method="post">
-                              {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                           <br>
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#bakorsirohmodal">Edit</button>
-                              <div class="modal fade" id="bakorsirohmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <!--Content-->
-                          <div class="modal-content form-elegant">
-                            <!--Header-->
-                            <div class="modal-header text-center">
-                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
-                                <center><strong>Edit Event</strong></h3></center>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <!--Body-->
-                            <div class="modal-body mx-4">
-                               <form method="POST" action="">
-                                              @csrf
-                              <!--Body-->
-                              <div class="md-form mb-">
-                                Id Anggota
-                                <input id="idanggota" name="idanggota" type="text" class="form-control col-md-5" required autofocus>
-                                <br>
-                                Nama Anggota
-                                <input id="namaanggota" name="namaanggota" type="text" class="form-control col-md-5" required autofocus>
-                                <br>
-                                Jabatan Anggota : <select name="jabatan" class="col-md-5">
-                                  <option value="Ketua">Ketua</option>
-                                  <option value="Wakil Ketua">Wakil Ketua</option>
-                                  <option value="Bendahara">Bendahara</option>
-                                  <option value="Sekertaris">Sekertaris</option>
-                                  <option value="Anggota">Anggota</option>
-                                </select>
-                              </div>
-                              <br>
-                              <div class="text-center mb-3">
-                                <button type="submit" class="btn blue-gradient">Update</button>
-                              </div>
-                            </div>
-                          </div>
-                          <!--/.Content-->
-                        </div>
-                              </div>
-                        </td>
-                      </tr>
-                    </tbody>
-
-                  </table>
-                </div>
-              </div>
-            </div>
+<div class="content">
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Admin</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Admin</strong><br><br>
+              <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              E-mail : <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-3">
+              <br><br>Nama : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
+              <br><br>Status Admin : <select name="status" class="col-md-2">
+                <option value="Super Admin">1 - Super Admin</option>
+                <option value="Admin Operation">2. Admin Operation</option>
+                <option value="Admin Keuangan">3. Admin Keuangan</option>
+                <option value="Admin 9PM">4. Admin 9PM</option>
+                <option value="Admin Maintenance">5. Admin Maintenance</option>
+                <option value="Admin Engineering">6. Admin Engineering</option>
+                <option value="Admin Logistik">7. Admin Logistik</option>
+                <option value="Admin Sekretariat">8. Admin Sekretariat</option>
+                <option value="Admin SP PJBS">9. Admin SP PJBS</option>
+                <option value="Admin SP PJB">10. Admin SP PJB</option>
+                <option value="Admin Bakorsiroh">11. Admin Bakorsiroh</option>
+                <option value="Admin PIK">12. Admin PIK</option>
+                <option value="Admin LK3">13. Admin LK3</option>
+                <option value="Admin CSR">14. Admin CSR</option>
+              </select>
+              <br><br>
+                <input type="submit" name="submitadmin" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  E-Mail
+                </th>
+                <th>
+                  Nama
+                </th>
+                <th>
+                  Status Admin
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $engineering as $datakaryawan)
+                <tr>
+                  <td>
+                    <p> {{$datakaryawan->id_karyawan}}</p>
+                  </td>
+                  <td>
+                      <p> {{$datakaryawan->nama_karyawan}}</p>
+                  </td>
+                  <td>
+                    <p> {{$datakaryawan->jabatan}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('KaryawanengineeringController@destroy', $datakaryawan['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">

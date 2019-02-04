@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         $Photointro = photointro::all()->toArray();
         $Photointro = photointro::all();
-        return view('admin/dashboard', compact('Photointro'));
+        return view('admin/photointro', compact('Photointro'));
     }
 
     public function store(Request $request)
@@ -37,7 +37,7 @@ class AdminController extends Controller
 
         if ($request->hasFile('filename')) {
             # code...
-            $file = $request->file('filename');         
+            $file = $request->file('filename');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
             $file->move('upload/Photointro/', $filename);
@@ -49,7 +49,7 @@ class AdminController extends Controller
         $Photointro->save();
 
         $Photointro = photointro::all();
-        return view('admin/dashboard', compact('Photointro'));
+        return view('admin/photointro', compact('Photointro'));
     }
 
     public function destroy($id)

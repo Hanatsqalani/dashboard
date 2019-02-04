@@ -44,128 +44,375 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           @if(Auth::user()->status==='1')
-          <li>
-          <a href="{{ url('/admin') }}">
-            <i class="nc-icon nc-image"></i>
-            <p>Photos Intro</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/chart') }}">
-            <i class="nc-icon nc-chart-bar-32"></i>
-            <p>Chart</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/bpp') }}">
-            <i class="nc-icon nc-money-coins"></i>
-            <p>BPP Milestone</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/event') }}">
-            <i class="nc-icon nc-book-bookmark"></i>
-            <p>Event</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/photosevent') }}">
-            <i class="nc-icon nc-album-2"></i>
-            <p>Photos Event</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/operation') }}">
-            <i class="nc-icon nc-settings-gear-65"></i>
-            <p>Operation</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/maintenance') }}">
-            <i class="nc-icon nc-settings"></i>
-            <p>Maintenance</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/engineering') }}">
-            <i class="nc-icon nc-laptop"></i>
-            <p>Engineering</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/logistik') }}">
-            <i class="nc-icon nc-delivery-fast"></i>
-            <p>Logistik</p>
-          </a>
-        </li>
-        <li>
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/photosintro') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Photos Intro</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/createadmin') }}">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Create Admin</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/admin/chart') }}">
+                <i class="nc-icon nc-chart-bar-32"></i>
+                <p>Chart</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/admin/bpp') }}">
+                <i class="nc-icon nc-money-coins"></i>
+                <p>BPP Milestone</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/admin/event') }}">
+                <i class="nc-icon nc-book-bookmark"></i>
+                <p>Event</p>
+              </a>
+              </li>
+              <li>
+                <a href="{{ url('/admin/photosevent') }}">
+                <i class="nc-icon nc-album-2"></i>
+                <p>Photos Event</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/operation') }}">
+                <i class="nc-icon nc-settings-gear-65"></i>
+                <p>Operation</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/maintenance') }}">
+                <i class="nc-icon nc-settings"></i>
+                <p>Maintenance</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/engineering') }}">
+                <i class="nc-icon nc-laptop"></i>
+                <p>Engineering</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/logistik') }}">
+                <i class="nc-icon nc-delivery-fast"></i>
+                <p>Logistik</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/keuangan') }}">
+                <i class="nc-icon nc-bank"></i>
+                <p>Keuangan</p>
+              </a>
+            </li>
+            <li class="active">
+              <a href="{{ url('/admin/sppjbs') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>SP PJB Service</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/sppjb') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>SP PJB</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/bakorsiroh') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>Bakorsiroh</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/pik') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>PIK</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/lk3') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>LK3</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/csr') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>CSR</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='2')
+              <div class="sidebar-wrapper">
+                <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+              </li>
+              <li>
+              <a href="{{ url('/admin/chart') }}">
+                <i class="nc-icon nc-chart-bar-32"></i>
+                <p>Chart</p>
+              </a>
+              </li>
+              <li>
+              <a href="{{ url('/admin/operation') }}">
+                <i class="nc-icon nc-settings-gear-65"></i>
+                <p>Operation</p>
+              </a>
+              </li>
+              </ul>
+              </div>
+
+          @elseif (Auth::user()->status==='3')
+            <div class="sidebar-wrapper">
+              <ul class="nav">
+            <li>
+              <a href="{{ url('/admin') }}">
+              <i class="nc-icon nc-image"></i>
+              <p>Dashboard</p>
+            </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/bpp') }}">
+                <i class="nc-icon nc-money-coins"></i>
+                <p>BPP Milestone</p>
+              </a>
+            </li>
+            <li>
           <a href="{{ url('/admin/keuangan') }}">
             <i class="nc-icon nc-bank"></i>
             <p>Keuangan</p>
           </a>
         </li>
-        <li class="active">
-          <a href="{{ url('/admin/sppjbs') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>SP PJB Service</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/sppjb') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>SP PJB</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/bakorsiroh') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>Bakorsiroh</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/pik') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>PIK</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/lk3') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>LK3</p>
-          </a>
-        </li>
-        <li>
-          <a href="{{ url('/admin/csr') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>CSR</p>
-          </a>
-        </li>
-        </ul>
-        
-        @elseif (Auth::user()->status==='2')
-        <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-          <a href="{{ url('/admin') }}">
-            <i class="nc-icon nc-image"></i>
-            <p>Photos Intro</p>
-          </a>
-        </li>
-        </ul> 
-      </div>
-      
-      @else
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li>
-          <a href="{{ url('/admin/pik') }}">
-            <i class="nc-icon nc-shop"></i>
-            <p>PIK</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-    
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='4')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+              <a href="{{ url('/admin') }}">
+              <i class="nc-icon nc-image"></i>
+              <p>Dashboard</p>
+            </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/photosevent') }}">
+                <i class="nc-icon nc-album-2"></i>
+                <p>Photos Event</p>
+              </a>
+            </li>
+            </ul>
+            </div>
+
+          @elseif (Auth::user()->status==='5')
+              <div class="sidebar-wrapper">
+              <ul class="nav">
+                <li>
+                  <a href="{{ url('/admin') }}">
+                  <i class="nc-icon nc-image"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
+              <li>
+                    <a href="{{ url('/admin/maintenance') }}">
+                      <i class="nc-icon nc-settings"></i>
+                      <p>Maintenance</p>
+                    </a>
+                  </li>
+              </ul>
+            </div>
+
+          @elseif (Auth::user()->status==='6')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/engineering') }}">
+                <i class="nc-icon nc-laptop"></i>
+                <p>Engineering</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='7')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/logistik') }}">
+                <i class="nc-icon nc-delivery-fast"></i>
+                <p>Logistik</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='8')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/event') }}">
+                <i class="nc-icon nc-book-bookmark"></i>
+                <p>Event</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='9')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li class="active">
+              <a href="{{ url('/admin/sppjbs') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>SP PJB Service</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='10')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/sppjb') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>SP PJB</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='11')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/bakorsiroh') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>Bakorsiroh</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='12')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/pik') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>PIK</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='13')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/lk3') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>LK3</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @elseif (Auth::user()->status==='14')
+            <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('/admin/csr') }}">
+                <i class="nc-icon nc-shop"></i>
+                <p>CSR</p>
+              </a>
+            </li>
+            </ul>
+          </div>
+
+          @else
+          <div class="sidebar-wrapper">
+            <ul class="nav">
+              <li>
+                <a href="{{ url('/admin') }}">
+                <i class="nc-icon nc-image"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+
     @endif
       </div>
       @endif

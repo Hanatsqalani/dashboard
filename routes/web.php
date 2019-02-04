@@ -95,6 +95,9 @@ Route::prefix('admin')->group(function(){
 	Route::post('/', 'Auth\AdminLoginController@login')->name('admin.login.submit');
 	Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
+	//Create Admin
+	Route::get('/createadmin', 'CreateAdminController@index');
+
 	//PhotoIntroRoute
 	Route::get('/file', 'AdminController@index');
 	Route::post('/upload', 'AdminController@store')->name('upload');
@@ -104,6 +107,9 @@ Route::prefix('admin')->group(function(){
 	Route::get('/event', 'EventsController@index');
 	Route::post('/event/create', 'EventsController@store')->name('create');
 	Route::resource('/event/delete', 'EventsController');
+
+	//Photointro
+	Route::get('/photointro', 'SppjbsPortalController@index');
 
 	//BakorsirohRoute
 	Route::get('/bakorsiroh', 'BakorsirohController@index');
