@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Charts extends Migration
+class CreateCharteafsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class Charts extends Migration
      */
     public function up()
     {
-        Schema::create('charts', function (Blueprint $table) {
+        Schema::create('charteafs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('EAF');
-            $table->string('NPHR');
-            $table->string('EFOR');
-            $table->string('PS');
-            $table->string('biaya_pemeliharaan');
-            $table->string('biaya_investasi');
+            $table->date('tanggal');
+            $table->string('target');
+            $table->string('realisasi');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class Charts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('charts');
+        Schema::dropIfExists('charteafs');
     }
 }

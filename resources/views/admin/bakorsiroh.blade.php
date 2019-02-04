@@ -413,8 +413,8 @@
     </ul>
   </div>
 @endif
-    </div>
     @endif
+  </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">

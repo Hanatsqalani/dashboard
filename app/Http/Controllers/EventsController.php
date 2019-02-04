@@ -52,4 +52,21 @@ class EventsController extends Controller
         return redirect('admin/event')->with('succes', 'event has been delete');
     }
 
+     public function edit($id)
+    {
+        $event = Event::find($id);
+        return view ('admin/event', compact('event', 'id'));
+    }
+
+    public function update(Request $request)
+    {
+      $event = \DB::table('events')->select('id')->where('id', $request->input('id'));
+      $event->update(['tanggal' => $request->input('tanggalevent')]);
+      $event->update(['waktu' => $request->input('waktuevent')]);
+      $event->update(['lokasi' => $request->input('tempatevent')]);
+      $event->update(['tema' => $request->input('temaevent')]);
+      $event->update(['detail' => $request->input('detailevent')]);
+      return back()->with('success', 'Profil Berhasil Diubah');
+    }
+
 }

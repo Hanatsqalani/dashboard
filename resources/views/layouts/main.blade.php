@@ -324,6 +324,7 @@
           <div class="col-lg-10 col-md-1 wow fadeInUp">
                       <h2><p><center>EAF (%)</p></h2>
                       <canvas id="line_charteaf" height="100"></canvas>
+            
               </div>
               <div class="col-lg-10 col-md-1 wow fadeInLeft">
                           <h2><p><center>NPHR (kcal/kwh)</p></h2>

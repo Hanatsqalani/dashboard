@@ -590,7 +590,7 @@
                               </button>
                             </div>
                             <!--Body-->
-                            <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
+                            <form role="form" action="{{ route('updatesppjbs')}}" enctype="multipart/form-data" method="post">
                                   {{csrf_field()}}
                             <div class="modal-body mx-4">
                               <!--Body-->

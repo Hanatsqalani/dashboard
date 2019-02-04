@@ -413,8 +413,8 @@
     </ul>
   </div>
 @endif
-    </div>
     @endif
+    </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -535,8 +535,7 @@
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
                            </form>
-                           <br>
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#eventmodal">Edit</button>
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#eventmodal" data-id="{{$Event->id}}" data-tanggalevent="{{$Event->tanggal}}" data-waktuevent="{{$Event->waktu}}" data-tempatevent="{{$Event->lokasi}}" data-temaevent="{{$Event->tema}}" data-detailevent="{{$Event->detail}}">Edit</button>
                               <div class="modal fade" id="eventmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                         aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -552,10 +551,11 @@
                             </div>
                             <!--Body-->
                             <div class="modal-body mx-4">
-                               <form method="POST" action="">
-                                              @csrf
+                               <form role="form" action="{{ route('updateevent')}}" enctype="multipart/form-data" method="post">
+                                              {{csrf_field()}}
                               <!--Body-->
                               <div class="md-form mb-">
+                                <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
                                 Tanggal
                                 <input id="tanggalevent" name="tanggalevent" type="date" class="form-control col-md-5" required autofocus>
                                 <br>
@@ -574,6 +574,7 @@
                               <br>
                               <div class="text-center mb-3">
                                 <button type="submit" class="btn blue-gradient">Update</button>
+                              </form>
                               </div>
                             </div>
                           </div>
@@ -631,6 +632,27 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
+    });
+  </script>
+  <script>
+      //modal
+      $('#eventmodal').on('show.bs.modal', function (event){
+
+
+      var button = $(event.relatedTarget)
+      var id = button.data('id')
+      var tanggal = button.data('tanggalevent')
+      var waktu = button.data('waktuevent')
+      var lokasi = button.data('tempatevent')
+      var tema = button.data('temaevent')
+      var detail = button.data('detailevent')
+      var modal = $(this)
+      modal.find('.modal-body #id').val(id);
+      modal.find('.modal-body #tanggalevent').val(tanggal);
+      modal.find('.modal-body #waktuevent').val(waktu);
+      modal.find('.modal-body #tempatevent').val(lokasi);
+      modal.find('.modal-body #temaevent').val(tema);
+      modal.find('.modal-body #detailevent').val(detail);
     });
   </script>
 </body>

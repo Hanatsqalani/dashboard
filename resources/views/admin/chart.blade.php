@@ -412,8 +412,8 @@
     </ul>
   </div>
 @endif
-    </div>
     @endif
+    </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -426,7 +426,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">Engineering</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -460,67 +460,72 @@
         </div>
       </nav>
       <!-- End Navbar -->
-      <div class="panel-header panel-header-lg">
+      <!-- <div class="panel-header panel-header-lg">
 
   <canvas id="bigDashboardChart"></canvas>
 
 
-</div>
-      <div class="content">
-      <div class="row">
-          <div class="col-md-12">
-            input
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Photos</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Nama File
-                      </th>
-                      <th>
-                        Foto
-                      </th>
-                      <th>
-                        Action
-                      </th>
-                    </thead>
-                    <tbody>
-                       @foreach( $Photointro as $foto)
-                      <tr>
-                        <td>
-                         <p> {{$foto->filename}}</p>
-                        </td>
-                        <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
-                        </td>
-                        <td>
-                           <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
-                              {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
-                </div>
-              </div>
-            </div>
+</div> -->
+<div class="content">
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart EAF</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart EAF</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggaleaf"  id="tanggaleaf" class="col-md-3">
+              <br><br>Target : <input type="text" name="targeteaf" id="targeteaf" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasieaf" id="realisasieaf" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">

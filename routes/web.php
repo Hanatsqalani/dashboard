@@ -94,7 +94,7 @@ Route::prefix('admin/pik')->group(function(){
 	Route::get('/', 'AnggotapikController@index');
 	Route::post('/uploadfoto', 'PikController@store')->name('pik');
 	Route::post('/', 'AnggotapikController@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'AnggotapikController@update')->name('updateanggota');
+	Route::post('/updatekaryawan', 'AnggotapikController@update')->name('updatepik');
 	Route::resource('/delete', 'PikController');
 	Route::resource('/deletekaryawan', 'AnggotapikController');
 });
@@ -103,7 +103,7 @@ Route::prefix('admin/lk3')->group(function(){
 	Route::get('/', 'Anggotalk3Controller@index');
 	Route::post('/uploadfoto', 'Lk3Controller@store')->name('lk3');
 	Route::post('/', 'Anggotalk3Controller@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'Anggotalk3Controller@update')->name('updateanggota');
+	Route::post('/updatekaryawan', 'Anggotalk3Controller@update')->name('updatelk3');
 	Route::resource('/delete', 'Lk3Controller');
 	Route::resource('/deletekaryawan', 'Anggotalk3Controller');
 });
@@ -112,7 +112,7 @@ Route::prefix('admin/csr')->group(function(){
 	Route::get('/', 'AnggotacsrController@index');
 	Route::post('/uploadfoto', 'CsrController@store')->name('csr');
 	Route::post('/', 'AnggotacsrController@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'AnggotacsrController@update')->name('updateanggota');
+	Route::post('/updatekaryawan', 'AnggotacsrController@update')->name('updatecsr');
 	Route::resource('/delete', 'CsrController');
 	Route::resource('/deletekaryawan', 'AnggotacsrController');
 });
@@ -121,7 +121,7 @@ Route::prefix('admin/sppjb')->group(function(){
 	Route::get('/', 'AnggotasppjbController@index');
 	Route::post('/uploadfoto', 'SppjbController@store')->name('sppjb');
 	Route::post('/', 'AnggotasppjbController@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'AnggotasppjbController@update')->name('updateanggota');
+	Route::post('/updatekaryawan', 'AnggotasppjbController@update')->name('updatesppjb');
 	Route::resource('/delete', 'SppjbController');
 	Route::resource('/deletekaryawan', 'AnggotasppjbController');
 });
@@ -130,9 +130,15 @@ Route::prefix('admin/sppjbs')->group(function(){
 	Route::get('/', 'AnggotasppjbsController@index');
 	Route::post('/uploadfoto', 'SppjbsController@store')->name('sppjbs');
 	Route::post('/', 'AnggotasppjbsController@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'AnggotasppjbsController@update')->name('updateanggota');
+	Route::post('/updatekaryawan', 'AnggotasppjbsController@update')->name('updatesppjbs');
 	Route::resource('/delete', 'SppjbsController');
 	Route::resource('/deletekaryawan', 'AnggotasppjbsController');
+});
+
+Route::prefix('admin/chart')->group(function(){
+	Route::get('/', 'CharteafController@index');
+	Route::post('/createeaf', 'CharteafController@store')->name('charteaf');
+	Route::resource('/deleteeaf', 'CharteafController');
 });
 
 Route::prefix('admin')->group(function(){
@@ -149,11 +155,7 @@ Route::prefix('admin')->group(function(){
 	Route::get('/event', 'EventsController@index');
 	Route::post('/event/create', 'EventsController@store')->name('create');
 	Route::resource('/event/delete', 'EventsController');
-
-	//BakorsirohRoute
-	Route::get('/bakorsiroh', 'BakorsirohController@index');
-	Route::post('/bakorsiroh/upload', 'BakorsirohController@store')->name('bakorsiroh');
-	Route::resource('/bakorsiroh/delete', 'BakorsirohController');
+	Route::post('/updateevent', 'EventsController@update')->name('updateevent');
 
 	//BPPRoute
 	Route::get('/bpp', 'BppController@index');
