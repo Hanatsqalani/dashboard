@@ -16,6 +16,7 @@
   <!-- CSS Files -->
   <link href="/assets/admindash/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/admindash/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <link href="/assets/admindash/css/modal.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/admindash/demo/demo.css" rel="stylesheet" />
 </head>
@@ -39,7 +40,7 @@
           </div> -->
         </a>
       </div>
-      @if(Auth::check())
+        @if(Auth::check())
       <div class="sidebar-wrapper">
         <ul class="nav">
           @if(Auth::user()->status==='1')
@@ -115,7 +116,7 @@
             <p>SP PJB</p>
           </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{ url('/admin/bakorsiroh') }}">
             <i class="nc-icon nc-shop"></i>
             <p>Bakorsiroh</p>
@@ -127,7 +128,7 @@
             <p>PIK</p>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="{{ url('/admin/lk3') }}">
             <i class="nc-icon nc-shop"></i>
             <p>LK3</p>
@@ -140,7 +141,7 @@
           </a>
         </li>
         </ul>
-        
+
         @elseif (Auth::user()->status==='2')
         <div class="sidebar-wrapper">
         <ul class="nav">
@@ -150,9 +151,9 @@
             <p>Photos Intro</p>
           </a>
         </li>
-        </ul> 
+        </ul>
       </div>
-      
+
       @else
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -164,7 +165,7 @@
         </li>
       </ul>
     </div>
-    
+
     @endif
       </div>
       @endif
@@ -200,7 +201,7 @@
                   </p>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                  <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -243,16 +244,16 @@
                       </th>
                     </thead>
                     <tbody>
-                       @foreach( $Photointro as $foto)
+                       @foreach($Lk3 as $fotolk3)
                       <tr>
                         <td>
-                         <p> {{$foto->filename}}</p>
+                         <p> {{$fotolk3->filename}}</p>
                         </td>
                         <td>
-                            <img src="{{ asset ('upload/Photointro') }}/{{$foto->filename}}" style="height: 120px; width: 170px;">
+                            <img src="{{ asset ('upload/Lk3') }}/{{$fotolk3->filename}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-                           <form action="{{action('AdminController@destroy', $foto['id'])}}" method="post">
+                              <form action="{{action('Lk3Controller@destroy', $fotolk3['id'])}}" method="post">
                               {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -263,12 +264,123 @@
                     @endforeach
                   </table>
                   <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('upload')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                  <form action="{{ route('lk3')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitphotointro" class="btn btn-info" value="Upload">
+                  <input type="submit" name="submitfotobakorsiroh" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Anggota LK3</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <strong>Create Data Anggota</strong><br><br>
+                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                    Id Anggota : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id anggota" class="col-md-3">
+                    <br><br>Nama Anggota : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama anggota" class="col-md-5">
+                    <br><br>Jabatan Anggota : <select name="jabatan" class="col-md-2">
+                      <option value="Ketua">Ketua</option>
+                      <option value="Wakil Ketua">Wakil Ketua</option>
+                      <option value="Bendahara">Bendahara</option>
+                      <option value="Sekertaris">Sekertaris</option>
+                      <option value="Anggota">Anggota</option>
+                    </select>
+                    <br><br>
+                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
+                    </form>
+                    <br>
+                    <thead class=" text-primary">
+                      <th>
+                        Id
+                      </th>
+                      <th>
+                        Nama
+                      </th>
+                      <th>
+                        Jabatan
+                      </th>
+                    </thead>
+                    <tbody>
+                      @foreach( $anggotalk3 as $dataanggota)
+                      <tr>
+                        <td>
+                          <p> {{$dataanggota->id_karyawan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$dataanggota->nama_karyawan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$dataanggota->jabatan}}</p>
+                        </td>
+                        <td>
+                          <form action="{{action('Anggotalk3Controller@destroy', $dataanggota['id'])}}" method="post">
+                        {{ csrf_field() }}
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                           {{ csrf_field() }}
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#lk3modal" data-id="{{$dataanggota->id}}"
+                                data-idkaryawan="{{$dataanggota->id_karyawan}}" data-namakaryawan="{{$dataanggota->nama_karyawan}}"
+                                data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
+                              @endforeach
+                              <div class="modal fade" id="lk3modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <!--Content-->
+                          <div class="modal-content form-elegant">
+                            <!--Header-->
+
+                            <div class="modal-header text-center">
+                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                                <center><strong>Edit Anggota</strong></h3></center>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <!--Body-->
+                            <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
+                                  {{csrf_field()}}
+                            <div class="modal-body mx-4">
+                              <!--Body-->
+                              <div class="md-form mb-3">
+                                <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
+                                Id Anggota
+                                <input id="idkaryawan" name="idkaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
+                                <br>
+                                Nama Anggota
+                                <input id="namakaryawan" name="namakaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
+                                <br>
+                                Jabatan Anggota : <select name="jabatan" class="col-md-5" value="">
+                                  <option value="">------------</option>
+                                  <option value="Ketua">Ketua</option>
+                                  <option value="Wakil Ketua">Wakil Ketua</option>
+                                  <option value="Bendahara">Bendahara</option>
+                                  <option value="Sekertaris">Sekertaris</option>
+                                  <option value="Anggota">Anggota</option>
+                                </select>
+                              </div>
+                              <br>
+                              <div class="text-center mb-3">
+                                <button type="submit" class="btn blue-gradient">Update</button>
+                                </form>
+                              </div>
+                            </div>
+                            </form>
+                          </div>
+                          <!--/.Content-->
+                        </div>
+                              </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
@@ -323,6 +435,24 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
+    });
+  </script>
+
+    <script>
+      //modal
+      $('#lk3modal').on('show.bs.modal', function (event){
+
+
+      var button = $(event.relatedTarget)
+      var id = button.data('id')
+      var id_karyawan = button.data('idkaryawan')
+      var nama_karyawan = button.data('namakaryawan')
+      var jabatan = button.data('jabatan')
+      var modal = $(this)
+      modal.find('.modal-body #id').val(id);
+      modal.find('.modal-body #idkaryawan').val(id_karyawan);
+      modal.find('.modal-body #namakaryawan').val(nama_karyawan);
+      modal.find('.modal-body #jabatan').val(jabatan);
     });
   </script>
 </body>

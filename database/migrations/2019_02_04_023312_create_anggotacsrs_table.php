@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdminsTable extends Migration
+class CreateAnggotacsrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAdminsTable extends Migration
      */
     public function up()
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('anggotacsrs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email',191)->unique();
-            $table->string('password');
-            $table->string('status');
-            $table->rememberToken();
+             $table->string('id_karyawan');
+            $table->string('nama_karyawan');
+            $table->string('jabatan');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateAdminsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('anggotacsrs');
     }
 }

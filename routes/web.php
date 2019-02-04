@@ -89,6 +89,50 @@ Route::prefix('admin/bakorsiroh')->group(function(){
 
 });
 
+Route::prefix('admin/pik')->group(function(){
+	Route::get('/', 'AnggotapikController@index');
+	Route::post('/uploadfoto', 'PikController@store')->name('pik');
+	Route::post('/', 'AnggotapikController@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'AnggotapikController@update')->name('updateanggota');
+	Route::resource('/delete', 'PikController');
+	Route::resource('/deletekaryawan', 'AnggotapikController');
+});
+
+Route::prefix('admin/lk3')->group(function(){
+	Route::get('/', 'Anggotalk3Controller@index');
+	Route::post('/uploadfoto', 'Lk3Controller@store')->name('lk3');
+	Route::post('/', 'Anggotalk3Controller@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'Anggotalk3Controller@update')->name('updateanggota');
+	Route::resource('/delete', 'Lk3Controller');
+	Route::resource('/deletekaryawan', 'Anggotalk3Controller');
+});
+
+Route::prefix('admin/csr')->group(function(){
+	Route::get('/', 'AnggotacsrController@index');
+	Route::post('/uploadfoto', 'CsrController@store')->name('csr');
+	Route::post('/', 'AnggotacsrController@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'AnggotacsrController@update')->name('updateanggota');
+	Route::resource('/delete', 'CsrController');
+	Route::resource('/deletekaryawan', 'AnggotacsrController');
+});
+
+Route::prefix('admin/sppjb')->group(function(){
+	Route::get('/', 'AnggotasppjbController@index');
+	Route::post('/uploadfoto', 'SppjbController@store')->name('sppjb');
+	Route::post('/', 'AnggotasppjbController@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'AnggotasppjbController@update')->name('updateanggota');
+	Route::resource('/delete', 'SppjbController');
+	Route::resource('/deletekaryawan', 'AnggotasppjbController');
+});
+
+Route::prefix('admin/sppjbs')->group(function(){
+	Route::get('/', 'AnggotasppjbsController@index');
+	Route::post('/uploadfoto', 'SppjbsController@store')->name('sppjbs');
+	Route::post('/', 'AnggotasppjbsController@store')->name('karyawan');
+	Route::post('/updatekaryawan', 'AnggotasppjbsController@update')->name('updateanggota');
+	Route::resource('/delete', 'SppjbsController');
+	Route::resource('/deletekaryawan', 'AnggotasppjbsController');
+});
 
 Route::prefix('admin')->group(function(){
 	Route::get('/', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');

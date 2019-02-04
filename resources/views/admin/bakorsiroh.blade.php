@@ -358,6 +358,7 @@
                                 <input id="namakaryawan" name="namakaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
                                 <br>
                                 Jabatan Anggota : <select name="jabatan" class="col-md-5" value="">
+                                  <option value="">------------</option>
                                   <option value="Ketua">Ketua</option>
                                   <option value="Wakil Ketua">Wakil Ketua</option>
                                   <option value="Bendahara">Bendahara</option>
