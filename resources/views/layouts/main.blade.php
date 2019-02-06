@@ -324,24 +324,29 @@
           <div class="col-lg-10 col-md-1 wow fadeInUp">
                       <h2><p><center>EAF (%)</p></h2>
                       <canvas id="line_charteaf" height="100"></canvas>
-            
+
               </div>
+              <br>
               <div class="col-lg-10 col-md-1 wow fadeInLeft">
                           <h2><p><center>NPHR (kcal/kwh)</p></h2>
                           <canvas id="line_chartnphr" height="100"></canvas>
                   </div>
+                  <br>
                   <div class="col-lg-10 col-md-1 wow fadeInDown">
                               <h2><p><center>EFOR (%)</p></h2>
                               <canvas id="line_chartefor" height="100"></canvas>
                       </div>
+                      <br>
                       <div class="col-lg-10 col-md-1 wow fadeInRight">
                                   <h2><p><center>PS (%)</p></h2>
                                   <canvas id="line_chartps" height="100"></canvas>
                           </div>
+                          <br>
                           <div class="col-lg-10 col-md-1 wow fadeInUp">
                                       <h2><p><center>Biaya Pemeliharaan (Rp)</p></h2>
                                       <canvas id="line_chartbiayapemeliharaan" height="100"></canvas>
                               </div>
+                              <br>
                               <div class="col-lg-10 col-md-1 wow fadeInDown">
                                           <h2><p><center>Biaya Investasi (Rp)</p></h2>
                                           <canvas id="line_chartbiayainvestasi" height="100"></canvas>
@@ -581,6 +586,14 @@
         <br>Modified by Bernaz & Hasbi
       </div>
     </div>
+
+    <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $tanggaleaf     = mysqli_query($koneksi, "SELECT tanggal from charteafs");
+    $realisasieaf     = mysqli_query($koneksi, "SELECT realisasi from charteafs");
+    $targeteaf     = mysqli_query($koneksi, "SELECT target from charteafs");
+     ?>
+
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
@@ -613,6 +626,49 @@
 
   <!-- Custom Js -->
   <script src="/assets/userdash/js/chartjs.js"></script>
+  <script>
+  $(function () {
+      new Chart(document.getElementById("line_charteaf").getContext("2d"), getChartJs('line'));
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggaleaf)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targeteaf)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasieaf)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+
+  </script>
 </body>
 
 </html>

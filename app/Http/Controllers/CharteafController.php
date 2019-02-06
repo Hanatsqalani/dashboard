@@ -24,8 +24,8 @@ class CharteafController extends Controller
      */
     public function index()
     {
-        $Charteaf = charteaf::all()->toArray();
-        $Charteaf = charteaf::all();
+      $Charteaf = charteaf::all()->toArray();
+        $Charteaf = charteaf::orderBy('id', 'DESC')->get();
         return view('admin/chart', compact('Charteaf'));
     }
 
@@ -40,7 +40,7 @@ class CharteafController extends Controller
 
          $Charteaf = charteaf::all();
         return view('admin/chart', compact('Charteaf'));
-      
+
     }
 
     public function destroy($id)

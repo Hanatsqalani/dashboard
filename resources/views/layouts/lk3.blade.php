@@ -306,9 +306,9 @@
         <div class="row wow fadeInRight">
 
           <img src="img/123.png" alt="pjb" style="width:300px; height:250px;" align="left">
-          <p-else>Nama Kegiatan : Mengkoding - Koding Portal
-          <br>Lokasi : Ruang XXXXXX
-          <br>Jam : 123123123
+          <p-else><h2><strong>Mengkoding - Koding Portal</h2></strong>
+          <h1>Ruang XXXXXX</h1>
+          Jam : 123123123
           </p>
         </div>
 <br>
