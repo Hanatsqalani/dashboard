@@ -40,9 +40,9 @@
         </a>
       </div>
       @if(Auth::check())
-    <div class="sidebar-wrapper">
+      <div class="sidebar-wrapper">
       <ul class="nav">
-@if(Auth::user()->status==='1')
+        @if(Auth::user()->status==='1')
         <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
@@ -151,12 +151,8 @@
           <p>CSR</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='2')
-        <div class="sidebar-wrapper">
-          <ul class="nav">
+      @elseif (Auth::user()->status==='2')
         <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
@@ -175,13 +171,9 @@
           <p>Operation</p>
         </a>
         </li>
-        </ul>
-        </div>
 
-    @elseif (Auth::user()->status==='3')
-      <div class="sidebar-wrapper">
-        <ul class="nav">
-      <li class="active">
+        @elseif (Auth::user()->status==='3')
+        <li class="active">
         <a href="{{ url('/admin') }}">
         <i class="nc-icon nc-image"></i>
         <p>Dashboard</p>
@@ -193,19 +185,15 @@
           <p>BPP Milestone</p>
         </a>
       </li>
-<li>
+      <li>
         <a href="{{ url('/admin/keuangan') }}">
           <i class="nc-icon nc-bank"></i>
           <p>Keuangan</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='4')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+      @elseif (Auth::user()->status==='4')
+      <li class="active">
         <a href="{{ url('/admin') }}">
         <i class="nc-icon nc-image"></i>
         <p>Dashboard</p>
@@ -217,13 +205,9 @@
           <p>Photos Event</p>
         </a>
       </li>
-      </ul>
-      </div>
 
-    @elseif (Auth::user()->status==='5')
-        <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="active">
+      @elseif (Auth::user()->status==='5')
+      <li class="active">
             <a href="{{ url('/admin') }}">
             <i class="nc-icon nc-image"></i>
             <p>Dashboard</p>
@@ -235,48 +219,36 @@
                 <p>Maintenance</p>
               </a>
             </li>
-        </ul>
-      </div>
 
-    @elseif (Auth::user()->status==='6')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
+      @elseif (Auth::user()->status==='6')
         <li class="active">
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <li>
-        <a href="{{ url('/admin/engineering') }}">
-          <i class="nc-icon nc-laptop"></i>
-          <p>Engineering</p>
-        </a>
-      </li>
-      </ul>
-    </div>
+            <i class="nc-icon nc-image"></i>
+              <p>Dashboard</p>
+            </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/engineering') }}">
+            <i class="nc-icon nc-laptop"></i>
+              <p>Engineering</p>
+          </a>
+        </li>
 
-    @elseif (Auth::user()->status==='7')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
+        @elseif (Auth::user()->status==='7')
         <li class="active">
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <li>
-        <a href="{{ url('/admin/logistik') }}">
-          <i class="nc-icon nc-delivery-fast"></i>
-          <p>Logistik</p>
-        </a>
-      </li>
-      </ul>
-    </div>
+            <i class="nc-icon nc-image"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/logistik') }}">
+            <i class="nc-icon nc-delivery-fast"></i>
+            <p>Logistik</p>
+          </a>
+        </li>
 
-    @elseif (Auth::user()->status==='8')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
+        @elseif (Auth::user()->status==='8')
         <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
@@ -289,31 +261,23 @@
           <p>Event</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='9')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
+      @elseif (Auth::user()->status==='9')
         <li class="active">
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
-          <p>Dashboard</p>
+            <i class="nc-icon nc-image"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/sppjbs') }}">
+            <i class="nc-icon nc-shop"></i>
+            <p>SP PJB Service</p>
         </a>
-      </li>
-      <li>
-        <a href="{{ url('/admin/sppjbs') }}">
-          <i class="nc-icon nc-shop"></i>
-          <p>SP PJB Service</p>
-        </a>
-      </li>
-      </ul>
-    </div>
+        </li>
 
-    @elseif (Auth::user()->status==='10')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+      @elseif (Auth::user()->status==='10')
+      <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -325,31 +289,23 @@
           <p>SP PJB</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='11')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+      @elseif (Auth::user()->status==='11')
+      <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
         </a>
       </li>
       <li>
-        <a href="{{ url('/admin/bakorsiroh') }}">
-          <i class="nc-icon nc-shop"></i>
-          <p>Bakorsiroh</p>
-        </a>
-      </li>
-      </ul>
-    </div>
+       <a href="{{ url('/admin/bakorsiroh') }}">
+         <i class="nc-icon nc-shop"></i>
+         <p>Bakorsiroh</p>
+       </a>
+     </li>
 
-    @elseif (Auth::user()->status==='12')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+     @elseif (Auth::user()->status==='12')
+     <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -361,13 +317,9 @@
           <p>PIK</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='13')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+      @elseif (Auth::user()->status==='13')
+      <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -379,13 +331,9 @@
           <p>LK3</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @elseif (Auth::user()->status==='14')
-      <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="active">
+      @elseif (Auth::user()->status==='14')
+      <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -397,23 +345,20 @@
           <p>CSR</p>
         </a>
       </li>
-      </ul>
-    </div>
 
-    @else
-    <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li>
+      @else
+        <li class="active">
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
         </a>
       </li>
-    </ul>
-  </div>
-@endif
-    @endif
-    </div>
+      </ul>
+      </div>
+      @endif
+      @endif
+      </div>
+      </div>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
