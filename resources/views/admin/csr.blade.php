@@ -241,15 +241,15 @@
               </div>
               <div class="card-body">
                 <strong>Upload Photo</strong><br><br>
-                  <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                  <form action="{{ route('csr')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   Nama Kegiatan &nbsp&nbsp&nbsp&nbsp :
-                  <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Kegiatan" class="col-md-4">
+                  <input type="text" name="namakegiatan" id="namakegiatan" placeholder="Masukkan Nama Kegiatan" class="col-md-4">
                   <br><br>Lokasi Kegiatan &nbsp&nbsp&nbsp&nbsp :
-                  <input type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Kegiatan" class="col-md-4">
+                  <input type="text" name="lokasikegiatan" id="lokasikegiatan" placeholder="Masukkan Lokasi Kegiatan" class="col-md-4">
                   <br><br>Tanggal Kegiatan &nbsp :
-                  <input type="date" name="tanggal" id="tanggal" placeholder="Masukkan Tanggal Kegiatan" class="col-md-4">
-                  <br><input type="file" name="fotobpp" accept="image/jpeg" class="btn btn-danger">
+                  <input type="date" name="tanggalkegiatan" id="tanggalkegiatan" placeholder="Masukkan Tanggal Kegiatan" class="col-md-4">
+                  <br><input type="file" name="fotocsr" accept="image/jpeg" class="btn btn-danger">
                   <input type="submit" name="submitfotocsr" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
@@ -273,22 +273,22 @@
                       </th>
                     </thead>
                     <tbody>
-
+                      @foreach($Csr as $csr)
                       <tr>
                         <td>
-                          <img src="" style="height: 120px; width: 170px;">
+                          <img src="{{ asset ('upload/Csr/') }}/{{$csr->fotocsr}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-
+                          <p>{{$csr->namakegiatan}}</p>
                         </td>
                         <td>
-
+                          <p>{{$csr->lokasikegiatan}}</p>
                         </td>
                         <td>
-
+                          <p>{{$csr->tanggalkegiatan}}</p>
                         </td>
                         <td>
-                          <form action="" method="post">
+                          <form action="{{action('CsrController@destroy', $csr['id'])}}" method="post">
                           {{ csrf_field() }}
                           <input name="_method" type="hidden" value="DELETE">
                           <button class="btn btn-danger" type="submit">Delete</button>
@@ -296,7 +296,7 @@
                         </td>
                       </tr>
                     </tbody>
-
+                    @endforeach
                   </table>
                 </div>
               </div>
@@ -362,14 +362,14 @@
 
       var button = $(event.relatedTarget)
       var id = button.data('id')
-      var id_karyawan = button.data('idkaryawan')
-      var nama_karyawan = button.data('namakaryawan')
-      var jabatan = button.data('jabatan')
+      var namakegiatan = button.data('namakegiatan')
+      var lokasikegiatan = button.data('lokasikegiatan')
+      var tanggalkegiatan = button.data('tanggalkegiatan')
       var modal = $(this)
       modal.find('.modal-body #id').val(id);
-      modal.find('.modal-body #idkaryawan').val(id_karyawan);
-      modal.find('.modal-body #namakaryawan').val(nama_karyawan);
-      modal.find('.modal-body #jabatan').val(jabatan);
+      modal.find('.modal-body #idkaryawan').val(namakegiatan);
+      modal.find('.modal-body #namakaryawan').val(lokasikegiatan);
+      modal.find('.modal-body #jabatan').val(tanggalkegiatan);
     });
   </script>
 </body>

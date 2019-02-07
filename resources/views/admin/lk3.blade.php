@@ -242,15 +242,15 @@
               </div>
               <div class="card-body">
                 <strong>Upload Photo</strong><br><br>
-                  <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                  <form action="{{ route('lk3')}}" method="post" class="form-horizontal" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   Nama Kegiatan &nbsp&nbsp&nbsp&nbsp :
-                  <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Kegiatan" class="col-md-4">
+                  <input type="text" name="namakegiatan" id="namakegiatan" placeholder="Masukkan Nama Kegiatan" class="col-md-4">
                   <br><br>Lokasi Kegiatan &nbsp&nbsp&nbsp&nbsp :
-                  <input type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Kegiatan" class="col-md-4">
+                  <input type="text" name="lokasikegiatan" id="lokasikegiatan" placeholder="Masukkan Lokasi Kegiatan" class="col-md-4">
                   <br><br>Tanggal Kegiatan &nbsp :
-                  <input type="date" name="tanggal" id="tanggal" placeholder="Masukkan Tanggal Kegiatan" class="col-md-4">
-                  <br><input type="file" name="fotobpp" accept="image/jpeg" class="btn btn-danger">
+                  <input type="date" name="tanggalkegiatan" id="tanggalkegiatan" placeholder="Masukkan Tanggal Kegiatan" class="col-md-4">
+                  <br><input type="file" name="fotolk3" accept="image/jpeg" class="btn btn-danger">
                   <input type="submit" name="submitfotolk3" class="btn btn-info" value="Upload">
                   Max. Size : 8 Mb
                 </form>
@@ -264,7 +264,7 @@
                        Nama Kegiatan
                       </th>
                       <th>
-                        Lokasi
+                        Lokasi 
                       </th>
                       <th>
                         Tanggal
@@ -274,22 +274,22 @@
                       </th>
                     </thead>
                     <tbody>
-
+                      @foreach($Lk3 as $lk3)
                       <tr>
                         <td>
-                          <img src="" style="height: 120px; width: 170px;">
+                          <img src="{{ asset ('upload/Lk3/') }}/{{$lk3->fotolk3}}" style="height: 120px; width: 170px;">
                         </td>
                         <td>
-
+                          <p>{{$lk3->namakegiatan}}</p>
                         </td>
                         <td>
-
+                          <p>{{$lk3->lokasikegiatan}}</p>
                         </td>
                         <td>
-
+                          <p>{{$lk3->tanggalkegiatan}}</p>
                         </td>
                         <td>
-                          <form action="" method="post">
+                          <form action="{{action('Lk3Controller@destroy', $lk3['id'])}}" method="post">
                           {{ csrf_field() }}
                           <input name="_method" type="hidden" value="DELETE">
                           <button class="btn btn-danger" type="submit">Delete</button>
@@ -297,7 +297,7 @@
                         </td>
                       </tr>
                     </tbody>
-
+                    @endforeach
                   </table>
                 </div>
               </div>

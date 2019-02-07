@@ -290,7 +290,7 @@
           <div class="table-responsive">
             <table class="table">
               <strong>Create Data Karyawan</strong><br><br>
-              <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+              <form action="{{ route('karyawanmaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
               Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
               <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
@@ -348,7 +348,7 @@
           <div class="table-responsive">
             <table class="table">
               <strong>Create Data Prestasi</strong><br>
-              <form action="{{ route('prestasi')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+              <form action="{{ route('prestasimaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
               <br>Nama Prestasi : <input type="text" name="namaprestasi" id="namaprestasi" placeholder="Masukkan nama prestasi" class="col-md-5">
               <br><br>Tahun Prestasi : <input type="text" name="tahunprestasi" id="tahunprestasi" placeholder="Masukkan tahun prestasi" class="col-md-5">

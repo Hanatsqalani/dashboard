@@ -33,8 +33,8 @@ Auth::routes();
 Route::prefix('admin/operation')->group(function(){
 	Route::get('/', 'OperationController@index');
 	Route::post('/uploadfoto', 'PhotooperationController@store')->name('operation');
-	Route::post('/karyawan', 'KaryawanoperationController@store')->name('karyawan');
-	Route::post('/prestasi', 'PrestasioperationController@store')->name('prestasi');
+	Route::post('/karyawan', 'KaryawanoperationController@store')->name('karyawanoperation');
+	Route::post('/prestasi', 'PrestasioperationController@store')->name('prestasioperation');
 	Route::resource('/delete', 'PhotooperationController');
 	Route::resource('/deletekaryawan', 'KaryawanoperationController');
 	Route::resource('/deleteprestasi', 'PrestasioperationController');
@@ -43,8 +43,8 @@ Route::prefix('admin/operation')->group(function(){
 Route::prefix('admin/maintenance')->group(function(){
 	Route::get('/', 'MaintenanceController@index');
 	Route::post('/uploadfoto', 'PhotomaintenanceController@store')->name('maintenance');
-	Route::post('/karyawan', 'KaryawanmaintenanceController@store')->name('karyawan');
-	Route::post('/prestasi', 'PrestasimaintenanceController@store')->name('prestasi');
+	Route::post('/karyawan', 'KaryawanmaintenanceController@store')->name('karyawanmaintenance');
+	Route::post('/prestasi', 'PrestasimaintenanceController@store')->name('prestasimaintenance');
 	Route::resource('/delete', 'PhotomaintenanceController');
 	Route::resource('/deletekaryawan', 'KaryawanmaintenanceController');
 	Route::resource('/deleteprestasi', 'PrestasimaintenanceController');
@@ -53,8 +53,8 @@ Route::prefix('admin/maintenance')->group(function(){
 Route::prefix('admin/engineering')->group(function(){
 	Route::get('/', 'EngineeringController@index');
 	Route::post('/uploadfoto', 'PhotoengineeringController@store')->name('engineering');
-	Route::post('/karyawan', 'KaryawanengineeringController@store')->name('karyawan');
-	Route::post('/prestasi', 'PrestasiengineeringController@store')->name('prestasi');
+	Route::post('/karyawan', 'KaryawanengineeringController@store')->name('karyawanengineering');
+	Route::post('/prestasi', 'PrestasiengineeringController@store')->name('prestasiengineering');
 	Route::resource('/delete', 'PhotoengineeringController');
 	Route::resource('/deletekaryawan', 'KaryawanengineeringController');
 	Route::resource('/deleteprestasi', 'PrestasiengineeringController');
@@ -63,8 +63,8 @@ Route::prefix('admin/engineering')->group(function(){
 Route::prefix('admin/logistik')->group(function(){
 	Route::get('/', 'LogistikController@index');
 	Route::post('/uploadfoto', 'PhotologistikController@store')->name('logistik');
-	Route::post('/karyawan', 'KaryawanlogistikController@store')->name('karyawan');
-	Route::post('/prestasi', 'PrestasilogistikController@store')->name('prestasi');
+	Route::post('/karyawan', 'KaryawanlogistikController@store')->name('karyawanlogistik');
+	Route::post('/prestasi', 'PrestasilogistikController@store')->name('prestasilogistik');
 	Route::resource('/delete', 'PhotologistikController');
 	Route::resource('/deletekaryawan', 'KaryawanlogistikController');
 	Route::resource('/deleteprestasi', 'PrestasilogistikController');
@@ -73,8 +73,8 @@ Route::prefix('admin/logistik')->group(function(){
 Route::prefix('admin/keuangan')->group(function(){
 	Route::get('/', 'KeuanganController@index');
 	Route::post('/uploadfoto', 'PhotokeuanganController@store')->name('keuangan');
-	Route::post('/karyawan', 'KaryawankeuanganController@store')->name('karyawan');
-	Route::post('/prestasi', 'PrestasikeuanganController@store')->name('prestasi');
+	Route::post('/karyawan', 'KaryawankeuanganController@store')->name('karyawankeuangan');
+	Route::post('/prestasi', 'PrestasikeuanganController@store')->name('prestasikeuangan');
 	Route::resource('/delete', 'PhotokeuanganController');
 	Route::resource('/deletekaryawan', 'KaryawankeuanganController');
 	Route::resource('/deleteprestasi', 'PrestasikeuanganController');
@@ -93,34 +93,28 @@ Route::prefix('admin/bakorsiroh')->group(function(){
 Route::prefix('admin/pik')->group(function(){
 	Route::get('/', 'AnggotapikController@index');
 	Route::post('/uploadfoto', 'PikController@store')->name('pik');
-	Route::post('/', 'AnggotapikController@store')->name('karyawan');
+	Route::post('/', 'AnggotapikController@store')->name('karyawanpik');
 	Route::post('/updatekaryawan', 'AnggotapikController@update')->name('updatepik');
 	Route::resource('/delete', 'PikController');
 	Route::resource('/deletekaryawan', 'AnggotapikController');
 });
 
 Route::prefix('admin/lk3')->group(function(){
-	Route::get('/', 'Anggotalk3Controller@index');
-	Route::post('/uploadfoto', 'Lk3Controller@store')->name('lk3');
-	Route::post('/', 'Anggotalk3Controller@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'Anggotalk3Controller@update')->name('updatelk3');
+	Route::get('/', 'Lk3Controller@index');
+	Route::post('/create', 'Lk3Controller@store')->name('lk3');
 	Route::resource('/delete', 'Lk3Controller');
-	Route::resource('/deletekaryawan', 'Anggotalk3Controller');
 });
 
 Route::prefix('admin/csr')->group(function(){
-	Route::get('/', 'AnggotacsrController@index');
-	Route::post('/uploadfoto', 'CsrController@store')->name('csr');
-	Route::post('/', 'AnggotacsrController@store')->name('karyawan');
-	Route::post('/updatekaryawan', 'AnggotacsrController@update')->name('updatecsr');
+	Route::get('/', 'CsrController@index');
+	Route::post('/create', 'CsrController@store')->name('csr');
 	Route::resource('/delete', 'CsrController');
-	Route::resource('/deletekaryawan', 'AnggotacsrController');
 });
 
 Route::prefix('admin/sppjb')->group(function(){
 	Route::get('/', 'AnggotasppjbController@index');
 	Route::post('/uploadfoto', 'SppjbController@store')->name('sppjb');
-	Route::post('/', 'AnggotasppjbController@store')->name('karyawan');
+	Route::post('/', 'AnggotasppjbController@store')->name('karyawansppjb');
 	Route::post('/updatekaryawan', 'AnggotasppjbController@update')->name('updatesppjb');
 	Route::resource('/delete', 'SppjbController');
 	Route::resource('/deletekaryawan', 'AnggotasppjbController');
@@ -129,16 +123,26 @@ Route::prefix('admin/sppjb')->group(function(){
 Route::prefix('admin/sppjbs')->group(function(){
 	Route::get('/', 'AnggotasppjbsController@index');
 	Route::post('/uploadfoto', 'SppjbsController@store')->name('sppjbs');
-	Route::post('/', 'AnggotasppjbsController@store')->name('karyawan');
+	Route::post('/', 'AnggotasppjbsController@store')->name('karyawansppjbs');
 	Route::post('/updatekaryawan', 'AnggotasppjbsController@update')->name('updatesppjbs');
 	Route::resource('/delete', 'SppjbsController');
 	Route::resource('/deletekaryawan', 'AnggotasppjbsController');
 });
 
 Route::prefix('admin/chart')->group(function(){
-	Route::get('/', 'CharteafController@index');
-	Route::post('/createeaf', 'CharteafController@store')->name('charteaf');
+	Route::get('/', 'ChartController@index');
+	Route::post('/storeeaf', 'CharteafController@store')->name('charteaf');
+	Route::post('/storenphr', 'ChartnphrController@store')->name('chartnphr');
+	Route::post('/storeefor', 'CharteforController@store')->name('chartefor');
+	Route::post('/storeps', 'ChartpsController@store')->name('chartps');
+	Route::post('/storepemeliharaan', 'ChartpemeliharaanController@store')->name('chartpemeliharaan');
+	Route::post('/storeinvestasi', 'ChartinvestasiController@store')->name('chartinvestasi');
 	Route::resource('/deleteeaf', 'CharteafController');
+	Route::resource('/deletenphr', 'ChartnphrController');
+	Route::resource('/deleteefor', 'CharteforController');
+	Route::resource('/deleteps', 'ChartpsController');
+	Route::resource('/deletepemeliharaan', 'ChartpemeliharaanController');
+	Route::resource('/deleteinvestasi', 'ChartinvestasiController');
 });
 
 Route::prefix('admin')->group(function(){
@@ -168,6 +172,6 @@ Route::prefix('admin')->group(function(){
 	Route::resource('/photosevent/delete', 'PhotoEventController');
 
 	Route::get('/createadmin', 'CreateadminController@index');
-	Route::post('/createadmin/create', 'CreateadminController@store')->name('createadmin');
+	Route::post('/createadmin', 'CreateadminController@store')->name('createadmin');
 	Route::resource('/createadmin/delete', 'CreateadminController');
 });
