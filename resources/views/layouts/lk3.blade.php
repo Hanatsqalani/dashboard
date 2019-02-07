@@ -304,19 +304,17 @@
             <h2>Dokumentasi Kegiatan LK3</h2>
         </div>
         </div>
+          @foreach($Lk3 as $lk3)
+          <div class="borderfoto">
         <div class="row wow fadeInRight">
-          <img src="img/123.png" alt="pjb" style="width:300px; height:250px;" align="left">
-          <p-else><h2><strong><span id="typed5"></h2></strong></p>
+          <img src="{{ asset ('upload/Lk3/') }}/{{$lk3->fotolk3}}" style="width:300px; height:250px;">
+          <p-else><h2><strong>{{$lk3->namakegiatan}}</h2></strong>
+            <h3><strong>{{$lk3->lokasikegiatan}}</h3></strong>
+            <h4><strong>{{$lk3->tanggalkegiatan}}</h4></strong></p-else>
+        </div>
         </div>
 <br>
-        <div class="row wow fadeInLeft">
-            <img src="img/intro-bg1.jpg" alt="pjb" style="width:300px; height:250px;" align="right">
-            <p-else>Nama Kegiatan : Motret Unit 9
-          <br>Lokasi : PLTU Paiton Unit 9
-          <br>Jam : gtw
-          </p>
-        </div>
-        </div>
+          @endforeach
 <br>
   </main>
 
@@ -394,6 +392,10 @@
         <br>Modified by Bernaz & Hasbi
       </div>
     </div>
+    <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $nama     = mysqli_query($koneksi, "SELECT * from lk3s");
+    ?>
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
@@ -414,17 +416,6 @@
 
   <!-- Template Main Javascript File -->
   <script src="/assets/userdash/js/main.js"></script>
-  <script>
-  var typed5 = new Typed('#typed5', {
-    strings: ['Mengkoding - Koding Portal', 'Ruang XXXX', '14:30'],
-    typeSpeed: 7,
-    backSpeed: 0,
-    cursorChar: '|',
-    shuffle: true,
-    smartBackspace: false,
-    loop: true
-  });
-  </script>
 </body>
 
 </html>
