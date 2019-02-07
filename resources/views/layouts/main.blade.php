@@ -595,31 +595,15 @@
     $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
     $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
     $targetnphr     = mysqli_query($koneksi, "SELECT target from chartnphrs");
-     ?>
-
-     <?php
-    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
     $tanggalefor     = mysqli_query($koneksi, "SELECT tanggal from chartefos");
     $realisasiefor     = mysqli_query($koneksi, "SELECT realisasi from chartefors");
     $targetefor     = mysqli_query($koneksi, "SELECT target from chartefors");
-     ?>
-
-     <?php
-    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
     $tanggalps     = mysqli_query($koneksi, "SELECT tanggal from chartps");
     $realisasips     = mysqli_query($koneksi, "SELECT realisasi from chartps");
     $targetps     = mysqli_query($koneksi, "SELECT target from chartps");
-     ?>
-
-     <?php
-    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
     $tanggalpemeliharaan     = mysqli_query($koneksi, "SELECT tanggal from chartpemeliharaans");
     $realisasipemeliharaan     = mysqli_query($koneksi, "SELECT realisasi from chartpemeliharaans");
     $targetpemeliharaan     = mysqli_query($koneksi, "SELECT target from chartpemeliharaans");
-     ?>
-
-     <?php
-    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
     $tanggalinvestasi     = mysqli_query($koneksi, "SELECT tanggal from chartinvestasis");
     $realisasiinvestasi     = mysqli_query($koneksi, "SELECT realisasi from chartinvestasis");
     $targetinvestasi     = mysqli_query($koneksi, "SELECT target from chartinvestasis");
