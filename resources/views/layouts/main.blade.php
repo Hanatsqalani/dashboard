@@ -592,10 +592,6 @@
     $tanggaleaf     = mysqli_query($koneksi, "SELECT tanggal from charteafs");
     $realisasieaf     = mysqli_query($koneksi, "SELECT realisasi from charteafs");
     $targeteaf     = mysqli_query($koneksi, "SELECT target from charteafs");
-     ?>
-
-     <?php
-    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
     $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
     $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
     $targetnphr     = mysqli_query($koneksi, "SELECT target from charteafs");
@@ -719,7 +715,7 @@
       return config;
   }
   });
-    
+
 
   </script>
 </body>
