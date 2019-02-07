@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\operation;
+use App\photooperation;
+use App\operationprestasi;
 
 class OperationPortalController extends Controller
 {
@@ -15,7 +17,9 @@ class OperationPortalController extends Controller
     public function index()
     {
         $Operation = operation::all();
-        return view('layouts/operation', compact('Operation'));
+        $Photooperation = photooperation::all();
+        $prestasi = operationprestasi::all();
+        return view('layouts/operation', compact('Operation', 'Photooperation', 'prestasi'));
     }
 
     /**

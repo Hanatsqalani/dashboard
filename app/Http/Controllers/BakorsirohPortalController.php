@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\bakorsiroh;
+use App\anggotabakorsiroh;
 
 class BakorsirohPortalController extends Controller
 {
@@ -15,7 +16,8 @@ class BakorsirohPortalController extends Controller
     public function index()
     {
         $Bakorsiroh = bakorsiroh::all();
-        return view('layouts/bakorsiroh', compact('Bakorsiroh'));
+        $Anggotabakorsiroh = anggotabakorsiroh::all();
+        return view('layouts/bakorsiroh', compact('Bakorsiroh' , 'Anggotabakorsiroh'));
     }
 
     /**

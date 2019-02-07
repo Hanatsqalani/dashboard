@@ -15,9 +15,7 @@ class AnggotabakorsirohController extends Controller
 
     public function index()
     {
-    	$Bakorsiroh = bakorsiroh::all()->toArray();
         $Bakorsiroh = bakorsiroh::all();
-        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
         $Anggotabakorsiroh = anggotabakorsiroh::all();
     	return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }
@@ -30,9 +28,7 @@ class AnggotabakorsirohController extends Controller
         $Anggotabakorsiroh->jabatan = $request->input('jabatan');
         $Anggotabakorsiroh->save();
 
-        $Bakorsiroh = bakorsiroh::all()->toArray();
         $Bakorsiroh = bakorsiroh::all();
-        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
         $Anggotabakorsiroh = anggotabakorsiroh::all();
         return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));;
     }

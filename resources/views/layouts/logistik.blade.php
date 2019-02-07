@@ -302,14 +302,10 @@
     <h2>Documentation</h2>
   </div>
     <div class="owl-carousel gallery-carousel" id="gallery">
-      <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
-      <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
-      <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
-      <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
-      <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
-      <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
-      <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
-      <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+       @foreach( $Photologistik as $foto)
+       <a href="{{ asset ('upload/Photologistik') }}/{{$foto->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Photologistik') }}/{{$foto->filename}}">
+       </a>
+    @endforeach
     </div>
 
   <div class="section-header wow fadeIn">
@@ -341,40 +337,20 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
                 </th>
               </thead>
               <tbody>
+                @foreach( $logistik as $datakaryawan)
                 <tr>
                   <td>
-                    1324
+                    {{$datakaryawan->id_karyawan}}
                   </td>
                   <td>
-                    Brian
+                    {{$datakaryawan->nama_karyawan}}
                   </td>
                   <td>
-                    Manager
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    11241
-                  </td>
-                  <td>
-                    Paul
-                  </td>
-                  <td>
-                    Supervisor
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    11273
-                  </td>
-                  <td>
-                    Walker
-                  </td>
-                  <td>
-                    Karyawan
+                    {{$datakaryawan->jabatan}}
                   </td>
                 </tr>
               </tbody>
+              @endforeach
             </table>
           </div>
         </div>
@@ -403,9 +379,6 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
           <table class="table">
             <thead class=" text-primary">
               <th>
-                Id
-              </th>
-              <th>
                 Nama
               </th>
               <th>
@@ -413,40 +386,17 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
               </th>
             </thead>
             <tbody>
-              <tr>
-                <td>
-                  1324
-                </td>
-                <td>
-                  Brian
-                </td>
-                <td>
-                  Manager
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  11241
-                </td>
-                <td>
-                  Paul
-                </td>
-                <td>
-                  Supervisor
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  11273
-                </td>
-                <td>
-                  Walker
-                </td>
-                <td>
-                  Karyawan
-                </td>
+               @foreach( $Logprestasi as $dataprestasi)
+                <tr>
+                  <td>
+                      {{$dataprestasi->nama_prestasi}}
+                  </td>
+                  <td>
+                      {{$dataprestasi->tahun_prestasi}}
+                  </td>
               </tr>
             </tbody>
+            @endforeach
           </table>
         </div>
       </div>

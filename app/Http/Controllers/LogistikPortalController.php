@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\logistik;
+use App\Logistik;
+use App\photologistik;
+use App\logprestasi;
 
 class LogistikPortalController extends Controller
 {
@@ -14,8 +16,10 @@ class LogistikPortalController extends Controller
      */
     public function index()
     {
-        $Logistik = logistik::all();
-        return view('layouts/logistik', compact('Logistik'));
+        $logistik = Logistik::all();
+        $Photologistik = photologistik::all();
+        $Logprestasi = logprestasi::all();
+        return view('layouts/logistik', compact('logistik', 'Photologistik', 'Logprestasi'));
     }
 
     /**

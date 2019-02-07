@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\keuangan;
+use App\Keuangan;
+use App\photokeuangan;
+use App\keuanganprestasi;
 
 class KeuanganPortalController extends Controller
 {
@@ -14,8 +16,10 @@ class KeuanganPortalController extends Controller
      */
     public function index()
     {
-        $Keuangan = keuangan::all();
-        return view('layouts/keuangan', compact('Keuangan'));
+        $keuangan = Keuangan::all();
+        $Photokeuangan = photokeuangan::all();
+        $Keuanganprestasi = keuanganprestasi::all();
+        return view('layouts/keuangan', compact('keuangan', 'Photokeuangan', 'Keuanganprestasi'));
     }
 
     /**

@@ -17,7 +17,9 @@ class EngineeringPortalController extends Controller
     public function index()
     {
         $engineering = Engineering::all();
-        return view('layouts/engineering', compact('engineering'));
+        $Photoengineering = photoengineering::all();
+        $Engineerprestasi = engineerprestasi::all();
+        return view('layouts/engineering', compact('engineering', 'Photoengineering', 'Engineerprestasi'));
     }
 
     /**

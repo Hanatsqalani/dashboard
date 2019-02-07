@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\maintenance;
+use App\Maintenance;
+use App\photomaintenance;
+use App\mainprestasi;
 
 class MaintenancePortalController extends Controller
 {
@@ -14,8 +16,10 @@ class MaintenancePortalController extends Controller
      */
     public function index()
     {
-        $Maintenance = maintenance::all();
-        return view('layouts/maintenance', compact('Maintenance'));
+        $maintenance = Maintenance::all();
+        $Photomaintenance = photomaintenance::all();
+        $Mainprestasi = mainprestasi::all();
+        return view('layouts/maintenance', compact('maintenance', 'Photomaintenance', 'Mainprestasi'));
     }
 
     /**
