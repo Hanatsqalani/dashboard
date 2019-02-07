@@ -34,6 +34,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="/assets/userdash/js/calendar.js"> </script>
+  <script src="/assets/userdash/js/typed.js"></script>
 
   <!-- =======================================================
     Theme Name: TheEvent
@@ -300,16 +301,12 @@
       <div class="container">
         <div class="section-header">
           <div class="wow fadeIn">
-          <h2>Dokumentasi Kegiatan LK3</h2>
+            <h2>Dokumentasi Kegiatan LK3</h2>
         </div>
         </div>
         <div class="row wow fadeInRight">
-
           <img src="img/123.png" alt="pjb" style="width:300px; height:250px;" align="left">
-          <p-else><h2><strong>Mengkoding - Koding Portal</h2></strong>
-          <h1>Ruang XXXXXX</h1>
-          Jam : 123123123
-          </p>
+          <p-else><h2><strong><span id="typed5"></h2></strong></p>
         </div>
 <br>
         <div class="row wow fadeInLeft">
@@ -417,6 +414,17 @@
 
   <!-- Template Main Javascript File -->
   <script src="/assets/userdash/js/main.js"></script>
+  <script>
+  var typed5 = new Typed('#typed5', {
+    strings: ['Mengkoding - Koding Portal', 'Ruang XXXX', '14:30'],
+    typeSpeed: 7,
+    backSpeed: 0,
+    cursorChar: '|',
+    shuffle: true,
+    smartBackspace: false,
+    loop: true
+  });
+  </script>
 </body>
 
 </html>
