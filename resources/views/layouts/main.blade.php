@@ -594,6 +594,13 @@
     $targeteaf     = mysqli_query($koneksi, "SELECT target from charteafs");
      ?>
 
+     <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
+    $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
+    $targetnphr     = mysqli_query($koneksi, "SELECT target from charteafs");
+     ?>
+
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
@@ -667,6 +674,52 @@
       return config;
   }
   });
+
+  </script>
+
+  <script>
+
+    $(function () {
+      new Chart(document.getElementById("line_chartnphr").getContext("2d"), getChartJs('line'));
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggalnphr)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targetnphr)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasinphr)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+    
 
   </script>
 </body>

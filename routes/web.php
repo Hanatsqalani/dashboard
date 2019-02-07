@@ -166,4 +166,8 @@ Route::prefix('admin')->group(function(){
 	Route::get('/photosevent', 'PhotoEventController@index');
 	Route::post('/photosevent/upload', 'PhotoEventController@store')->name('photoevent');
 	Route::resource('/photosevent/delete', 'PhotoEventController');
+
+	Route::get('/createadmin', 'CreateadminController@index');
+	Route::post('/createadmin/create', 'CreateadminController@store')->name('createadmin');
+	Route::resource('/createadmin/delete', 'CreateadminController');
 });

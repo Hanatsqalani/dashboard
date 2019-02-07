@@ -229,7 +229,7 @@
           <div class="table-responsive">
             <table class="table">
               <strong>Create Admin</strong><br><br>
-              <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+              <form action="{{ route('createadmin')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
               E-mail : <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-3">
               <br><br>Nama : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
@@ -265,19 +265,19 @@
                 </th>
               </thead>
               <tbody>
-                @foreach( $engineering as $datakaryawan)
+                @foreach( $admin as $dataadmin)
                 <tr>
                   <td>
-                    <p> {{$datakaryawan->id_karyawan}}</p>
+                    <p> {{$dataadmin->name}}</p>
                   </td>
                   <td>
-                      <p> {{$datakaryawan->nama_karyawan}}</p>
+                      <p> {{$dataadmin->email}}</p>
                   </td>
                   <td>
-                    <p> {{$datakaryawan->jabatan}}</p>
+                    <p> {{$dataadmin->status}}</p>
                   </td>
                   <td>
-                    <form action="{{action('KaryawanengineeringController@destroy', $datakaryawan['id'])}}" method="post">
+                    <form action="{{action('CreateadminController@destroy', $dataadmin['id'])}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger" type="submit">Delete</button>
