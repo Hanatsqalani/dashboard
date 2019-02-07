@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <title>PIK - PT. PJB UBJ O&M Paiton</title>
@@ -298,14 +297,9 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
     <h2>Documentation</h2>
   </div>
   <div class="owl-carousel gallery-carousel wow fadeInLeft" id="gallery">
-    <a href="img/gallery/1.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/1.jpg" alt=""></a>
-    <a href="img/gallery/2.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/2.jpg" alt=""></a>
-    <a href="img/gallery/3.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/3.jpg" alt=""></a>
-    <a href="img/gallery/4.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/4.jpg" alt=""></a>
-    <a href="img/gallery/5.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/5.jpg" alt=""></a>
-    <a href="img/gallery/6.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/6.jpg" alt=""></a>
-    <a href="img/gallery/7.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/7.jpg" alt=""></a>
-    <a href="img/gallery/8.jpg" class="venobox" data-gall="gallery-carousel"><img src="img/gallery/8.jpg" alt=""></a>
+    @foreach($Pik as $fotopik)
+    <a href="{{ asset ('upload/Pik') }}/{{$fotopik->filename}}" class="venobox" data-gall="gallery-carousel"><img src="{{ asset ('upload/Pik') }}/{{$fotopik->filename}}" alt=""></a>
+    @endforeach
   </div>
   <div class="section-header wow fadeInLeft">
     <h2>SDM Profile</h2>
