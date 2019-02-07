@@ -15,9 +15,7 @@ class BakorsirohController extends Controller
 
     public function index()
     {
-    	$Bakorsiroh = bakorsiroh::all()->toArray();
         $Bakorsiroh = bakorsiroh::all();
-        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
         $Anggotabakorsiroh = anggotabakorsiroh::all();
         return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }
@@ -41,9 +39,7 @@ class BakorsirohController extends Controller
         }
         $Bakorsiroh->save();
 
-        $Bakorsiroh = bakorsiroh::all()->toArray();
         $Bakorsiroh = bakorsiroh::all();
-        $Anggotabakorsiroh = anggotabakorsiroh::all()->toArray();
         $Anggotabakorsiroh = anggotabakorsiroh::all();
         return view('admin/bakorsiroh', compact('Bakorsiroh', 'Anggotabakorsiroh'));
     }

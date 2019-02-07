@@ -327,51 +327,31 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
           <div class="table-responsive">
             <table class="table">
               <thead class=" text-primary">
-                <th>
-                  Id Anggota
-                </th>
-                <th>
-                  Nama Anggota
-                </th>
-                <th>
-                  Jabatan Anggota
-                </th>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    1324
-                  </td>
-                  <td>
-                    Brian
-                  </td>
-                  <td>
-                    Manager
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    11241
-                  </td>
-                  <td>
-                    Paul
-                  </td>
-                  <td>
-                    Supervisor
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    11273
-                  </td>
-                  <td>
-                    Walker
-                  </td>
-                  <td>
-                    Karyawan
-                  </td>
+                      <th>
+                        Id
+                      </th>
+                      <th>
+                        Nama
+                      </th>
+                      <th>
+                        Jabatan
+                      </th>
+                    </thead>
+                    <tbody>
+                      @foreach( $Anggotabakorsiroh as $dataanggota)
+                      <tr>
+                        <td>
+                          <p> {{$dataanggota->id_karyawan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$dataanggota->nama_karyawan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$dataanggota->jabatan}}</p>
+                        </td>
                 </tr>
               </tbody>
+                @endforeach
             </table>
           </div>
         </div>

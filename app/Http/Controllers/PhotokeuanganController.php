@@ -51,7 +51,7 @@ class PhotokeuanganController extends Controller
             return $request;
             
         }
-        $photokeuangan->save();
+        $Photokeuangan->save();
 
         $keuangan = Keuangan::all()->toArray();
         $keuangan = Keuangan::all();

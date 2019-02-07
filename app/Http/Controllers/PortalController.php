@@ -24,9 +24,7 @@ class PortalController extends Controller
         $Photoevent = photoevent::all()->toArray();
         $Photoevent = photoevent::all();
         $Bpp = bpp::all();
-        $Charteaf = charteaf::all()->toArray();
-        $Charteaf = charteaf::all();
-        return view('layouts/main', compact('Photointro', 'event', 'Photoevent', 'Bpp', 'Charteaf'));
+        return view('layouts/main', compact('Photointro', 'event', 'Photoevent', 'Bpp'));
     }
 
     /**
