@@ -250,8 +250,8 @@
               <strong>Create Data Chart EAF</strong><br><br>
               <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
-              Tanggal : <input type="date" name="tanggaleaf"  id="tanggaleaf" class="col-md-3">
-              <br><br>Target : <input type="text" name="targeteaf" id="targeteaf" placeholder="Masukkan Target" class="col-md-5">
+              Tanggal &nbsp: <input type="date" name="tanggaleaf"  id="tanggaleaf" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="targeteaf" id="targeteaf" placeholder="Masukkan Target" class="col-md-5">
               <br><br>Realisasi : <input type="text" name="realisasieaf" id="realisasieaf" placeholder="Masukkan Realisasi" class="col-md-5">
               <br><br>
                 <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
@@ -262,7 +262,277 @@
                   Tanggal
                 </th>
                 <th>
-                  target
+                  Target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart NPHR</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart NPHR</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggalnphr"  id="tanggalnphr" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="$targetnphr" id="targetnphr" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasinphr" id="realisasinphr" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatachartnphr" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  Target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart EFOR</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart EFOR</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggalefor"  id="tanggalefor" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="$targetefor" id="targetefor" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasiefor" id="realisasiefor" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatachartefor" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  Target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart PS</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart PS</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggalps"  id="tanggalps" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="$targetps" id="targetps" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasips" id="realisasips" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatachartps" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  Target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart Biaya Pemeliharaan</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart Biaya Pemeliharaan</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggalbp"  id="tanggalbp" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="$targetbp" id="targetbp" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasibp" id="realisasibp" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatachartbp" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  Target
+                </th>
+                <th>
+                  Realisasi
+                </th>
+              </thead>
+              <tbody>
+                @foreach( $Charteaf as $charteaf)
+                <tr>
+                  <td>
+                    <p> {{$charteaf->tanggal}}</p>
+                  </td>
+                  <td>
+                      <p> {{$charteaf->target}}</p>
+                  </td>
+                  <td>
+                    <p> {{$charteaf->realisasi}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('CharteafController@destroy', $charteaf['id'])}}" method="post">
+                        {{ csrf_field() }}
+                        <input name="_method" type="hidden" value="DELETE">
+                        <button class="btn btn-danger" type="submit">Delete</button>
+                     </form>
+                  </td>
+                </tr>
+              </tbody>
+              @endforeach
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Data Chart Biaya Investasi</h4>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <strong>Create Data Chart Biaya Investasi</strong><br><br>
+              <form action="{{ route('charteaf')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                {{ csrf_field() }}
+              Tanggal : <input type="date" name="tanggalbi"  id="tanggalbi" class="col-md-3">
+              <br><br>Target &nbsp&nbsp&nbsp&nbsp: <input type="text" name="$targetbi" id="targetbi" placeholder="Masukkan Target" class="col-md-5">
+              <br><br>Realisasi : <input type="text" name="realisasibi" id="realisasibi" placeholder="Masukkan Realisasi" class="col-md-5">
+              <br><br>
+                <input type="submit" name="submitdatachartbi" class="btn btn-info" value="Create">
+              </form>
+              <br>
+              <thead class=" text-primary">
+                <th>
+                  Tanggal
+                </th>
+                <th>
+                  Target
                 </th>
                 <th>
                   Realisasi

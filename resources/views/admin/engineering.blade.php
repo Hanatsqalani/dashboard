@@ -294,8 +294,8 @@
               <strong>Create Data Karyawan</strong><br><br>
               <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
-              Id Karyawan : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
-              <br><br>Nama Karyawan : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
+              Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
+              <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
               <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
                 <option value="Manager">Manager</option>
                 <option value="Supervisor">Supervisor</option>

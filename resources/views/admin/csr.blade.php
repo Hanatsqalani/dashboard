@@ -237,159 +237,66 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Photos</h4>
+                <h4 class="card-title">Documentation</h4>
               </div>
               <div class="card-body">
+                <strong>Upload Photo</strong><br><br>
+                  <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                  Nama Kegiatan &nbsp&nbsp&nbsp&nbsp :
+                  <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Kegiatan" class="col-md-4">
+                  <br><br>Lokasi Kegiatan &nbsp&nbsp&nbsp&nbsp :
+                  <input type="text" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Kegiatan" class="col-md-4">
+                  <br><br>Tanggal Kegiatan &nbsp :
+                  <input type="date" name="tanggal" id="tanggal" placeholder="Masukkan Tanggal Kegiatan" class="col-md-4">
+                  <br><input type="file" name="fotobpp" accept="image/jpeg" class="btn btn-danger">
+                  <input type="submit" name="submitfotocsr" class="btn btn-info" value="Upload">
+                  Max. Size : 8 Mb
+                </form>
                 <div class="table-responsive">
                   <table class="table">
                     <thead class=" text-primary">
-                      <th>
-                        Nama File
-                      </th>
                       <th>
                         Foto
                       </th>
                       <th>
-                        Action
+                       Nama Kegiatan
+                      </th>
+                      <th>
+                        Lokasi
+                      </th>
+                      <th>
+                        Tanggal
+                      </th>
+                      <th>
+                      Action
                       </th>
                     </thead>
                     <tbody>
-                       @foreach($Csr as $fotocsr)
-                      <tr>
-                        <td>
-                         <p> {{$fotocsr->filename}}</p>
-                        </td>
-                        <td>
-                            <img src="{{ asset ('upload/Csr') }}/{{$fotocsr->filename}}" style="height: 120px; width: 170px;">
-                        </td>
-                        <td>
-                              <form action="{{action('CsrController@destroy', $fotocsr['id'])}}" method="post">
-                              {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                        </td>
-                      </tr>
-                    </tbody>
-                    @endforeach
-                  </table>
-                  <br><strong>Upload Photo</strong><br><br>
-                  <form action="{{ route('csr')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                  {{ csrf_field() }}
-                  <input type="file" name="filename" accept="image/jpeg" class="btn btn-danger">
-                  <input type="submit" name="submitfotobakorsiroh" class="btn btn-info" value="Upload">
-                  Max. Size : 8 Mb
-                </form>
-                </div>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Anggota CSR</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <strong>Create Data Anggota</strong><br><br>
-                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-                    Id Anggota : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id anggota" class="col-md-3">
-                    <br><br>Nama Anggota : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama anggota" class="col-md-5">
-                    <br><br>Jabatan Anggota : <select name="jabatan" class="col-md-2">
-                      <option value="Ketua">Ketua</option>
-                      <option value="Wakil Ketua">Wakil Ketua</option>
-                      <option value="Bendahara">Bendahara</option>
-                      <option value="Sekertaris">Sekertaris</option>
-                      <option value="Anggota">Anggota</option>
-                    </select>
-                    <br><br>
-                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
-                    </form>
-                    <br>
-                    <thead class=" text-primary">
-                      <th>
-                        Id
-                      </th>
-                      <th>
-                        Nama
-                      </th>
-                      <th>
-                        Jabatan
-                      </th>
-                    </thead>
-                    <tbody>
-                      @foreach( $anggotacsr as $dataanggota)
-                      <tr>
-                        <td>
-                          <p> {{$dataanggota->id_karyawan}}</p>
-                        </td>
-                        <td>
-                          <p> {{$dataanggota->nama_karyawan}}</p>
-                        </td>
-                        <td>
-                          <p> {{$dataanggota->jabatan}}</p>
-                        </td>
-                        <td>
-                          <form action="{{action('AnggotacsrController@destroy', $dataanggota['id'])}}" method="post">
-                        {{ csrf_field() }}
-                              <input name="_method" type="hidden" value="DELETE">
-                              <button class="btn btn-danger" type="submit">Delete</button>
-                           </form>
-                           {{ csrf_field() }}
-                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#csrmodal" data-id="{{$dataanggota->id}}"
-                                data-idkaryawan="{{$dataanggota->id_karyawan}}" data-namakaryawan="{{$dataanggota->nama_karyawan}}"
-                                data-jabatan="{{$dataanggota->jabatan}}">Edit</button>
-                              @endforeach
-                              <div class="modal fade" id="csrmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <!--Content-->
-                          <div class="modal-content form-elegant">
-                            <!--Header-->
 
-                            <div class="modal-header text-center">
-                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
-                                <center><strong>Edit Anggota</strong></h3></center>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                              </button>
-                            </div>
-                            <!--Body-->
-                            <form role="form" action="{{ route('updatecsr')}}" enctype="multipart/form-data" method="post">
-                                  {{csrf_field()}}
-                            <div class="modal-body mx-4">
-                              <!--Body-->
-                              <div class="md-form mb-3">
-                                <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
-                                Id Anggota
-                                <input id="idkaryawan" name="idkaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
-                                <br>
-                                Nama Anggota
-                                <input id="namakaryawan" name="namakaryawan" type="text" class="form-control col-md-5" value="" required autofocus>
-                                <br>
-                                Jabatan Anggota : <select name="jabatan" class="col-md-5" value="">
-                                  <option value="">------------</option>
-                                  <option value="Ketua">Ketua</option>
-                                  <option value="Wakil Ketua">Wakil Ketua</option>
-                                  <option value="Bendahara">Bendahara</option>
-                                  <option value="Sekertaris">Sekertaris</option>
-                                  <option value="Anggota">Anggota</option>
-                                </select>
-                              </div>
-                              <br>
-                              <div class="text-center mb-3">
-                                <button type="submit" class="btn blue-gradient">Update</button>
-                                </form>
-                              </div>
-                            </div>
-                            </form>
-                          </div>
-                          <!--/.Content-->
-                        </div>
-                              </div>
+                      <tr>
+                        <td>
+                          <img src="" style="height: 120px; width: 170px;">
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+
+                        </td>
+                        <td>
+                          <form action="" method="post">
+                          {{ csrf_field() }}
+                          <input name="_method" type="hidden" value="DELETE">
+                          <button class="btn btn-danger" type="submit">Delete</button>
+                       </form>
                         </td>
                       </tr>
                     </tbody>
+
                   </table>
                 </div>
               </div>

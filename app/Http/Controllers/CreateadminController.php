@@ -36,6 +36,7 @@ class CreateadminController extends Controller
         $admin->name = $request->input('nama');
         $admin->email = $request->input('email');
         $admin->status = $request->input('status');
+        $admin->password = $request->input('password');
         $admin->save();
 
          $admin = Admin::all();

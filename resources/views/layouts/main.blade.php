@@ -592,13 +592,37 @@
     $tanggaleaf     = mysqli_query($koneksi, "SELECT tanggal from charteafs");
     $realisasieaf     = mysqli_query($koneksi, "SELECT realisasi from charteafs");
     $targeteaf     = mysqli_query($koneksi, "SELECT target from charteafs");
+    $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
+    $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
+    $targetnphr     = mysqli_query($koneksi, "SELECT target from chartnphrs");
      ?>
 
      <?php
     $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
-    $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
-    $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
-    $targetnphr     = mysqli_query($koneksi, "SELECT target from charteafs");
+    $tanggalefor     = mysqli_query($koneksi, "SELECT tanggal from chartefos");
+    $realisasiefor     = mysqli_query($koneksi, "SELECT realisasi from chartefors");
+    $targetefor     = mysqli_query($koneksi, "SELECT target from chartefors");
+     ?>
+
+     <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $tanggalps     = mysqli_query($koneksi, "SELECT tanggal from chartps");
+    $realisasips     = mysqli_query($koneksi, "SELECT realisasi from chartps");
+    $targetps     = mysqli_query($koneksi, "SELECT target from chartps");
+     ?>
+
+     <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $tanggalpemeliharaan     = mysqli_query($koneksi, "SELECT tanggal from chartpemeliharaans");
+    $realisasipemeliharaan     = mysqli_query($koneksi, "SELECT realisasi from chartpemeliharaans");
+    $targetpemeliharaan     = mysqli_query($koneksi, "SELECT target from chartpemeliharaans");
+     ?>
+
+     <?php
+    $koneksi     = mysqli_connect("localhost", "root", "", "dashboardubjom");
+    $tanggalinvestasi     = mysqli_query($koneksi, "SELECT tanggal from chartinvestasis");
+    $realisasiinvestasi     = mysqli_query($koneksi, "SELECT realisasi from chartinvestasis");
+    $targetinvestasi     = mysqli_query($koneksi, "SELECT target from chartinvestasis");
      ?>
 
   </footer><!-- #footer -->
@@ -719,9 +743,183 @@
       return config;
   }
   });
+<<<<<<< HEAD
+</script>
     
+<script>
+      $(function () {
+      new Chart(document.getElementById("line_chartefor").getContext("2d"), getChartJs('line'));
+=======
 
-  </script>
+>>>>>>> 73f04931cab154ba414221652e3af0a6e44ee090
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggalefor)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targetefor)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasiefor)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+</script>
+
+<script>
+      $(function () {
+      new Chart(document.getElementById("line_chartps").getContext("2d"), getChartJs('line'));
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggalps)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targetps)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasips)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+</script>
+
+<script>
+      $(function () {
+      new Chart(document.getElementById("line_chartpemeliharaan").getContext("2d"), getChartJs('line'));
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggalpemeliharaan)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targetpemeliharaan)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasipemeliharaan)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+</script>
+
+<script>
+      $(function () {
+      new Chart(document.getElementById("line_chartinvestasi").getContext("2d"), getChartJs('line'));
+
+  function getChartJs(type) {
+      var config = null;
+
+      if (type === 'line') {
+          config = {
+              type: 'line',
+              data: {
+                  labels: [<?php while ($p = mysqli_fetch_array($tanggalinvestasi)) { echo '"' . $p['tanggal'] . '",';}?>],
+                  datasets: [
+                    {
+                      label: "Target",
+                      data: [<?php while ($p = mysqli_fetch_array($targetinvestasi)) { echo '"' . $p['target'] . '",';}?>],
+                      borderColor: 'rgba(0, 188, 212, 0.75)',
+                      backgroundColor: 'rgba(0, 188, 212, 0.3)',
+                      pointBorderColor: 'rgba(0, 188, 212, 0)',
+                      pointBackgroundColor: 'rgba(0, 188, 212, 0.9)',
+                      pointBorderWidth: 1
+                  }, {
+                          label: "Realisasi",
+                          data: [<?php while ($p = mysqli_fetch_array($realisasiinvestasi)) { echo '"' . $p['realisasi'] . '",';}?>],
+                          borderColor: 'rgba(233, 30, 99, 0.75)',
+                          backgroundColor: 'rgba(233, 30, 99, 0.3)',
+                          pointBorderColor: 'rgba(233, 30, 99, 0)',
+                          pointBackgroundColor: 'rgba(233, 30, 99, 0.9)',
+                          pointBorderWidth: 1
+                      }]
+              },
+              options: {
+                  responsive: true,
+                  legend: false
+              }
+          }
+      }
+
+      return config;
+  }
+  });
+</script>
 </body>
 
 </html>

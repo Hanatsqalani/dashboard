@@ -43,7 +43,7 @@
       <div class="sidebar-wrapper">
       <ul class="nav">
         @if(Auth::user()->status==='1')
-        <li class="active">
+        <li>
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -55,7 +55,7 @@
           <p>Photos Intro</p>
         </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
@@ -231,8 +231,9 @@
               <strong>Create Admin</strong><br><br>
               <form action="{{ route('createadmin')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
-              E-mail : <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-3">
-              <br><br>Nama : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
+              E-mail &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-5">
+              <br><br>Nama &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
+              <br><br>Password &nbsp: <input type="text" name="password" id="password" placeholder="Masukkan Password Admin" class="col-md-5">
               <br><br>Status Admin : <select name="status" class="col-md-2">
                 <option value="Super Admin">1 - Super Admin</option>
                 <option value="Admin Operation">2. Admin Operation</option>
