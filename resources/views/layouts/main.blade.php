@@ -462,8 +462,19 @@
           <h2>About Us</h2>
           <center /> <img src="img/logo1.png" style="width:200px;"alt="">
         </div>
-        <div class="row contact-info">
-          tesiting
+        <div class="wow fadeInLeft">
+          <p><center />
+          <h1><strong>Visi</h1></strong>
+          <br>Menjadi perusahaan terpercaya dalam bisnis pembangkitan terintegrasi dengan standar kelas dunia
+          </p>
+        </div>
+        <div class="wow fadeInRight">
+          <p><center />
+          <h1><strong>Misi</h1></strong>
+          <br>Memberi solusi dan nilai tambah dalam bisnis pembangkitan terintegrasi untuk menjaga kedaulatan listrik nasional
+          <br>Menjalankan bisnis pembangkitan secara berkualitas, berdaya saing dan ramah lingkungan
+          <br>Mengembangkan kompetensi dan produktivitas Human Capital untuk pertumbuhan yang berkesinambungan
+          </p>
         </div>
       </div>
     </section><!-- #about -->
@@ -523,7 +534,7 @@
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="img/logo1.png" alt="TheEvenet">
-            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+<p>PT Pembangkitan Jawa-Bali (disingkat PT PJB) adalah sebuah anak perusahaan PLN BUMN produsen listrik yang menyuplai kebutuhan listrik di Banten, DKI Jakarta, Jawa Barat, Yogyakarta, Jawa Timur dan Bali. Saat ini PT PJB mengelola 6 Pembangkit Tenaga Listrik di Pulau Jawa, dengan kapasitas total 6.511 Mega Watt.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
@@ -727,9 +738,9 @@
       return config;
   }
   });
-    
+
 </script>
-    
+
 <script>
       $(function () {
       new Chart(document.getElementById("line_chartefor").getContext("2d"), getChartJs('line'));

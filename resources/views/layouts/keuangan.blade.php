@@ -416,7 +416,7 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="img/logo1.png" alt="TheEvenet">
-            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+<p>PT Pembangkitan Jawa-Bali (disingkat PT PJB) adalah sebuah anak perusahaan PLN BUMN produsen listrik yang menyuplai kebutuhan listrik di Banten, DKI Jakarta, Jawa Barat, Yogyakarta, Jawa Timur dan Bali. Saat ini PT PJB mengelola 6 Pembangkit Tenaga Listrik di Pulau Jawa, dengan kapasitas total 6.511 Mega Watt.</p>
             </div>
 
             <div class="col-lg-3 col-md-6 footer-links">

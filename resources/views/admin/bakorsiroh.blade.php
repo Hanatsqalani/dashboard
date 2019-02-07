@@ -300,6 +300,8 @@
                       <option value="Ketua">Ketua</option>
                       <option value="Wakil Ketua">Wakil Ketua</option>
                       <option value="Bendahara">Bendahara</option>
+                      <option value="Bendahara 1">Bendahara 1</option>
+                      <option value="Bendahara 2">Bendahara 2</option>
                       <option value="Sekertaris">Sekertaris</option>
                       <option value="Anggota">Anggota</option>
                     </select>
