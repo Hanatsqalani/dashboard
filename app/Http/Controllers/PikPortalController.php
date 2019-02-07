@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\pik;
+use App\anggotapik;
 
 class PikPortalController extends Controller
 {
@@ -15,7 +16,8 @@ class PikPortalController extends Controller
     public function index()
     {
         $Pik = pik::all();
-        return view('layouts/pik', compact('Pik'));
+        $Anggotapik = anggotapik::all();
+        return view('layouts/pik', compact('Pik' , 'Anggotapik'));
     }
 
     /**

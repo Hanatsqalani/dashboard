@@ -311,13 +311,16 @@
   <div class="section-header wow fadeIn">
     <h2>Job description</h2>
   </div>
-  <div class="row contact-info wow fadeIn">
-In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.
+  <div class="row contact-info wow fadeInRight">
+<p style="text-align:center;">Mengelola kebijakan operasi meliputi kinerja operasi, pengoperasian pembangkit, penjualan energi, manajemen bahan bakar dan melakukan inovasi untuk memastikan agar  produksi tenaga listrik mencapai sasaran kontrak kinerja operasi yang ditetapkan.</p>
   </div>
   <br>
   <div class="section-header wow fadeInLeft">
     <h2>SDM Profile</h2>
   </div>
+  <div class="wow fadeInRight">
+  <p style="text-align:center;">Pada Lini Operasi, terdapat karyawan mulai dari latar belakang jenjang pendidikan SMA sampai dengan S1. Dengan adanya data dibawah ini, diharapkan lebih mengenal dengan para pegawai pada lini operasi</p>
+</div>
     <div class="col-md-12">
       <div class="card wow fadeInLeft">
         <div class="card-header">
@@ -361,6 +364,11 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
   <div class="section-header wow fadeInRight">
     <h2>Tata Kelola</h2>
   </div>
+  <div class="wow fadeInDown">
+  <center>
+  <img src="img/Tata Kelola.png" style="width:750px;"alt="">
+</center>
+</div>
   <br>
   <div class="section-header wow fadeInUp">
     <h2>Kinerja Bidang</h2>
@@ -369,6 +377,9 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
   <div class="section-header wow fadeInDown">
     <h2>Prestasi</h2>
   </div>
+  <div class="wow fadeInLeft">
+  <p style="text-align:center;">Lini bisnis memiliki beberapa prestasi yang telah diraih seperti pada tabel dibawah ini :</p>
+</div>
   <div class="col-md-12">
     <div class="card wow fadeInDown">
       <div class="card-header">
@@ -418,7 +429,7 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
 
           <div class="col-lg-3 col-md-6 footer-info">
             <img src="img/logo1.png" alt="TheEvenet">
-            <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p>
+            <p>PT Pembangkitan Jawa-Bali (disingkat PT PJB) adalah sebuah anak perusahaan PLN BUMN produsen listrik yang menyuplai kebutuhan listrik di Banten, DKI Jakarta, Jawa Barat, Yogyakarta, Jawa Timur dan Bali. Saat ini PT PJB mengelola 6 Pembangkit Tenaga Listrik di Pulau Jawa, dengan kapasitas total 6.511 Mega Watt.</p>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
