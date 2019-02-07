@@ -234,21 +234,21 @@
               E-mail &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-5">
               <br><br>Nama &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
               <br><br>Password &nbsp: <input type="text" name="password" id="password" placeholder="Masukkan Password Admin" class="col-md-5">
-              <br><br>Status Admin : <select name="status" class="col-md-2">
-                <option value="Super Admin">1 - Super Admin</option>
-                <option value="Admin Operation">2. Admin Operation</option>
-                <option value="Admin Keuangan">3. Admin Keuangan</option>
-                <option value="Admin 9PM">4. Admin 9PM</option>
-                <option value="Admin Maintenance">5. Admin Maintenance</option>
-                <option value="Admin Engineering">6. Admin Engineering</option>
-                <option value="Admin Logistik">7. Admin Logistik</option>
-                <option value="Admin Sekretariat">8. Admin Sekretariat</option>
-                <option value="Admin SP PJBS">9. Admin SP PJBS</option>
-                <option value="Admin SP PJB">10. Admin SP PJB</option>
-                <option value="Admin Bakorsiroh">11. Admin Bakorsiroh</option>
-                <option value="Admin PIK">12. Admin PIK</option>
-                <option value="Admin LK3">13. Admin LK3</option>
-                <option value="Admin CSR">14. Admin CSR</option>
+              <br><br>Tipe Admin : <select name="status" class="col-md-2">
+                <option value="1">1 - Super Admin</option>
+                <option value="2">2. Admin Operation</option>
+                <option value="3">3. Admin Keuangan</option>
+                <option value="4">4. Admin 9PM</option>
+                <option value="5">5. Admin Maintenance</option>
+                <option value="6">6. Admin Engineering</option>
+                <option value="7">7. Admin Logistik</option>
+                <option value="8">8. Admin Sekretariat</option>
+                <option value="9">9. Admin SP PJBS</option>
+                <option value="10">10. Admin SP PJB</option>
+                <option value="11">11. Admin Bakorsiroh</option>
+                <option value="12">12. Admin PIK</option>
+                <option value="13">13. Admin LK3</option>
+                <option value="14">14. Admin CSR</option>
               </select>
               <br><br>
                 <input type="submit" name="submitadmin" class="btn btn-info" value="Create">
@@ -262,17 +262,23 @@
                   Nama
                 </th>
                 <th>
-                  Status Admin
+                  Password
+                </th>
+                <th>
+                  Tipe Admin
                 </th>
               </thead>
               <tbody>
                 @foreach( $admin as $dataadmin)
                 <tr>
                   <td>
+                      <p> {{$dataadmin->email}}</p>
+                  </td>
+                  <td>
                     <p> {{$dataadmin->name}}</p>
                   </td>
                   <td>
-                      <p> {{$dataadmin->email}}</p>
+                    <p> {{$dataadmin->password}}</p>
                   </td>
                   <td>
                     <p> {{$dataadmin->status}}</p>

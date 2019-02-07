@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\charteaf;
+use App\chartefor;
+use App\chartinvestasi;
+use App\chartnphr;
 use App\chartpemeliharaan;
+use App\chartps;
 
 class ChartpemeliharaanController extends Controller
 {
@@ -24,9 +29,13 @@ class ChartpemeliharaanController extends Controller
      */
     public function index()
     {
-      $Chartpemeliharaan = chartpemeliharaan::all()->toArray();
+        $Chartps = chartps::orderBy('id', 'DESC')->get();
+        $Charteaf = charteaf::orderBy('id', 'DESC')->get();
+        $Chartinvestasi = chartinvestasi::orderBy('id', 'DESC')->get();
+        $Chartefor = chartefor::orderBy('id', 'DESC')->get();
+        $Chartnphr = chartnphr::orderBy('id', 'DESC')->get();
         $Chartpemeliharaan = chartpemeliharaan::orderBy('id', 'DESC')->get();
-        return view('admin/chart', compact('Chartpemeliharaan'));
+        return view('admin/chart', compact('Chartps' , 'Charteaf' , 'Chartinvestasi' , 'Chartefor' , 'Chartnphr' , 'Chartpemeliharaan'));
     }
 
     public function store(Request $request)
@@ -38,8 +47,13 @@ class ChartpemeliharaanController extends Controller
         $Chartpemeliharaan->realisasi = $request->input('realisasipemeliharaan');
         $Chartpemeliharaan->save();
 
-         $Chartpemeliharaan = chartpemeliharaan::all();
-        return view('admin/chart', compact('Chartpemeliharaan'));
+        $Chartps = chartps::all();
+        $Charteaf = charteaf::all();
+        $Chartinvestasi = chartinvestasi::all();
+        $Chartefor = chartefor::all();
+        $Chartnphr = chartnphr::all();
+        $Chartpemeliharaan = chartpemeliharaan::all();
+        return view('admin/chart', compact('Chartps' , 'Charteaf' , 'Chartinvestasi' , 'Chartefor' , 'Chartnphr' , 'Chartpemeliharaan'));
 
     }
 

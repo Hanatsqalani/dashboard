@@ -15,7 +15,10 @@ class CreateLk3sTable extends Migration
     {
         Schema::create('lk3s', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('filename');
+            $table->string('namakegiatan');
+            $table->string('lokasikegiatan');
+            $table->date('tanggalkegiatan');
+            $table->string('fotolk3');
             $table->timestamps();
         });
     }

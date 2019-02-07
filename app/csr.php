@@ -14,6 +14,6 @@ class csr extends Model
     ];
 
      protected $fillable = [
-        'filename',
+        'namakegiatan', 'lokasikegiatan', 'tanggalkegiatan',
     ];
 }

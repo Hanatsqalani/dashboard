@@ -595,7 +595,7 @@
     $tanggalnphr     = mysqli_query($koneksi, "SELECT tanggal from chartnphrs");
     $realisasinphr     = mysqli_query($koneksi, "SELECT realisasi from chartnphrs");
     $targetnphr     = mysqli_query($koneksi, "SELECT target from chartnphrs");
-    $tanggalefor     = mysqli_query($koneksi, "SELECT tanggal from chartefos");
+    $tanggalefor     = mysqli_query($koneksi, "SELECT tanggal from chartefors");
     $realisasiefor     = mysqli_query($koneksi, "SELECT realisasi from chartefors");
     $targetefor     = mysqli_query($koneksi, "SELECT target from chartefors");
     $tanggalps     = mysqli_query($koneksi, "SELECT tanggal from chartps");
@@ -727,15 +727,13 @@
       return config;
   }
   });
-<<<<<<< HEAD
+    
 </script>
     
 <script>
       $(function () {
       new Chart(document.getElementById("line_chartefor").getContext("2d"), getChartJs('line'));
-=======
 
->>>>>>> 73f04931cab154ba414221652e3af0a6e44ee090
 
   function getChartJs(type) {
       var config = null;
@@ -821,7 +819,7 @@
 
 <script>
       $(function () {
-      new Chart(document.getElementById("line_chartpemeliharaan").getContext("2d"), getChartJs('line'));
+      new Chart(document.getElementById("line_chartbiayapemeliharaan").getContext("2d"), getChartJs('line'));
 
   function getChartJs(type) {
       var config = null;
@@ -864,7 +862,7 @@
 
 <script>
       $(function () {
-      new Chart(document.getElementById("line_chartinvestasi").getContext("2d"), getChartJs('line'));
+      new Chart(document.getElementById("line_chartbiayainvestasi").getContext("2d"), getChartJs('line'));
 
   function getChartJs(type) {
       var config = null;

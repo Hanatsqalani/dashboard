@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\lk3;
-use App\Anggotalk3;
 
 class Lk3Controller extends Controller
 {
@@ -15,37 +14,36 @@ class Lk3Controller extends Controller
 
     public function index()
     {
-        $Lk3 = lk3::all()->toArray();
         $Lk3 = lk3::all();
-        $anggotalk3 = Anggotalk3::all()->toArray();
-        $anggotalk3 = Anggotalk3::all();
-        return view('admin/lk3', compact('Lk3', 'anggotalk3'));
+        return view('admin/lk3', compact('Lk3'));
     }
 
      public function store(Request $request)
     {
         $Lk3 = new lk3;
 
-        $Lk3->filename = $request->filename;
+        $Lk3->namakegiatan = $request->input('namakegiatan');
+        $Lk3->lokasikegiatan = $request->input('lokasikegiatan');
+        $Lk3->tanggalkegiatan = $request->input('tanggalkegiatan');
+        $Lk3->fotolk3 = $request->fotolk3;
 
-        if ($request->hasFile('filename')) {
+        if ($request->hasFile('fotolk3')) {
             # code...
-            $file = $request->file('filename');         
+            $file = $request->file('fotolk3');         
             $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('upload/Lk3/', $filename);
-            $Lk3->filename = $filename;
+            $fotolk3 = time() . '.' . $extension;
+            $file->move('upload/Lk3/', $fotolk3);
+            $Lk3->fotolk3 = $fotolk3;
         } else{
             return $request;
-            $lk3->filename = '';
+            $Csr->namakegiatan = '';
+            $Csr->lokasikegiatan = '';
+            $Csr->tanggalkegiatan = '';
         }
         $Lk3->save();
 
-        $Lk3 = lk3::all()->toArray();
         $Lk3 = lk3::all();
-        $anggotalk3 = Anggotalk3::all()->toArray();
-        $anggotalk3 = Anggotalk3::all();
-        return view('admin/lk3', compact('Lk3', 'anggotalk3'));
+        return view('admin/lk3', compact('Lk3'));
     }
 
     public function destroy($id)

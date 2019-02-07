@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\csr;
-use App\Anggotacsr;
 
 class CsrController extends Controller
 {
@@ -15,37 +14,36 @@ class CsrController extends Controller
 
     public function index()
     {
-        $Csr = csr::all()->toArray();
         $Csr = csr::all();
-        $anggotacsr = Anggotacsr::all()->toArray();
-        $anggotacsr = Anggotacsr::all();
-        return view('admin/csr', compact('Csr', 'anggotacsr'));
+        return view('admin/csr', compact('Csr'));
     }
 
      public function store(Request $request)
     {
         $Csr = new csr;
 
-        $Csr->filename = $request->filename;
+        $Csr->namakegiatan = $request->input('namakegiatan');
+        $Csr->lokasikegiatan = $request->input('lokasikegiatan');
+        $Csr->tanggalkegiatan = $request->input('tanggalkegiatan');
+        $Csr->fotocsr = $request->fotocsr;
 
-        if ($request->hasFile('filename')) {
+        if ($request->hasFile('fotocsr')) {
             # code...
-            $file = $request->file('filename');         
+            $file = $request->file('fotocsr');         
             $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $file->move('upload/Csr/', $filename);
-            $Csr->filename = $filename;
+            $fotocsr = time() . '.' . $extension;
+            $file->move('upload/Csr/', $fotocsr);
+            $Csr->fotocsr = $fotocsr;
         } else{
             return $request;
-            $Csr->filename = '';
+            $Csr->namakegiatan = '';
+            $Csr->lokasikegiatan = '';
+            $Csr->tanggalkegiatan = '';
         }
         $Csr->save();
 
-        $Csr = csr::all()->toArray();
         $Csr = csr::all();
-        $anggotacsr = Anggotacsr::all()->toArray();
-        $anggotacsr = Anggotacsr::all();
-        return view('admin/csr', compact('Csr', 'anggotacsr'));
+        return view('admin/csr', compact('Csr'));
     }
 
     public function destroy($id)

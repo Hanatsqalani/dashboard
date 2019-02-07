@@ -14,6 +14,6 @@ class lk3 extends Model
     ];
 
      protected $fillable = [
-        'filename',
+        'namakegiatan', 'lokasikegiatan', 'tanggalkegiatan',
     ];
 }

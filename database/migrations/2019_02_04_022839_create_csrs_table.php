@@ -15,7 +15,10 @@ class CreateCsrsTable extends Migration
     {
         Schema::create('csrs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('filename');
+            $table->string('namakegiatan');
+            $table->string('lokasikegiatan');
+            $table->date('tanggalkegiatan');
+            $table->string('fotobpp');
             $table->timestamps();
         });
     }

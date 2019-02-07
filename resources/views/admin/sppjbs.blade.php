@@ -291,7 +291,7 @@
                 <div class="table-responsive">
                   <table class="table">
                     <strong>Create Data Anggota</strong><br><br>
-                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{ route('karyawansppjbs')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                       {{ csrf_field() }}
                     Id Anggota : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id anggota" class="col-md-3">
                     <br><br>Nama Anggota : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama anggota" class="col-md-5">
