@@ -8,6 +8,7 @@ use App\Event;
 use App\photoevent;
 use App\bpp;
 use App\charteaf;
+use App\runningtext;
 
 class PortalController extends Controller
 {
@@ -24,7 +25,8 @@ class PortalController extends Controller
         $Photoevent = photoevent::all()->toArray();
         $Photoevent = photoevent::all();
         $Bpp = bpp::all();
-        return view('layouts/main', compact('Photointro', 'event', 'Photoevent', 'Bpp'));
+        $Runningtext = runningtext::all();
+        return view('layouts/main', compact('Photointro', 'event', 'Photoevent', 'Bpp', 'Runningtext'));
     }
 
     /**

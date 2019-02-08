@@ -242,9 +242,9 @@
                 <div class="table-responsive">
                   <table class="table">
                     <strong>Create a Text</strong><br><br>
-                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                    <form action="{{ route('runningtext')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                       {{ csrf_field() }}
-                    Text : <input type="text" name="runningtext"  id="runningtext" placeholder="Masukkan Text" class="col-md-3">
+                    Text : <input type="text" name="text"  id="text" placeholder="Masukkan Text" class="col-md-3">
                     <br><br>
                       <input type="submit" name="createdata" class="btn btn-info" value="Create">
                     </form>
@@ -264,7 +264,7 @@
                           <p> {{$runningtext->text}}</p>
                         </td>
                         <td>
-                          <form action="{{action('RunningtextController@destroy', $dataanggota['id'])}}" method="post">
+                          <form action="{{action('RunningtextController@destroy', $runningtext['id'])}}" method="post">
                         {{ csrf_field() }}
                               <input name="_method" type="hidden" value="DELETE">
                               <button class="btn btn-danger" type="submit">Delete</button>
@@ -288,14 +288,14 @@
                               </button>
                             </div>
                             <!--Body-->
-                            <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
+                            <form role="form" action="{{ route('updatetext')}}" enctype="multipart/form-data" method="post">
                                   {{csrf_field()}}
                             <div class="modal-body mx-4">
                               <!--Body-->
                               <div class="md-form mb-3">
                                 <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
                                 Text
-                                <input id="text" name="text" type="text" class="form-control col-md-5" value="" required autofocus>
+                                <input id="text" name="text" type="text" class="form-control col-md-9" value="" required autofocus>
                                 <br>
                               </div>
                               <br>

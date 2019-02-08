@@ -306,10 +306,10 @@
   @endforeach
 </div>
   </section>
-
-  <font color="WHITE"><marquee direction="left" style="background:RED";>Selamat Datang di PT. Pembangkit Jawa Bali Unit Bisnis Jasa O&M PLTU Paiton</marquee></font>
+  @foreach( $Runningtext as $runningtext)
+  <font color="WHITE"><marquee direction="left" style="background:RED";>{{$runningtext->text}}</marquee></font>
+  @endforeach
   <main id="main">
-
     <!--==========================
       Chart Section
     ============================-->

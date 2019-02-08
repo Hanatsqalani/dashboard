@@ -176,4 +176,9 @@ Route::prefix('admin')->group(function(){
 	Route::get('/createadmin', 'CreateadminController@index');
 	Route::post('/createadmin', 'CreateadminController@store')->name('createadmin');
 	Route::resource('/createadmin/delete', 'CreateadminController');
+
+	Route::get('/runningtext', 'RunningtextController@index');
+	Route::post('/runningtext', 'RunningtextController@store')->name('runningtext');
+	Route::resource('/runningtext/delete', 'RunningtextController');
+	Route::post('/updatetext', 'RunningtextController@update')->name('updatetext');
 });
