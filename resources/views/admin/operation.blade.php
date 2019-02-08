@@ -334,6 +334,7 @@
                       <option value="Supervisor Senior Coal And Ash Handling Unit C">Supervisor Senior Coal And Ash Handling Unit C</option>
                       <option value="Supervisor Senior Coal And Ash Handling Unit D">Supervisor Senior Coal And Ash Handling Unit D</option>
                     </select>
+                    <br><br>Pendidikan Terakhir &nbsp&nbsp : <input type="text" name="pendidikan" id="pendidikan" placeholder="Masukkan Pendidikan Terakhir karyawan" class="col-md-5">
                     <br><br>
                       <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
                     </form>
@@ -348,6 +349,9 @@
                       <th>
                         Jabatan
                       </th>
+                      <th>
+                        Pendidikan Terakhir
+                      </th>
                     </thead>
                     <tbody>
                       @foreach( $operation as $datakaryawan)
@@ -360,6 +364,9 @@
                         </td>
                         <td>
                           <p> {{$datakaryawan->jabatan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$datakaryawan->pendidikan}}</p>
                         </td>
                         <td>
                           <form action="{{action('KaryawanoperationController@destroy', $datakaryawan['id'])}}" method="post">
@@ -418,6 +425,56 @@
                       </tr>
                     </tbody>
                      @endforeach
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Photos Kinerja Bidang</h4>
+              </div>
+              <div class="card-body">
+                  <br><strong>Upload Photo</strong><br><br>
+                  <form action="{{ route('kboperation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                Keterangan &nbsp&nbsp&nbsp&nbsp: &nbsp<input type="text" name="keterangan" id="keterangan" class="col-md-5">
+                <br><br>
+                  <input type="file" name="fotooperation" accept="image/jpeg" class="btn btn-danger">
+                  <input type="submit" name="fotooperation" class="btn btn-info" value="Upload">
+                  Max. Size : 8 Mb
+                </form>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead class=" text-primary">
+                      <th>
+                        Keterangan
+                      </th>
+                      <th>
+                        Foto
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                    </thead>
+                    <tbody>
+                       @foreach( $Kboperation as $fotokb)
+                      <tr>
+                        <td>
+                          <p> {{$fotokb->keterangan}}</p>
+                        </td>
+                        <td>
+                            <img src="{{ asset ('upload/Kboperation') }}/{{$fotokb->fotooperation}}" style="height: 120px; width: 170px;">
+                        </td>
+                        <td>
+                           <form action="{{action('KboperationController@destroy', $fotokb['id'])}}" method="post">
+                              {{ csrf_field() }}
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                        </td>
+                      </tr>
+                    </tbody>
+                    @endforeach
                   </table>
                 </div>
               </div>

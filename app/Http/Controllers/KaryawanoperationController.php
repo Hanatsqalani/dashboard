@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Operation;
 use App\photooperation;
 use App\operationprestasi;
+use App\kboperation;
 
 
 class KaryawanoperationController extends Controller
@@ -38,6 +39,7 @@ class KaryawanoperationController extends Controller
         $operation->id_karyawan = $request->input('idkaryawan');
         $operation->nama_karyawan = $request->input('namakaryawan');
         $operation->jabatan = $request->input('jabatan');
+        $operation->pendidikan = $request->input('pendidikan');
         $operation->save();
 
         $operation = Operation::all()->toArray();
@@ -46,7 +48,8 @@ class KaryawanoperationController extends Controller
         $Photooperation = photooperation::all();
         $prestasi = operationprestasi::all()->toArray();
         $prestasi = operationprestasi::all();
-        return view('admin/operation', compact('operation', 'Photooperation', 'prestasi'));;
+        $Kboperation = kboperation::all();
+        return view('admin/operation', compact('operation', 'Photooperation', 'prestasi', 'Kboperation'));;
     }
 
     public function destroy($id)

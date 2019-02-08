@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\operation;
 use App\photooperation;
 use App\operationprestasi;
+use App\kboperation;
 
 class OperationPortalController extends Controller
 {
@@ -19,7 +20,8 @@ class OperationPortalController extends Controller
         $Operation = operation::all();
         $Photooperation = photooperation::all();
         $prestasi = operationprestasi::all();
-        return view('layouts/operation', compact('Operation', 'Photooperation', 'prestasi'));
+        $Kboperation = kboperation::all();
+        return view('layouts/operation', compact('Operation', 'Photooperation', 'prestasi', 'Kboperation'));
     }
 
     /**

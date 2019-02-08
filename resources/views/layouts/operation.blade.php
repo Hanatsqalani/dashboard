@@ -339,6 +339,9 @@
                 <th>
                   Jabatan
                 </th>
+                <th>
+                  Pendidikan Terakhir
+                </th>
               </thead>
               <tbody>
                 @foreach( $Operation as $datakaryawan)
@@ -351,6 +354,9 @@
                         </td>
                         <td>
                           <p> {{$datakaryawan->jabatan}}</p>
+                        </td>
+                        <td>
+                          <p> {{$datakaryawan->pendidikan}}</p>
                         </td>
                       </tr>
               </tbody>
@@ -373,6 +379,28 @@
   <div class="section-header wow fadeInUp">
     <h2>Kinerja Bidang</h2>
   </div>
+  <p>
+      @foreach( $Kboperation as $fotokb)
+      <img src="{{ asset ('upload/Kboperation') }}/{{$fotokb->fotooperation}}" style="width:480px; height: 300px;">
+      <h5>{{$fotokb->keterangan}}</h5>
+    @endforeach
+    </p>
+    <br>
+    <h3>Kinerja Bidang Operasi Terkait :</h3>
+      <ul style="list-style-type: square;">
+        <strong>KPI&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspMaturity Level</strong>
+        <br>
+        <li style="text-align: left;">Kepuasan ( 0,00% ) &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEfficiency Management &nbsp&nbsp&nbsp( 3,29 Level )</li>
+        <li>EAF &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 69,09% )&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspOperation Management &nbsp ( 3,25 Level )</li>
+        <li>EFOR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 4,32% )</li>
+        <li>SdOF &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 2,00 kali/unit )</li>
+        <li>SOF &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 27,18% )</li>
+        <li>NPHR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 2,655.65 kCal/kWh )</li>
+        <li>PS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 6,00% )</li>
+        
+        <br>
+      </ul>
+      </p>
   <br>
   <div class="section-header wow fadeInDown">
     <h2>Prestasi</h2>

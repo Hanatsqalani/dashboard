@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Operation extends Model
+class kboperation extends Model
 {
-    protected $table = "operations";
+    protected $table = "kboperations";
     protected $primaryKey = "id";
 
     protected $guarded = [
@@ -14,6 +14,6 @@ class Operation extends Model
     ];
 
      protected $fillable = [
-        'id_karyawan', 'nama_karyawan', 'jabatan', 'pendidikan',
+        'keterangan', 'fotooperation',
     ];
 }

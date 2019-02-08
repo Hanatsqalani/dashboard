@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Operation;
 use App\photooperation;
 use App\operationprestasi;
+use App\kboperation;
 
 class PrestasioperationController extends Controller
 {
@@ -47,6 +48,7 @@ class PrestasioperationController extends Controller
         $Photooperation = photooperation::all();
         $prestasi = operationprestasi::all()->toArray();
         $prestasi = operationprestasi::all();
+        $Kboperation = kboperation::all();
         return view('admin/operation', compact('operation', 'Photooperation', 'prestasi'));
     }
 

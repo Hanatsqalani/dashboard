@@ -44,13 +44,13 @@
       <div class="sidebar-wrapper">
       <ul class="nav">
         @if(Auth::user()->status==='1')
-        <li class="active">
+        <li>
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
         </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{ url('/admin/photosintro') }}">
           <i class="nc-icon nc-image"></i>
           <p>Photos Intro</p>

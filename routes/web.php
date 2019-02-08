@@ -33,9 +33,11 @@ Auth::routes();
 Route::prefix('admin/operation')->group(function(){
 	Route::get('/', 'OperationController@index');
 	Route::post('/uploadfoto', 'PhotooperationController@store')->name('operation');
+	Route::post('/uploadkb', 'KboperationController@store')->name('kboperation');
 	Route::post('/karyawan', 'KaryawanoperationController@store')->name('karyawanoperation');
 	Route::post('/prestasi', 'PrestasioperationController@store')->name('prestasioperation');
 	Route::resource('/delete', 'PhotooperationController');
+	Route::resource('/deletekb', 'KboperationController');
 	Route::resource('/deletekaryawan', 'KaryawanoperationController');
 	Route::resource('/deleteprestasi', 'PrestasioperationController');
 });
