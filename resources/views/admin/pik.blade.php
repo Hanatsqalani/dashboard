@@ -46,7 +46,7 @@
         @if(Auth::user()->status==='1')
         <li>
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
+          <i class="nc-icon nc-paper"></i>
           <p>Dashboard</p>
         </a>
         </li>
@@ -60,6 +60,18 @@
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/runningtext') }}">
+        <i class="nc-icon nc-alert-circle-i"></i>
+        <p>Running Text</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/sdm') }}">
+        <i class="nc-icon nc-circle-10"></i>
+        <p>SDM</p>
         </a>
         </li>
         <li>
