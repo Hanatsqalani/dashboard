@@ -55,7 +55,7 @@
           <p>Photos Intro</p>
         </a>
         </li>
-        <li class="active">
+        <li>
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
@@ -67,7 +67,7 @@
         <p>Running Text</p>
         </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{ url('/admin/sdm') }}">
         <i class="nc-icon nc-circle-10"></i>
         <p>SDM</p>
@@ -164,8 +164,22 @@
         </a>
       </li>
 
-      @else
+      @elseif (Auth::user()->status==='15')
+      <li>
+            <a href="{{ url('/admin') }}">
+            <i class="nc-icon nc-image"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
         <li class="active">
+          <a href="{{ url('/admin/sdm') }}">
+        <i class="nc-icon nc-circle-10"></i>
+        <p>SDM</p>
+        </a>
+        </li>
+
+      @else
+        <li>
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -177,7 +191,6 @@
       @endif
       </div>
       </div>
-
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
@@ -190,7 +203,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">SDM</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -235,73 +248,116 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Data Admin</h4>
+          <h4 class="card-title">Data Karyawan</h4>
         </div>
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
-              <strong>Create Admin</strong><br><br>
-              <form action="{{ route('createadmin')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+              <strong>Create Data Karyawan</strong><br><br>
+              <form action="{{ route('karyawanmaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
-              E-mail &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-5">
-              <br><br>Nama &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
-              <br><br>Password &nbsp: <input type="text" name="password" id="password" placeholder="Masukkan Password Admin" class="col-md-5">
-              <br><br>Tipe Admin : <select name="status" class="col-md-2">
-                <option value="1">1 - Super Admin</option>
-                <option value="2">2. Admin Operation</option>
-                <option value="3">3. Admin Keuangan</option>
-                <option value="4">4. Admin 9PM</option>
-                <option value="5">5. Admin Maintenance</option>
-                <option value="6">6. Admin Engineering</option>
-                <option value="7">7. Admin Logistik</option>
-                <option value="8">8. Admin Sekretariat</option>
-                <option value="9">9. Admin SP PJBS</option>
-                <option value="10">10. Admin SP PJB</option>
-                <option value="11">11. Admin Bakorsiroh</option>
-                <option value="12">12. Admin PIK</option>
-                <option value="13">13. Admin LK3</option>
-                <option value="14">14. Admin CSR</option>
-                <option value="15">14. Admin SDM  </option>
+              Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
+              <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
+              <br><br>Bidang Karyawan : <select name="bidang" class="col-md-2">
+                <option value="Manager">Manager</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Karyawan">Karyawan</option>
+              </select>
+              <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
+                <option value="Manager">Manager</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Karyawan">Karyawan</option>
+              </select>
+              <br><br>Pendidikan Terakhir : <select name="pendidikan" class="col-md-2">
+                <option value="Manager">Manager</option>
+                <option value="Supervisor">Supervisor</option>
+                <option value="Karyawan">Karyawan</option>
               </select>
               <br><br>
-                <input type="submit" name="submitadmin" class="btn btn-info" value="Create">
+                <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
               </form>
               <br>
               <thead class=" text-primary">
                 <th>
-                  E-Mail
+                  Id
                 </th>
                 <th>
                   Nama
                 </th>
                 <th>
-                  Password
+                  Bidang
                 </th>
                 <th>
-                  Tipe Admin
+                  Jabatan
+                </th>
+                <th>
+                  Pendidikan Terakhir
                 </th>
               </thead>
               <tbody>
-                @foreach( $admin as $dataadmin)
+                @foreach( $maintenance as $datakaryawan)
                 <tr>
                   <td>
-                      <p> {{$dataadmin->email}}</p>
+                    <p> {{$datakaryawan->id_karyawan}}</p>
                   </td>
                   <td>
-                    <p> {{$dataadmin->name}}</p>
+                      <p> {{$datakaryawan->nama_karyawan}}</p>
                   </td>
                   <td>
-                    <p> {{$dataadmin->password}}</p>
+                    <p> {{$datakaryawan->bidang}}</p>
                   </td>
                   <td>
-                    <p> {{$dataadmin->status}}</p>
+                    <p> {{$datakaryawan->jabatan}}</p>
                   </td>
                   <td>
-                    <form action="{{action('CreateadminController@destroy', $dataadmin['id'])}}" method="post">
+                    <p> {{$datakaryawan->pendidikan}}</p>
+                  </td>
+                  <td>
+                    <form action="{{action('KaryawanmaintenanceController@destroy', $datakaryawan['id'])}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger" type="submit">Delete</button>
                      </form>
+                     {{ csrf_field() }}
+                        <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#runningtextmodal" data-id="{{$runningtext->id}}"
+                          data-id="{{$runningtext->text}}">Edit</button>
+                        @endforeach
+                        <div class="modal fade" id="runningtextmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <!--Content-->
+                    <div class="modal-content form-elegant">
+                      <!--Header-->
+
+                      <div class="modal-header text-center">
+                        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                          <center><strong>Edit Text</strong></h3></center>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <!--Body-->
+                      <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
+                            {{csrf_field()}}
+                      <div class="modal-body mx-4">
+                        <!--Body-->
+                        <div class="md-form mb-3">
+                          <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
+                          Text
+                          <input id="text" name="text" type="text" class="form-control col-md-5" value="" required autofocus>
+                          <br>
+                        </div>
+                        <br>
+                        <div class="text-center mb-3">
+                          <button type="submit" class="btn blue-gradient">Update</button>
+                          </form>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+                    <!--/.Content-->
+                  </div>
+                        </div>
                   </td>
                 </tr>
               </tbody>
@@ -362,6 +418,19 @@
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
     });
+  </script>
+  <script>
+  //modal
+  $('#runningtextmodal').on('show.bs.modal', function (event){
+
+
+  var button = $(event.relatedTarget)
+  var id = button.data('id')
+  var text = button.data('text')
+  var modal = $(this)
+  modal.find('.modal-body #id').val(id);
+  modal.find('.modal-body #text').val(text);
+});
   </script>
 </body>
 

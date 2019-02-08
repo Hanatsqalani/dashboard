@@ -45,7 +45,7 @@
         @if(Auth::user()->status==='1')
         <li class="active">
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
+          <i class="nc-icon nc-paper"></i>
           <p>Dashboard</p>
         </a>
         </li>
@@ -59,6 +59,18 @@
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/runningtext') }}">
+        <i class="nc-icon nc-alert-circle-i"></i>
+        <p>Running Text</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/sdm') }}">
+        <i class="nc-icon nc-circle-10"></i>
+        <p>SDM</p>
         </a>
         </li>
         <li>
@@ -151,6 +163,7 @@
           <p>CSR</p>
         </a>
       </li>
+
 
       @elseif (Auth::user()->status==='2')
         <li class="active">
@@ -344,6 +357,18 @@
           <i class="nc-icon nc-shop"></i>
           <p>CSR</p>
         </a>
+      </li>
+      @elseif (Auth::user()->status==='15')
+      <li class="active">
+          <a href="{{ url('/admin') }}">
+          <i class="nc-icon nc-image"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li>
+      <a href="{{ url('/admin/sdm') }}">
+      <i class="nc-icon nc-circle-10"></i>
+      <p>SDM</p>
       </li>
 
       @else

@@ -16,6 +16,7 @@
   <!-- CSS Files -->
   <link href="/assets/admindash/css/bootstrap.min.css" rel="stylesheet" />
   <link href="/assets/admindash/css/paper-dashboard.css?v=2.0.0" rel="stylesheet" />
+  <link href="/assets/admindash/css/modal.css" rel="stylesheet">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="/assets/admindash/demo/demo.css" rel="stylesheet" />
 </head>
@@ -55,13 +56,13 @@
           <p>Photos Intro</p>
         </a>
         </li>
-        <li class="active">
+        <li>
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
         </a>
         </li>
-        <li>
+        <li class="active">
           <a href="{{ url('/admin/runningtext') }}">
         <i class="nc-icon nc-alert-circle-i"></i>
         <p>Running Text</p>
@@ -165,7 +166,7 @@
       </li>
 
       @else
-        <li class="active">
+        <li >
           <a href="{{ url('/admin') }}">
           <i class="nc-icon nc-image"></i>
           <p>Dashboard</p>
@@ -190,7 +191,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" href="#">Photos Intro</a>
+            <a class="navbar-brand" href="#">Running Text</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -230,89 +231,94 @@
 
 
 </div> -->
-<div class="content">
-<div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-header">
-          <h4 class="card-title">Data Admin</h4>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table">
-              <strong>Create Admin</strong><br><br>
-              <form action="{{ route('createadmin')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                {{ csrf_field() }}
-              E-mail &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp: <input type="text" name="email"  id="email" placeholder="Masukkan E-Mail Admin" class="col-md-5">
-              <br><br>Nama &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Admin" class="col-md-5">
-              <br><br>Password &nbsp: <input type="text" name="password" id="password" placeholder="Masukkan Password Admin" class="col-md-5">
-              <br><br>Tipe Admin : <select name="status" class="col-md-2">
-                <option value="1">1 - Super Admin</option>
-                <option value="2">2. Admin Operation</option>
-                <option value="3">3. Admin Keuangan</option>
-                <option value="4">4. Admin 9PM</option>
-                <option value="5">5. Admin Maintenance</option>
-                <option value="6">6. Admin Engineering</option>
-                <option value="7">7. Admin Logistik</option>
-                <option value="8">8. Admin Sekretariat</option>
-                <option value="9">9. Admin SP PJBS</option>
-                <option value="10">10. Admin SP PJB</option>
-                <option value="11">11. Admin Bakorsiroh</option>
-                <option value="12">12. Admin PIK</option>
-                <option value="13">13. Admin LK3</option>
-                <option value="14">14. Admin CSR</option>
-                <option value="15">14. Admin SDM  </option>
-              </select>
-              <br><br>
-                <input type="submit" name="submitadmin" class="btn btn-info" value="Create">
-              </form>
-              <br>
-              <thead class=" text-primary">
-                <th>
-                  E-Mail
-                </th>
-                <th>
-                  Nama
-                </th>
-                <th>
-                  Password
-                </th>
-                <th>
-                  Tipe Admin
-                </th>
-              </thead>
-              <tbody>
-                @foreach( $admin as $dataadmin)
-                <tr>
-                  <td>
-                      <p> {{$dataadmin->email}}</p>
-                  </td>
-                  <td>
-                    <p> {{$dataadmin->name}}</p>
-                  </td>
-                  <td>
-                    <p> {{$dataadmin->password}}</p>
-                  </td>
-                  <td>
-                    <p> {{$dataadmin->status}}</p>
-                  </td>
-                  <td>
-                    <form action="{{action('CreateadminController@destroy', $dataadmin['id'])}}" method="post">
+      <div class="content">
+      <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title">Running Text</h4>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table">
+                    <strong>Create a Text</strong><br><br>
+                    <form action="{{ route('karyawan')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+                      {{ csrf_field() }}
+                    Text : <input type="text" name="runningtext"  id="runningtext" placeholder="Masukkan Text" class="col-md-3">
+                    <br><br>
+                      <input type="submit" name="createdata" class="btn btn-info" value="Create">
+                    </form>
+                    <br>
+                    <thead class=" text-primary">
+                      <th>
+                        Text
+                      </th>
+                      <th>
+                        Action
+                      </th>
+                    </thead>
+                    <tbody>
+                      @foreach( $Runningtext as $runningtext)
+                      <tr>
+                        <td>
+                          <p> {{$runningtext->text}}</p>
+                        </td>
+                        <td>
+                          <form action="{{action('RunningtextController@destroy', $dataanggota['id'])}}" method="post">
                         {{ csrf_field() }}
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                     </form>
-                  </td>
-                </tr>
-              </tbody>
-              @endforeach
-            </table>
+                              <input name="_method" type="hidden" value="DELETE">
+                              <button class="btn btn-danger" type="submit">Delete</button>
+                           </form>
+                           {{ csrf_field() }}
+                              <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#runningtextmodal" data-id="{{$runningtext->id}}"
+                                data-text="{{$runningtext->text}}">Edit</button>
+                              @endforeach
+                              <div class="modal fade" id="runningtextmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <!--Content-->
+                          <div class="modal-content form-elegant">
+                            <!--Header-->
+
+                            <div class="modal-header text-center">
+                              <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+                                <center><strong>Edit Text</strong></h3></center>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <!--Body-->
+                            <form role="form" action="{{ route('updateanggota')}}" enctype="multipart/form-data" method="post">
+                                  {{csrf_field()}}
+                            <div class="modal-body mx-4">
+                              <!--Body-->
+                              <div class="md-form mb-3">
+                                <input type="hidden" name="id" id="id" class="form-control col-md-5" value="">
+                                Text
+                                <input id="text" name="text" type="text" class="form-control col-md-5" value="" required autofocus>
+                                <br>
+                              </div>
+                              <br>
+                              <div class="text-center mb-3">
+                                <button type="submit" class="btn blue-gradient">Update</button>
+                                </form>
+                              </div>
+                            </div>
+                            </form>
+                          </div>
+                          <!--/.Content-->
+                        </div>
+                              </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
@@ -361,6 +367,20 @@
     $(document).ready(function() {
       // Javascript method's body can be found in assets/assets-for-demo/js/demo.js
       demo.initChartsPages();
+    });
+  </script>
+
+    <script>
+      //modal
+      $('#runningtextmodal').on('show.bs.modal', function (event){
+
+
+      var button = $(event.relatedTarget)
+      var id = button.data('id')
+      var text = button.data('text')
+      var modal = $(this)
+      modal.find('.modal-body #id').val(id);
+      modal.find('.modal-body #text').val(text);
     });
   </script>
 </body>

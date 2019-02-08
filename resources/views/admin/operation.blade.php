@@ -45,7 +45,7 @@
         @if(Auth::user()->status==='1')
         <li>
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
+          <i class="nc-icon nc-paper"></i>
           <p>Dashboard</p>
         </a>
         </li>
@@ -59,6 +59,18 @@
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/runningtext') }}">
+        <i class="nc-icon nc-alert-circle-i"></i>
+        <p>Running Text</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/sdm') }}">
+        <i class="nc-icon nc-circle-10"></i>
+        <p>SDM</p>
         </a>
         </li>
         <li>
@@ -295,49 +307,7 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table">
-                    <strong>Create Data Karyawan</strong><br><br>
-                    <form action="{{ route('karyawanoperation')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                      {{ csrf_field() }}
-                    Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
-                    <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
-                    <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
-                      <option value="OJT 6">OJT 6</option>
-                      <option value="OJT 10">OJT 10</option>
-                      <option value="Operator Senior Main Unit Boiler Board">Operator Senior Main Unit Boiler Board</option>
-                      <option value="Operator Senior Main Unit Turbin Board">Operator Senior Main Unit Turbin Board</option>
-                      <option value="Operator Senior Main Unit Boiler Lokal">Operator Senior Main Unit Boiler Lokal</option>
-                      <option value="Operator Senior Main Unit Turbin Lokal">Operator Senior Main Unit Turbin Lokal</option>
-                      <option value="Operator Senior Main Unit Electrical">Operator Senior Main Unit Electrical</option>
-                      <option value="Operator Senior Common Unit CHCB CCR">Operator Senior Common Unit CHCB CCR</option>
-                      <option value="Operator Junior Main Unit WTP">Operator Junior Main Unit WTP</option>
-                      <option value="Operator Junior Main Unit Boiler Board">Operator Junior Main Boiler Board</option>
-                      <option value="Operator Junior Main Unit Turbin Board">Operator Junior Main Turbin Board</option>
-                      <option value="Operator Junior Main Unit Turbin ( Electrical )">Operator Junior Main Unit Turbin ( Electrical )</option>
-                      <option value="Operator Junior Main Unit ( Electrical )">Operator Junior Main Unit ( Electrical )</option>
-                      <option value="Operator Junior Turbin ( Electric )">Operator Junior Turbin ( Electric )</option>
-                      <option value="Operator Junior Common Unit Stacker Reclaimer">Operator Junior Common Unit Stacker Reclaimer</option>
-                      <option value="Operator Junior Common Unit Ship Unloader">Operator Junior Common Unit Ship Unloader</option>
-                      <option value="Operator Junior Common Unit Ash Handling">Operator Junior Common Unit Ash Handling</option>
-                      <option value="Operator Junior Main Unit Boiler Lokal">Operator Junior Main Unit Boiler Lokal</option>
-                      <option value="Operator Junior Main Unit Turbin Lokal">Operator Junior Main Unit Turbin Lokal</option>
-                      <option value="Operator Junior Coal Dan Ash Handling">Operator Junior Coal Dan Ash Handling</option>
-                      <option value="Operator Junior Common Unit Coal Handling Board">Operator Junior Common Unit Coal Handling Board</option>
-                      <option value="Staff Senior Kimia Dan Laboratorium">Staff Senior Kimia Dan Laboratorium</option>
-                      <option value="Staff Senior Rendal Operasi">Staff Senior Rendal Operasi</option>
-                      <option value="Staff Senior Bahan Bakar">Staff Senior Bahan Bakar</option>
-                      <option value="Staff Senior Kinerja, Niaga, Settlement">Staff Senior Kinerja, Niaga, Settlement</option>
-                      <option value="Staff Junior Bahan Bakar">Staff Junior Bahan Bakar</option>
-                      <option value="Staff Junior Rendal Operasi">Staff Junior Rendal Operasi</option>
-                      <option value="Staff Junior Kimia Dan Laboratorium">Staff Junior Kimia Dan Laboratorium</option>
-                      <option value="Supervisor Senior Coal And Ash Handling Unit A">Supervisor Senior Coal And Ash Handling Unit A</option>
-                      <option value="Supervisor Senior Coal And Ash Handling Unit B">Supervisor Senior Coal And Ash Handling Unit B</option>
-                      <option value="Supervisor Senior Coal And Ash Handling Unit C">Supervisor Senior Coal And Ash Handling Unit C</option>
-                      <option value="Supervisor Senior Coal And Ash Handling Unit D">Supervisor Senior Coal And Ash Handling Unit D</option>
-                    </select>
-                    <br><br>Pendidikan Terakhir &nbsp&nbsp : <input type="text" name="pendidikan" id="pendidikan" placeholder="Masukkan Pendidikan Terakhir karyawan" class="col-md-5">
-                    <br><br>
-                      <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
-                    </form>
+                    <strong>Data Karyawan</strong><br><br>
                     <br>
                     <thead class=" text-primary">
                       <th>

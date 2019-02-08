@@ -45,7 +45,7 @@
         @if(Auth::user()->status==='1')
         <li>
           <a href="{{ url('/admin') }}">
-          <i class="nc-icon nc-image"></i>
+          <i class="nc-icon nc-paper"></i>
           <p>Dashboard</p>
         </a>
         </li>
@@ -59,6 +59,18 @@
           <a href="{{ url('/admin/createadmin') }}">
         <i class="nc-icon nc-single-02"></i>
         <p>Create Admin</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/runningtext') }}">
+        <i class="nc-icon nc-alert-circle-i"></i>
+        <p>Running Text</p>
+        </a>
+        </li>
+        <li>
+          <a href="{{ url('/admin/sdm') }}">
+        <i class="nc-icon nc-circle-10"></i>
+        <p>SDM</p>
         </a>
         </li>
         <li>
@@ -291,19 +303,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
-              <strong>Create Data Karyawan</strong><br><br>
-              <form action="{{ route('karyawanengineering')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                {{ csrf_field() }}
-              Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
-              <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
-              <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
-                <option value="Manager">Manager</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Karyawan">Karyawan</option>
-              </select>
-              <br><br>
-                <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
-              </form>
+              <strong>Data Karyawan</strong><br><br>
               <br>
               <thead class=" text-primary">
                 <th>
@@ -327,13 +327,6 @@
                   </td>
                   <td>
                     <p> {{$datakaryawan->jabatan}}</p>
-                  </td>
-                  <td>
-                    <form action="{{action('KaryawanengineeringController@destroy', $datakaryawan['id'])}}" method="post">
-                        {{ csrf_field() }}
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                     </form>
                   </td>
                 </tr>
               </tbody>
