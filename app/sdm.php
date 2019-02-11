@@ -14,6 +14,6 @@ class sdm extends Model
     ];
 
      protected $fillable = [
-        'bidang', 'jabatan', 'pendidikan', 'extension',
+        'bidang', 'jabatan',
     ];
 }

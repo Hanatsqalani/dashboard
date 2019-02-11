@@ -369,6 +369,37 @@
       <a href="{{ url('/admin/sdm') }}">
       <i class="nc-icon nc-circle-10"></i>
       <p>SDM</p>
+    </a>
+      </li>
+     <li>
+        <a href="{{ url('/admin/operationsdm') }}">
+          <i class="nc-icon nc-settings-gear-65"></i>
+          <p>Operation</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('/admin/maintenancesdm') }}">
+          <i class="nc-icon nc-settings"></i>
+          <p>Maintenance</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('/admin/logistiksdm') }}">
+          <i class="nc-icon nc-delivery-fast"></i>
+          <p>Logistik</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('/admin/keuangansdm') }}">
+          <i class="nc-icon nc-bank"></i>
+          <p>Keuangan</p>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url('/admin/engineeringsdm') }}">
+          <i class="nc-icon nc-laptop"></i>
+          <p>Engineering</p>
+        </a>
       </li>
 
       @else

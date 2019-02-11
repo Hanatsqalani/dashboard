@@ -55,13 +55,13 @@
           <p>Operation</p>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="{{ url('/admin/maintenancesdm') }}">
           <i class="nc-icon nc-settings"></i>
           <p>Maintenance</p>
         </a>
       </li>
-      <li class="active">
+      <li>
         <a href="{{ url('/admin/logistiksdm') }}">
           <i class="nc-icon nc-delivery-fast"></i>
           <p>Logistik</p>
