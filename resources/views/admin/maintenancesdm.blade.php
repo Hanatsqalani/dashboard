@@ -156,7 +156,7 @@
           <div class="table-responsive">
             <table class="table">
               <strong>Create Data Karyawan</strong><br><br>
-              <form action="{{ route('karyawanmaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
+              <form action="{{ route('sdmmaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
                 {{ csrf_field() }}
               Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
               <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
@@ -205,18 +205,16 @@
                   <td>
                       <p> {{$datakaryawan->nama_karyawan}}</p>
                   </td>
+                  @endforeach
+
+                  @foreach( $Sdm as $datamaintenancesdm)
                   <td>
-                    <p> {{$datakaryawan->bidang}}</p>
+                    <p> {{$datamaintenancesdm->bidang}}</p>
                   </td>
                   <td>
-                    <p> {{$datakaryawan->jabatan}}</p>
+                    <p> {{$datamaintenancesdm->jabatan}}</p>
                   </td>
                   <td>
-                    <p> {{$datakaryawan->pendidikan}}</p>
-                  </td>
-                  <td>
-                    <p> {{$datakaryawan->extension}}</p>
-                  </td>
                   <td>
                     <form action="{{action('KaryawanmaintenanceController@destroy', $datakaryawan['id'])}}" method="post">
                         {{ csrf_field() }}
@@ -226,7 +224,7 @@
                      {{ csrf_field() }}
                         <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#maintenancesdmmodal" data-id="{{$runningtext->id}}"
                           data-id="{{$runningtext->text}}">Edit</button>
-                        @endforeach
+                        
                         <div class="modal fade" id="runningtextmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                   aria-hidden="true">
                   <div class="modal-dialog" role="document">

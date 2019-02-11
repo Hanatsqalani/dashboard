@@ -181,4 +181,22 @@ Route::prefix('admin')->group(function(){
 	Route::post('/runningtext', 'RunningtextController@store')->name('runningtext');
 	Route::resource('/runningtext/delete', 'RunningtextController');
 	Route::post('/updatetext', 'RunningtextController@update')->name('updatetext');
+
+	Route::get('/sdm', 'SdmController@index');
+	Route::post('/sdm', 'SdmController@store')->name('sdm');
+
+	Route::get('/engineeringsdm', 'EngineeringsdmController@index');
+	Route::post('/engineeringsdm', 'EngineeringsdmController@store')->name('sdmengineering');
+
+	Route::get('/operationsdm', 'OperationsdmController@index');
+	Route::post('/operationsdm', 'OperationsdmController@store')->name('sdmoperation');
+
+	Route::get('/logistiksdm', 'LogistiksdmController@index');
+	Route::post('/logistiksdm', 'LogistiksdmController@store')->name('sdmlogistik');
+
+	Route::get('/maintenancesdm', 'MaintenancesdmController@index');
+	Route::post('/maintenancesdm', 'MaintenancesdmController@store')->name('sdmmaintenance');
+
+	Route::get('/keuangansdm', 'KeuangansdmController@index');
+	Route::post('/keuangansdm', 'KeuangansdmController@store')->name('sdmkeuangan');	
 });

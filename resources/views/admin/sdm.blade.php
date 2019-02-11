@@ -62,7 +62,7 @@
         </a>
         </li>
         <li>
-          <a href="{{ url('/admin/runningtext') }}">
+          <a href="{{ url('/admin/sdm') }}">
         <i class="nc-icon nc-alert-circle-i"></i>
         <p>Running Text</p>
         </a>
@@ -177,25 +177,19 @@
         <p>SDM</p>
         </a>
         </li>
-        <li>
-              <a href="{{ url('/admin') }}">
-              <i class="nc-icon nc-image"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
        <li>
           <a href="{{ url('/admin/operationsdm') }}">
             <i class="nc-icon nc-settings-gear-65"></i>
             <p>Operation</p>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="{{ url('/admin/maintenancesdm') }}">
             <i class="nc-icon nc-settings"></i>
             <p>Maintenance</p>
           </a>
         </li>
-        <li class="active">
+        <li>
           <a href="{{ url('/admin/logistiksdm') }}">
             <i class="nc-icon nc-delivery-fast"></i>
             <p>Logistik</p>
@@ -289,29 +283,7 @@
         <div class="card-body">
           <div class="table-responsive">
             <table class="table">
-              <strong>Create Data Karyawan</strong><br><br>
-              <form action="{{ route('karyawanmaintenance')}} " method="post" class="form-horizontal" enctype="multipart/form-data">
-                {{ csrf_field() }}
-              Id Karyawan &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp : <input type="text" name="idkaryawan"  id="idkaryawan" placeholder="Masukkan id karyawan" class="col-md-3">
-              <br><br>Nama Karyawan &nbsp&nbsp : <input type="text" name="namakaryawan" id="namakaryawan" placeholder="Masukkan nama karyawan" class="col-md-5">
-              <br><br>Bidang Karyawan : <select name="bidang" class="col-md-2">
-                <option value="Manager">Manager</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Karyawan">Karyawan</option>
-              </select>
-              <br><br>Jabatan Karyawan : <select name="jabatan" class="col-md-2">
-                <option value="Manager">Manager</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Karyawan">Karyawan</option>
-              </select>
-              <br><br>Pendidikan Terakhir : <select name="pendidikan" class="col-md-2">
-                <option value="Manager">Manager</option>
-                <option value="Supervisor">Supervisor</option>
-                <option value="Karyawan">Karyawan</option>
-              </select>
-              <br><br>
-                <input type="submit" name="submitdatakaryawan" class="btn btn-info" value="Create">
-              </form>
+              <strong>Data Karyawan</strong><br><br>
               <br>
               <thead class=" text-primary">
                 <th>
@@ -326,12 +298,9 @@
                 <th>
                   Jabatan
                 </th>
-                <th>
-                  Pendidikan Terakhir
-                </th>
               </thead>
               <tbody>
-                @foreach( $maintenance as $datakaryawan)
+                @foreach( $operation as $datakaryawan)
                 <tr>
                   <td>
                     <p> {{$datakaryawan->id_karyawan}}</p>
@@ -346,19 +315,16 @@
                     <p> {{$datakaryawan->jabatan}}</p>
                   </td>
                   <td>
-                    <p> {{$datakaryawan->pendidikan}}</p>
-                  </td>
-                  <td>
                     <form action="{{action('KaryawanmaintenanceController@destroy', $datakaryawan['id'])}}" method="post">
                         {{ csrf_field() }}
                         <input name="_method" type="hidden" value="DELETE">
                         <button class="btn btn-danger" type="submit">Delete</button>
                      </form>
                      {{ csrf_field() }}
-                        <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#runningtextmodal" data-id="{{$runningtext->id}}"
-                          data-id="{{$runningtext->text}}">Edit</button>
-                        @endforeach
-                        <div class="modal fade" id="runningtextmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                        <button class="btn btn-success" type="submit" data-toggle="modal" data-target="#sdmmodal" data-id="{{$datakaryawan->id}}"
+                          data-id="{{$datakaryawan->text}}">Edit</button>
+                        
+                        <div class="modal fade" id="sdmmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
                   aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <!--Content-->
@@ -457,7 +423,7 @@
   </script>
   <script>
   //modal
-  $('#runningtextmodal').on('show.bs.modal', function (event){
+  $('#sdmmodal').on('show.bs.modal', function (event){
 
 
   var button = $(event.relatedTarget)
