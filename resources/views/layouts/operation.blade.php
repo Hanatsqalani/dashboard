@@ -397,7 +397,7 @@
         <li>SOF &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 27,18% )</li>
         <li>NPHR &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 2,655.65 kCal/kWh )</li>
         <li>PS &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp( 6,00% )</li>
-        
+
         <br>
       </ul>
       </p>
@@ -517,7 +517,7 @@
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
         -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        <br>Modified by Bernaz & Hasbi
+        <br>v1.0 by Tim PKN UMM
       </div>
     </div>
   </footer><!-- #footer -->

@@ -476,7 +476,7 @@ In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet e
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
         -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        <br>Modified by Bernaz & Hasbi
+        <br>v1.0 by Tim PKN UMM
       </div>
     </div>
   </footer><!-- #footer -->
